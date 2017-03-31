@@ -1,0 +1,87 @@
+{
+    "status": 200,
+    "message": "成功显示客户标准分类列表",
+    "data": {
+        "pageNo": 1,
+        "pageSize": 10,
+        "pageCounts": 9,
+        "recordsTotal": 88,
+        "results": {
+            "tBody": [
+                {
+                    "id": 294,
+					"number": "1",
+					"level": "铂金",
+					"serviceName": "服务名称介绍",
+					"serviceStandards": "铂金服务标准--铂金服务标准",
+					"totals": "包含客户数：16",
+					"creatTime": "2014-11-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 292,
+                    "number": "2",
+					"level": "黄金",
+					"serviceName": "服务名称介绍--黄金",
+					"serviceStandards": "黄金服务标准--黄金服务标准",
+					"totals": "18",
+					"creatTime": "2015-10-10 18:45:25",
+					"updateTime": "2017-11-10 16:45:25"
+                },
+                {
+                    "id": 291,
+                    "number": "3",
+					"level": "铅",
+					"serviceName": "服务名称介绍--铅",
+					"serviceStandards": "铅服务标准--铅服务标准",
+					"totals": "68",
+					"creatTime": "2014-10-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 290,
+                    "number": "4",
+					"level": "铁",
+					"serviceName": "服务名称介绍--铁",
+					"serviceStandards": "铁服务标准--铁服务标准",
+					"totals": "28",
+					"creatTime": "2013-10-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 289,
+                    "number": "1",
+					"level": "铂金",
+					"serviceName": "服务名称介绍",
+					"serviceStandards": "铂金服务标准--铂金服务标准",
+					"totals": "包含客户数：16",
+					"creatTime": "2014-11-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 286,
+                     "number": "2",
+					"level": "黄金",
+					"serviceName": "服务名称介绍--黄金",
+					"serviceStandards": "黄金服务标准--黄金服务标准",
+					"totals": "18",
+					"creatTime": "2015-10-10 18:45:25",
+					"updateTime": "2017-11-10 16:45:25"
+                },
+                {
+                    "id": 285,
+                    "number": "6",
+					"level": "铁",
+					"serviceName": "服务名称介绍--铁",
+					"serviceStandards": "铁服务标准--铁服务标准",
+					"totals": "28",
+					"creatTime": "2013-10-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                }
+               
+            ],
+            "tFooter": [],
+            "tHeader": []
+        }
+    }
+}

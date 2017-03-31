@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "message": "成功",
+  "data": {
+    "results": [
+      {
+        "id": 1,
+        "name": "道网科技",
+        "parkId": 1,
+        "parkName": "华丰金融港",
+        "cityId": 1,
+        "cityName": "深圳",
+        "industryIds": "1,2",
+        "industry": "互联网,地产",
+        "address": "深圳市宝安区新安六路金融港15楼",
+        "contacts": "李敦庆",
+        "contactsPhone": "13045888185",
+        "contactsPosition": "java开发",
+        "isEnable": "YES",
+        "disableByAdmin": "",
+        "createTime": 1472439722000,
+        "updateTime": 1472439724000,
+        "createUid": 1,
+        "updateUid": 1,
+        "status": 0
+      },
+      {
+        "id": 2,
+        "name": "松山科技",
+        "parkId": 1,
+        "parkName": "佳和华强园区",
+        "cityId": 1,
+        "cityName": "深圳",
+        "industryIds": "1,2",
+        "industry": "互联网,外贸",
+        "address": "深圳市福田区华强北路XXX号",
+        "contacts": "李敦庆",
+        "contactsPhone": "13045888185",
+        "contactsPosition": "java开发",
+        "isEnable": "YES",
+        "disableByAdmin": "",
+        "createTime": 1472439722000,
+        "updateTime": 1472439724000,
+        "createUid": 1,
+        "updateUid": 1,
+        "status": 0
+      }
+    ]
+  }
+}

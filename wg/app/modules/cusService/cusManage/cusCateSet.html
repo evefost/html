@@ -1,0 +1,276 @@
+<div ms-controller="repair" class="ui fluid container">
+    <div class="ui pointing teal menu">
+        <a class="item" ms-class="active:currentStatus === 'level'" ms-click="switchStatus('level')">
+            等级分类
+        </a>
+        <a class="item" ms-class="active:currentStatus === 'industry'" ms-click="switchStatus('industry')">
+            行业分类
+        </a>
+        <a class="item" ms-class="active:currentStatus === 'companySize'" ms-click="switchStatus('companySize')">
+            规模分类
+        </a>
+        <a class="item" ms-class="active:currentStatus === 'companyType'" ms-click="switchStatus('companyType')">
+            性质分类
+        </a>
+    </div>
+    <div class="ui divider"></div>
+    <!--等级分类标签-->
+    <div ms-visible="currentStatus === 'level'">
+        <div class="ui form">
+            <div class="ui six column stackable doubling grid" style="width: 100%">
+                <div class="row">
+                    <div class="column">
+                        <input type="text" placeholder="请输入关键字" ms-duplex="searchData.level">
+                    </div>
+                    <div class="column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="left menu">
+                                <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                                <button class="ui labeled icon orange button" ms-click="reset">清空<i class="icon undo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui container fluid secondary menu operation-menu">
+                <div class="right menu">
+                    <button class="ui labeled icon green button" ms-click="lShowAddWin(false)">新增<i class="icon plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <table class="data-table ui blue selectable celled table" id="levelTable" style="width:100%"></table>
+    </div>
+    <!--行业分类标签-->
+    <div ms-visible="currentStatus === 'industry'">
+        <div class="ui form">
+            <div class="ui six column stackable doubling grid" style="width: 100%">
+                <div class="row">
+                    <div class="column">
+                        <input type="text" placeholder="请输入关键字" ms-duplex="searchData.industry">
+                    </div>
+                    <div class="column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="left menu">
+                                <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                                <button class="ui labeled icon orange button" ms-click="reset">清空<i class="icon undo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui container fluid secondary menu operation-menu">
+                <div class="right menu">
+                    <button class="ui
+                     labeled icon green button" ms-click="iShowAddWin(false)">新增<i class="icon plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <table class="data-table ui blue selectable celled table" id="industryTable" style="width:100%"></table>
+    </div>
+    <!--规模分类标签-->
+    <div ms-visible="currentStatus === 'companySize'">
+        <div class="ui form">
+            <div class="ui six column stackable doubling grid" style="width: 100%">
+                <div class="row">
+                    <div class="column">
+                        <input type="text" placeholder="请输入关键字" ms-duplex="searchData.companySize">
+                    </div>
+                    <div class="column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="left menu">
+                                <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                                <button class="ui labeled icon orange button" ms-click="reset">清空<i class="icon undo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui container fluid secondary menu operation-menu">
+                <div class="right menu">
+                    <button class="ui
+                     labeled icon green button" ms-click="csShowAddWin(false)">新增<i class="icon plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <table class="data-table ui blue selectable celled table" id="companySizeTable" style="width:100%"></table>
+    </div>
+    <!--性质分类标签-->
+    <div ms-visible="currentStatus === 'companyType'">
+        <div class="ui form">
+            <div class="ui six column stackable doubling grid" style="width: 100%">
+                <div class="row">
+                    <div class="column">
+                        <input type="text" placeholder="请输入关键字" ms-duplex="searchData.companyType">
+                    </div>
+                    <div class="column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="left menu">
+                                <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                                <button class="ui labeled icon orange button" ms-click="reset">清空<i class="icon undo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui container fluid secondary menu operation-menu">
+                <div class="right menu">
+                    <button class="ui
+                     labeled icon green button" ms-click="ctShowAddWin(false)">新增<i class="icon plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <table class="data-table ui blue selectable celled table" id="companyTypeTable" style="width:100%"></table>
+    </div>
+
+    <!--新增等级分类-->
+    <div class="ui small modal" id="newLevelModal">
+        <div class="header">
+            新增/修改等级分类
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <form class="ui form" id="levelFormData">
+                        <div class="two fields">
+                            <input name="id" type="hidden"  ms-duplex="levelData.id">
+                            <input name="classType" type="hidden"  ms-duplex="levelData.classType">
+                            <div class="field">
+                                <label>等级名称：</label><input name="name" type="text" placeholder="等级名称" ms-duplex="levelData.name">
+                            </div>
+                            <div class="field">
+                                <label>序号：</label><input name="sort" type="text" placeholder="请输入序号" ms-duplex="levelData.sort">
+                            </div>
+                        </div>
+                        <div class="two fields">
+                            <div class="field">
+                                <label>服务名称：</label><input name="seviceName" type="text" placeholder="请输入服务名称" ms-duplex="levelData.seviceName">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>服务标准<i class="red star icon"></i></label>
+                            <div id="wangeditor-container">
+                                <textarea style="height:280px; width:100%" id="description" ms-duplex="levelData.seviceContent" name="seviceContent"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve green button">确定</div>
+            <div class="ui cancel orange button">取消</div>
+        </div>
+    </div>
+    <!--新增行业分类-->
+    <div class="ui modal" id="newIndustryModal">
+        <div class="header">
+            新增/修改行业分类
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <form class="ui form" id="industryFormData">
+                        <div class="two  fields">
+                            <input name="id" type="hidden"  ms-duplex="industryData.id">
+                            <input name="classType" type="hidden"  ms-duplex="industryData.classType">
+                            <div class="field">
+                                <label>行业名称：</label><input name="name" type="text" placeholder="请输入行业名称" ms-duplex="industryData.name">
+                            </div>
+                            <div class="field">
+                                <label>序号：</label><input name="sort" type="text" placeholder="请输入序号" ms-duplex="industryData.sort">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="one wide column"></div>
+                <div class="one wide column"></div>
+                <div class="one wide column"></div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve green button">保存</div>
+            <div class="ui cancel orange button">取消</div>
+        </div>
+    </div>
+    <!--新增规模分类-->
+    <div class="ui modal" id="newCompanySizeModal">
+        <div class="header">
+            新增/修改规模分类
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <form class="ui form" id="companySizeFormData">
+                        <div class="two  fields">
+                            <input name="id" type="hidden"  ms-duplex="companySizeData.id">
+                            <input name="classType" type="hidden"  ms-duplex="companySizeData.classType">
+                            <div class="field">
+                                <label>规模名称：</label><input name="name" type="text" placeholder="请输入规模名称" ms-duplex="companySizeData.name">
+                            </div>
+                            <div class="field">
+                                <label>序号：</label><input name="sort" type="text" placeholder="请输入序号" ms-duplex="companySizeData.sort">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="one wide column"></div>
+                <div class="one wide column"></div>
+                <div class="one wide column"></div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve green button">保存</div>
+            <div class="ui cancel orange button">取消</div>
+        </div>
+    </div>
+    <!--新增性质分类-->
+    <div class="ui modal" id="newCompanyTypeModal">
+        <div class="header">
+            新增/修改性质分类
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <form class="ui form" id="companyTypeFormData">
+                        <div class="two  fields">
+                            <input name="id" type="hidden"  ms-duplex="companyTypeData.id">
+                            <input name="classType" type="hidden"  ms-duplex="companyTypeData.classType">
+                            <div class="field">
+                                <label>性质名称：</label><input name="name" type="text" placeholder="请输入性质名称" ms-duplex="companyTypeData.name">
+                            </div>
+                            <div class="field">
+                                <label>序号：</label><input name="sort" type="text" placeholder="请输入序号" ms-duplex="companyTypeData.sort">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="one wide column"></div>
+                <div class="one wide column"></div>
+                <div class="one wide column"></div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve green button">保存</div>
+            <div class="ui cancel orange button">取消</div>
+        </div>
+    </div>
+</div>
+<div class="ui small modal" id="confirm">
+    <div class="header">提示</div>
+    <div class="content">
+        删除后将无法恢复！<br>
+        确认删除？
+    </div>
+    <div class="actions">
+        <button class="ui green approve button">确定</button>
+        <button class="ui orange deny button">取消</button>
+    </div>
+</div>

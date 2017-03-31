@@ -1,0 +1,1 @@
+{"status":200,"message":"园区列表显示OK","data":{"results":{"totalUserCount":[{"title":"企业","value":"11"},{"title":"用户","value":"13"}],"parkCount":[{"title":"本月新增园区","value":"0"},{"title":"当前园区","value":"9"}],"monthUserCount":[{"title":"新增企业","value":"0"},{"title":"新增用户","value":"0"}],"orderCount":[{"title":"园区工单","value":"0"},{"title":"供应商工单","value":"0"}]}}}

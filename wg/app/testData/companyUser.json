@@ -1,0 +1,71 @@
+{
+  "status": 200,
+  "message": "查询成功！",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 3,
+    "results": {
+      "tBody": [
+        {
+          "id": 1,
+          "userName": "谢红追",
+          "phone": "13045888185",
+          "post": "经理",
+          "roleIds": "4",
+          "roleNames": [
+            "系统管理员"
+          ],
+          "gender": "MALE",
+          "parkIds": "1",
+          "parkNames": "华丰金融港，华丰商贸园区",
+          "createTime": "2016-08-29  10:27:59",
+          "updateTime": "2016-08-29  10:28:03",
+          "useStatus": "NO",
+          "birthday": "2016-09-05",
+          "iDNumber": "411222199910105488",
+          "email": "xxx@xx.com"
+        },
+        {
+          "id": 2,
+          "userName": "范曾123",
+          "phone": "12345678901",
+          "post": "公务员",
+          "roleIds": "2,4",
+          "roleNames": [
+          ],
+          "gender": "MALE",
+          "parkIds": "1,2,3,4",
+          "parkNames": "华丰金融港，华丰商贸园区，金融港",
+          "createTime": "2016-08-31  16:12:38",
+          "updateTime": "2016-08-31  16:12:43",
+          "useStatus": "YES",
+          "birthday": "2016-09-28",
+          "iDNumber": "411222199910101564",
+          "email": "1@qq.com"
+        },
+        {
+          "id": 23,
+          "userName": "xxcc",
+          "phone": "13456327829",
+          "post": "客服",
+          "roleIds":"1,2,3",
+          "roleNames": [
+          ],
+          "gender": "FEMALE",
+          "parkIds": "",
+          "parkNames": "金融港",
+          "createTime": "2016-09-03  17:22:07",
+          "updateTime": "",
+          "useStatus": "YES",
+          "birthday": "1988-01-01",
+          "iDNumber": "411222199910104455",
+          "email": "xxx@xx.com"
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

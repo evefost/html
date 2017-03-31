@@ -1,0 +1,350 @@
+<div ms-controller="attendance">
+    <div class="ui pointing menu">
+        <a class="item" ms-class="active:currentTab === 'default'" ms-click="switchTab('default')">
+            默认设置
+        </a>
+        <a class="item" ms-class="active:currentTab === 'park'" ms-click="switchTab('park')">
+            园区设置
+        </a>
+    </div>
+    <div class="ui segment" ms-if="currentTab === 'default'">
+        <div class="ui blue ribbon label">
+            <i class="home icon"></i> 默认设置
+        </div>
+        <div class="ui hidden divider"></div>
+        <form class="ui form" id="defaultConfig">
+            <div class="ui grid">
+                <div class="three wide column">
+                    是否必须在设定范围内打卡
+                </div>
+                <div class="one wide column">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="isDistanceLimit" value="YES" id="isPunch" ms-duplex-text="defaultConfig.isDistanceLimit"/>
+                        <label for="isPunch">是</label>
+                    </div>
+                </div>
+                <div class="one wide column">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="isDistanceLimit" value="NO" id="notPunch" ms-duplex-text="defaultConfig.isDistanceLimit"/>
+                        <label for="notPunch">否</label>
+                    </div>
+                </div>
+            </div>
+            <div class="ui grid">
+                <div class="three wide column">
+                    距离园区默认有效范围
+                </div>
+                <div class="two wide column">
+                    <div class="ui right labeled input">
+                        <input type="text" name="distanceLimit" ms-duplex="defaultConfig.distanceLimit">
+                        <div class="ui label">米</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui grid">
+                <div class="three wide column">
+                    有效范围内是否必须拍照上传
+                </div>
+                <div class="one wide column">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="inDistanceLimitNeedphoto" value="YES" id="isInnerPhoto" ms-duplex-text="defaultConfig.inDistanceLimitNeedphoto"/>
+                        <label for="isInnerPhoto">是</label>
+                    </div>
+                </div>
+                <div class="one wide column">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="inDistanceLimitNeedphoto" value="NO" id="notInnerPhoto" ms-duplex-text="defaultConfig.inDistanceLimitNeedphoto"/>
+                        <label for="notInnerPhoto">否</label>
+                    </div>
+                </div>
+            </div>
+            <div class="ui grid">
+                <div class="three wide column">
+                    有效范围外是否必须拍照上传
+                </div>
+                <div class="one wide column">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="outDistanceLimitNeedphoto" value="YES" id="isOutPhoto" ms-duplex-text="defaultConfig.outDistanceLimitNeedphoto"/>
+                        <label for="isOutPhoto">是</label>
+                    </div>
+                </div>
+                <div class="one wide column">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="outDistanceLimitNeedphoto" value="NO" id="notOutPhoto" ms-duplex-text="defaultConfig.outDistanceLimitNeedphoto"/>
+                        <label for="notOutPhoto">否</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="ui four column centered grid">
+            <div class="column">
+                <div class="ui grid">
+                    <div class="eight wide column">
+                        <div class="ui fluid approve primary button" ms-click="updateDefault">保存</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui segment" ms-if="currentTab === 'park'">
+        <div class="ui green ribbon label">
+            <i class="building icon"></i> 园区设置
+        </div>
+        <div class="ui hidden divider"></div>
+        <div class="ui form">
+            <div class="ui five column stackable doubling grid">
+                <div class="row">
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.cityCode">
+                            <option value="0">城市</option>
+                            <option value="sz">深圳</option>
+                            <!--<option ms-repeat="dropdownList.cityList.list" ms-value="{{el.cityCode}}">{{el.cityName}}</option>-->
+                        </select>
+                    </div>
+                    <div class="column">
+                        <input type="text" ms-duplex="queryData.parkName" placeholder="园区">
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.isDistanceLimit">
+                            <option value="0">设定范围内必须打卡</option>
+                            <option value="YES">是</option>
+                            <option value="NO">否</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.inDistanceLimitNeedphoto">
+                            <option value="0">设定范围内必须拍照</option>
+                            <option value="YES">是</option>
+                            <option value="NO">否</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.outDistanceLimitNeedphoto">
+                            <option value="0">设定范围外必须拍照</option>
+                            <option value="YES">是</option>
+                            <option value="NO">否</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row grid-row">
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.isEnable">
+                            <option value="0">启用状态</option>
+                            <option ms-repeat="commonData.roleCommonData.useStatus" ms-value="{{el.value}}">{{el.name}}</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="left menu">
+                                <button class="ui labeled icon primary button" ms-click="search"><i class="search icon"></i>查询</button>
+                                <button class="ui labeled icon orange button" ms-click="reset"><i class="undo icon"></i>重置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui container fluid secondary menu operation-menu">
+                <div class="right menu">
+                    <button class="ui labeled icon green button" ms-click="showAddWin"><i class="plus icon"></i>新增</button>
+                </div>
+            </div>
+        </div>
+        <table class="data-table ui blue table" style="width:100%"></table>
+    </div>
+    <!-- 新增园区设置 -->
+    <div class="ui modal" id="newParkConfig">
+        <div class="header">新增园区设置</div>
+        <div class="content">
+            <form class="ui form" id="newConfig">
+                <div class="ui grid">
+                    <div class="four wide column">
+                        园区名称
+                    </div>
+                    <div class="four wide column">
+                        <select class="ui fluid search dropdown" ms-duplex="newConfig.parkId" name="parkId" id="newConfigParkId">
+                            <option value="0">请输入园区名称</option>
+                            <option ms-repeat="dropdownList.parkList.list" ms-value="{{el.parkId}}">{{el.parkName}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        是否必须在设定范围内打卡
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="isDistanceLimit" value="YES" id="newIsPunch" ms-duplex-text="newConfig.isDistanceLimit"/>
+                            <label for="newIsPunch">是</label>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="isDistanceLimit" value="NO" id="newNotPunch" ms-duplex-text="newConfig.isDistanceLimit"/>
+                            <label for="newNotPunch">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        距离园区默认有效范围
+                    </div>
+                    <div class="three wide column">
+                        <div class="ui right labeled input">
+                            <input type="text" name="distanceLimit" ms-duplex="newConfig.distanceLimit">
+                            <div class="ui label">米</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        有效范围内是否必须拍照上传
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="inDistanceLimitNeedphoto" value="YES" id="newIsInnerPhoto" ms-duplex-text="newConfig.inDistanceLimitNeedphoto"/>
+                            <label for="newIsInnerPhoto">是</label>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="inDistanceLimitNeedphoto" value="NO" id="newNotInnerPhoto" ms-duplex-text="newConfig.inDistanceLimitNeedphoto"/>
+                            <label for="newNotInnerPhoto">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        有效范围外是否必须拍照上传
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="outDistanceLimitNeedphoto" value="YES" id="newIsOutPhoto" ms-duplex-text="newConfig.outDistanceLimitNeedphoto"/>
+                            <label for="newIsOutPhoto">是</label>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="outDistanceLimitNeedphoto" value="NO" id="newNotOutPhoto" ms-duplex-text="newConfig.outDistanceLimitNeedphoto"/>
+                            <label for="newNotOutPhoto">否</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+        </div>
+        <div class="actions">
+            <div class="ui cancel olive button">取消</div>
+            <div class="ui approve primary button">确认</div>
+        </div>
+    </div>
+    <!-- 修改园区设置 -->
+    <div class="ui modal" id="editParkConfig">
+        <div class="header">修改园区设置</div>
+        <div class="content">
+            <form class="ui form" id="editConfig">
+                <div class="ui grid">
+                    <div class="four wide column">
+                        园区名称
+                    </div>
+                    <div class="four wide column">
+                        {{editConfig.parkName}}
+                        <input type="text" ms-value="{{editConfig.id}}" style="display: none" name="id">
+                        <input type="text" ms-value="{{editConfig.parkId}}" style="display: none" name="parkId">
+                        <input type="text" ms-value="{{editConfig.parkName}}" style="display: none" name="parkName">
+                        <input type="text" ms-value="{{editConfig.companyId}}" style="display: none" name="companyId">
+                        <input type="text" ms-value="{{editConfig.companyName}}" style="display: none" name="companyName">
+                        <input type="text" ms-value="{{editConfig.isEnable}}" style="display: none" name="isEnable">
+                        <input type="text" ms-value="{{editConfig.cityName}}" style="display: none" name="cityName">
+                        <input type="text" ms-value="{{editConfig.cityCode}}" style="display: none" name="cityCode">
+                        <input type="text" ms-value="{{editConfig.createUid}}" style="display: none" name="createUid">
+                        <!--  updateUid 应为本登陆用户的用户id，待修改 -->
+                        <input type="text" ms-value="{{editConfig.updateUid}}" style="display: none" name="updateUid">
+                        <input type="text" ms-value="{{editConfig.status}}" style="display: none" name="status">
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        是否必须在设定范围内打卡
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="isDistanceLimit" value="YES" id="editIsPunch" ms-duplex-text="editConfig.isDistanceLimit"/>
+                            <label for="editIsPunch">是</label>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="isDistanceLimit" value="NO" id="editNotPunch" ms-duplex-text="editConfig.isDistanceLimit"/>
+                            <label for="editNotPunch">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        距离园区默认有效范围
+                    </div>
+                    <div class="three wide column">
+                        <div class="ui right labeled input">
+                            <input type="text" name="distanceLimit" ms-duplex="editConfig.distanceLimit">
+                            <div class="ui label">米</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        有效范围内是否必须拍照上传
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="inDistanceLimitNeedphoto" value="YES" id="editIsInnerPhoto" ms-duplex-text="editConfig.inDistanceLimitNeedphoto"/>
+                            <label for="editIsInnerPhoto">是</label>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="inDistanceLimitNeedphoto" value="NO" id="editNotInnerPhoto" ms-duplex-text="editConfig.inDistanceLimitNeedphoto"/>
+                            <label for="editNotInnerPhoto">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        有效范围外是否必须拍照上传
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="outDistanceLimitNeedphoto" value="YES" id="editIsOutPhoto" ms-duplex-text="editConfig.outDistanceLimitNeedphoto"/>
+                            <label for="editIsOutPhoto">是</label>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="outDistanceLimitNeedphoto" value="NO" id="editNotOutPhoto" ms-duplex-text="editConfig.outDistanceLimitNeedphoto"/>
+                            <label for="editNotOutPhoto">否</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui cancel olive button">取消</div>
+            <div class="ui approve primary button">确认</div>
+        </div>
+    </div>
+    <div class="ui small modal" id="confirm">
+        <div class="header">提示</div>
+        <div class="content">
+            删除后将无法恢复！<br>
+            确认删除？
+        </div>
+        <div class="actions">
+            <button class="ui green approve button">确定</button>
+            <button class="ui orange deny button">取消</button>
+        </div>
+    </div>
+</div>

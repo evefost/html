@@ -1,0 +1,79 @@
+{
+  "status": 200,
+  "message": "查询成功",
+  "data":{
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 1,
+    "results":{
+      "tBody":[
+        {
+          "id": 1,
+          "title": "问卷调查测试",
+          "type": "QUESTIONNAIRE",
+          "image": "",
+          "clickAction": "1",
+          "showPlatform": "weixin",
+          "showLocation": "INDEX_BANNER",
+          "onlineStatus": 2,
+          "onlineTime": 1472869451000,
+          "offlineTime": 1472869456000,
+          "offlineByUser": "",
+          "partakeAmount": 15,
+          "shareAmount": 35,
+          "createTime": 1472869360000,
+          "updateTime": "",
+          "createUid": 1,
+          "updateUid": "",
+          "status": 0,
+          "_id": 1
+        },
+        {
+          "id": 2,
+          "title": "问卷调查测试",
+          "type": "QUESTIONNAIRE",
+          "image": "",
+          "clickAction": "1",
+          "showPlatform": "weixin",
+          "showLocation": "INDEX_BANNER",
+          "onlineStatus": 1,
+          "onlineTime": 1472869451000,
+          "offlineTime": 1472869456000,
+          "offlineByUser": "",
+          "partakeAmount": 8,
+          "shareAmount": 41,
+          "createTime": 1472869360000,
+          "updateTime": "",
+          "createUid": 1,
+          "updateUid": "",
+          "status": 0,
+          "_id": 1
+        },
+        {
+          "id": 3,
+          "title": "问卷调查测试",
+          "type": "QUESTIONNAIRE",
+          "image": "",
+          "clickAction": "1",
+          "showPlatform": "weixin",
+          "showLocation": "INDEX_BANNER",
+          "onlineStatus": -1,
+          "onlineTime": 1472869451000,
+          "offlineTime": 1472869456000,
+          "offlineByUser": "",
+          "partakeAmount": 12,
+          "shareAmount": 38,
+          "createTime": 1472869360000,
+          "updateTime": "",
+          "createUid": 1,
+          "updateUid": "",
+          "status": 0,
+          "_id": 1
+        }
+      ],
+      "tFooter":[
+      ]
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "status": 200,
+  "message": "查询成功！",
+  "data": {
+    "results": {
+      "tBody": [
+        {
+          "id": 3,
+          "parkId": 1,
+          "columnName": "companyName",
+          "columnNameCn": "公司名称",
+          "columnType": "TEXT",
+          "isUse": "YES",
+          "columnCategory": 1,
+          "sorted": "",
+          "createTime": 1473662073000,
+          "updateTime": 1473662073000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0,
+          "_id": 3
+        },
+        {
+          "id": 2,
+          "parkId": 1,
+          "columnName": "powerRent",
+          "columnNameCn": "电费",
+          "columnType": "NUMBER",
+          "isUse": "NO",
+          "columnCategory": 2,
+          "sorted": "",
+          "createTime": 1473661999000,
+          "updateTime": 1473661999000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0,
+          "_id": 2
+        },
+        {
+          "id": 1,
+          "parkId": 1,
+          "columnName": "waterRent",
+          "columnNameCn": "水费",
+          "columnType": "NUMBER",
+          "isUse": "YES",
+          "columnCategory": 2,
+          "sorted": "",
+          "createTime": 1473661972000,
+          "updateTime": 1473661972000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0,
+          "_id": 1
+        }
+      ]
+    }
+  }
+}

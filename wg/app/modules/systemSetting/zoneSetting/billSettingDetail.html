@@ -1,0 +1,93 @@
+<div ms-controller="billTemplDetail">
+    <div class="ui container fluid">
+        <button class="ui button orange" ms-click="back"><i class="icon reply"></i> 返回园区列表</button>
+    </div>
+    <div class="ui divider"></div>
+    <form class="ui form">
+        <div class="ui five column grid">
+            <div class="column">
+                <input type="text" placeholder="费用模板字段" ms-duplex="queryData.columnName">
+            </div>
+            <div class="column">
+                <select class="ui fluid dropdown" ms-duplex="queryData.columnCategory">
+                    <option value="0">分类</option>
+                    <option value="1">固定字段</option>
+                    <option value="2">自定义字段</option>
+                </select>
+            </div>
+            <div class="column">
+                <select class="ui fluid dropdown" ms-duplex="queryData.isUse">
+                    <option value="0">设置状态</option>
+                    <option value="YES">已启用</option>
+                    <option value="NO">已禁用</option>
+                </select>
+            </div>
+            <div class="column">
+                <div class="ui container fluid secondary menu operation-menu">
+                    <div class="left menu">
+                        <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                        <button class="ui labeled icon orange button" ms-click="reset">重置<i class="icon undo"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="right menu">
+                <button type="button" class="ui button purple" ms-click="exportBillExcel"><i class="file excel outline icon"></i>导出账单</button>
+                <button type="button" class="ui button green" ms-click="showAddWin"><i class="file plus icon"></i>新增字段</button>
+            </div>
+        </div>
+    </form>
+    <div class="ui divider"></div>
+    <table class="data-table ui blue selectable table" style="width:100%"></table>
+
+    <div id="nodeModal" class="ui small modal">
+        <div class="header">
+            {{nodeData.header}}
+        </div>
+        <div class="content">
+            <form class="ui form" id="nodeForm">
+                <div class="inline fields">
+                    <div class="three wide field">
+                        <label>字段名称<i class="ui icon red star"></i></label>
+                    </div>
+                    <div class="eight wide field">
+                        <input type="text" name="columnNameCn" ms-duplex="nodeData.columnNameCn" placeholder="请输入字段名称">
+                    </div>
+                </div>
+                <div class="inline fields">
+                    <div class="three wide field">
+                        <label>字段英文名<i class="ui icon red star"></i></label>
+                    </div>
+                    <div class="eight wide field">
+                        <input type="text" name="columnName" ms-duplex="nodeData.columnName" placeholder="请输入字段英文名">
+                    </div>
+                </div>
+                <div class="inline fields">
+                    <div class="three wide field">
+                        <label>数据类型<i class="ui icon red star"></i></label>
+                    </div>
+                    <div class="eight wide field">
+                        <select class="ui dropdown" ms-duplex="nodeData.columnType" name="columnType">
+                            <option value="0">请选择数据字段类型</option>
+                            <option value="TEXT">文本</option>
+                            <option value="NUMBER">数字</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                </div>
+                <input type="text" name="parkId" ms-duplex="nodeData.parkId" style="display:none">
+                <input type="text" name="columnCategory" ms-duplex="nodeData.columnCategory" style="display:none">
+            </form>
+        </div>
+        <div class="actions">
+            <button class="ui cancel olive button">取消</button>
+            <button class="ui approve primary button">保存</button>
+        </div>
+    </div>
+</div>

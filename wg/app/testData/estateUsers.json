@@ -1,0 +1,123 @@
+{
+  "status": 200,
+  "message": "物业用户查询OK",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 7,
+    "results": {
+      "tBody": [
+        {
+          "id": 2,
+          "name": "范增hhh",
+          "phone": "12345678901",
+          "parkIds": "1",
+          "roleId": "2",
+          "post": "ddd",
+          "gender": "MALE",
+          "createTime": "2016-08-31 16:12:38",
+          "updateTime": "2016-09-20 14:20:20",
+          "isEnabled": "YES",
+          "parkName": "华丰金融港",
+          "roleName": "物业检测员,物业管理员",
+          "birthday": "2016-09-28"
+        },
+        {
+          "id": 58,
+          "name": "赵7",
+          "phone": "1235678902",
+          "parkIds": "3",
+          "roleId": "1",
+          "post": "大内总管",
+          "gender": "MALE",
+          "createTime": "2016-09-18 10:19:09",
+          "updateTime": "2016-10-08 18:09:11",
+          "isEnabled": "YES",
+          "parkName": "华丰金融港",
+          "roleName": "系统管理员",
+          "birthday": "2011-09-01"
+        },
+        {
+          "id": 59,
+          "name": "赵8",
+          "phone": "1235678902",
+          "parkIds": "2",
+          "roleId": "1",
+          "post": "大内总管",
+          "gender": "MALE",
+          "createTime": "2016-09-18 10:20:05",
+          "updateTime": "2016-10-09 09:30:31",
+          "isEnabled": "NO",
+          "parkName": "海景大厦",
+          "roleName": "系统管理员",
+          "birthday": "2011-09-01"
+        },
+        {
+          "id": 60,
+          "name": "赵钱孙李",
+          "phone": "1235678902",
+          "parkIds": "3",
+          "roleId": "2",
+          "post": "大内总管",
+          "gender": "MALE",
+          "createTime": "2016-09-18 10:29:26",
+          "updateTime": "2016-10-09 09:31:39",
+          "isEnabled": "YES",
+          "parkName": "华丰科技园",
+          "roleName": "物业管理员",
+          "birthday": "2015-09-01"
+        },
+        {
+          "id": 77,
+          "name": "dga",
+          "phone": "15881234567",
+          "parkIds": "",
+          "roleId": "1",
+          "post": "",
+          "gender": "FEMALE",
+          "createTime": "2016-09-26 16:38:49",
+          "updateTime": "2016-09-22 16:37:25",
+          "isEnabled": "YES",
+          "parkName": "",
+          "roleName": "系统管理员",
+          "birthday": ""
+        },
+        {
+          "id": 78,
+          "name": "王五",
+          "phone": "13112345678",
+          "parkIds": "1",
+          "roleId": "1",
+          "post": "职务",
+          "gender": "MALE",
+          "createTime": "2016-10-08 17:49:41",
+          "updateTime": "2016-10-08 17:49:41",
+          "isEnabled": "YES",
+          "parkName": "华丰金融港",
+          "roleName": "系统管理员",
+          "birthday": ""
+        },
+        {
+          "id": 79,
+          "name": "王6",
+          "phone": "13112345678",
+          "parkIds": "1",
+          "roleId": "3",
+          "post": "总助",
+          "gender": "MALE",
+          "createTime": "2016-10-08 17:54:33",
+          "updateTime": "2016-10-08 17:54:33",
+          "isEnabled": "YES",
+          "parkName": "华丰金融港",
+          "roleName": "系统管理员",
+          "birthday": ""
+        }
+      ],
+      "tFooter": [
+      ],
+      "tHeader": [
+      ]
+    }
+  }
+}

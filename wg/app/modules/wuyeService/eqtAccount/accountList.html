@@ -1,0 +1,544 @@
+<div ms-controller="repair" class="ui fluid container">
+    <div class="ui pointing teal menu">
+        <a class="item" ms-class="active:currentStatus === 'park'" ms-click="switchStatus('park')">
+            设备大类
+        </a>
+        <a class="item" ms-class="active:currentStatus === 'supplier'" ms-click="switchStatus('supplier')">
+            设备子类
+        </a>
+    </div>
+    <div class="ui divider"></div>
+    <!--设备大类标签-->
+    <div id="parkRegion" ms-visible="currentStatus === 'park'">
+        <div class="ui form">
+            <div class="ui six column stackable doubling grid" style="width: 100%">
+                <div class="row">
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action input fluid">
+                                <input size="16" type="text" ms-duplex="searchDataBig.startDate" readonly placeholder="新建时间-起">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action input fluid">
+                                <input size="16" type="text" ms-duplex="searchDataBig.endDate" readonly placeholder="新建时间-止">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <input type="text" placeholder="设备大类名称" ms-duplex="searchDataBig.eqtName">
+                    </div>
+                    <div class="column">
+                        <input type="text" placeholder="创建人" ms-duplex="searchDataBig.founder">
+                    </div>
+                    <div class="column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="left menu">
+                                <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                                <button class="ui labeled icon orange button" ms-click="reset">清空<i class="icon undo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui container fluid secondary menu operation-menu">
+                <div class="right menu">
+                    <button class="ui labeled icon green button" ms-click="showAddWin(false)">新增<i class="icon plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <table class="data-table ui blue selectable celled table" id="parkTable" style="width:100%"></table>
+    </div>
+
+    <!--设备子类标签-->
+    <div class="supplierRegion" ms-visible="currentStatus === 'supplier'">
+        <div class="ui form">
+            <div class="ui six column stackable doubling grid" style="width: 100%">
+                <div class="row">
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action input fluid">
+                                <input size="16" type="text" ms-duplex="searchDataSmall.startDate" readonly placeholder="新建时间-起">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action input fluid">
+                                <input size="16" type="text" ms-duplex="searchDataSmall.endDate" readonly placeholder="新建时间-止">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <input type="text" placeholder="设备子类名称" ms-duplex="searchDataSmall.eqtName">
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="searchDataSmall.eqtSort">
+                            <option value="0">请选择设备大类</option>
+                            <option value="1">消防系统设备</option>
+                            <option value="2">消防系统设备2</option>
+                            <option value="3">消防系统设备3</option>
+                            <option value="4">消防系统设备4</option>
+                            <option value="5">消防系统设备5</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <input type="text" placeholder="创建人" ms-duplex="searchDataSmall.founder">
+                    </div>
+                    <div class="column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="left menu">
+                                <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                                <button class="ui labeled icon orange button" ms-click="reset">清空<i class="icon undo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui container fluid secondary menu operation-menu">
+                <div class="right menu">
+                    <button class="ui
+                     labeled icon green button" ms-click="sShowAddWin">新增<i class="icon plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <table class="data-table ui blue selectable celled table" id="supplierTable" style="width:100%"></table>
+    </div>
+
+    <!--新增设备大类-->
+    <div class="ui small modal" id="newParkModal">
+        <div class="header">
+            新增/修改设备大类
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <form class="ui form" id="parkFormData">
+                        <div class="fields">
+                            <div class="inline field">
+                                <label>设备大类：</label><input name="nEqtNameBig" type="text" placeholder="请输入设备大类名称" ms-duplex="nEqtNameBig">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve green button">确定</div>
+            <div class="ui cancel orange button">取消</div>
+        </div>
+    </div>
+
+    <!--新增设备子类-->
+    <div class="ui modal" id="newSupplierModal">
+        <div class="header">
+            新增/修改设备子类
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <form class="ui form" id="supplierFormData">
+                        <div class="two  fields">
+                            <div class="field">
+                                <label>设备子类：</label><input name="nEqtNameBig" type="text" placeholder="请输入设备子类名称" ms-duplex="nEqtNameBig">
+                            </div>
+                            <div class="field">
+                                <label>关联大类：</label>
+                                <select class="ui fluid dropdown" ms-duplex="eqtSortAdd">
+                                    <option value="0">请选择设备大类</option>
+                                    <option value="1">消防系统设备</option>
+                                    <option value="2">消防系统设备2</option>
+                                    <option value="3">消防系统设备3</option>
+                                    <option value="4">消防系统设备4</option>
+                                    <option value="5">消防系统设备5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="one wide column"></div>
+                <div class="one wide column"></div>
+                <div class="one wide column"></div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve green button">保存</div>
+            <div class="ui cancel orange button">取消</div>
+        </div>
+    </div>
+
+    <!--园区操作-->
+    <div class="ui large modal" id="parkModal">
+        <div class="header">
+            {{parkData.title}}
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <div class="ui two column grid">
+                        <div class="column">
+                            <label><b>报修时间：</b></label>
+                            <span>{{parkData.applicationTime}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>报修单状态：</b></label>
+                            <span>{{parkData.workOrderStatus}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>报修类型：</b></label>
+                            <span>{{parkData.serviceName}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>报修地址：</b></label>
+                            <span>{{parkData.address}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>报修企业：</b></label>
+                            <span>{{parkData.companyName}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>申请人/电话：</b></label>
+                            <span>{{parkData.userName}}/{{parkData.userPhone}}</span>
+                        </div>
+                        <div class="sixteen wide column">
+                            <label><b>详细描述：</b></label><br>
+                            <div class="ui message">
+                                {{parkData.description}}
+                            </div>
+                        </div>
+                        <div class="sixteen wide column" ms-if="parkData.image != null">
+                            <label><b>照片：</b></label><br>
+                            <div class="ui medium bordered images">
+                                <img ms-src="el" ms-repeat="parkData.image">
+                            </div>
+                        </div>
+                        <div class="sixteen wide column">
+                            <div class="ui divider"></div>
+                        </div>
+                    </div>
+                    <!--派单-->
+                    <div class="extra-info" ms-if="orderType === 'send'">
+                        <form class="ui form">
+                            <div class="inline fields">
+                                <div class="two wide field">
+                                    <label><b>是否接单：</b></label>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="receive" value="YES" id="yes" ms-duplex-string="submitType"/>
+                                        <label for="yes">接单</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="receive"  value="NO" id="no" ms-duplex-string="submitType"/>
+                                        <label for="no">不接单</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inline fields"  ms-if="submitType === 'YES'">
+                                <div class="two wide field">
+                                    <label><b>选择接单人员：</b></label>
+                                </div>
+                                <div class="three wide field">
+                                    <select class="ui dropdown" ms-duplex="parkData.handleId">
+                                        <option value="0">选择接单人员</option>
+                                        <option ms-repeat="handlerList" ms-value="{{el.handleId}}">{{el.handleName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--接单-->
+                    <div class="extra-info" ms-if="orderType === 'receive'">
+                        <form class="ui form">
+                            <div class="inline fields">
+                                <div class="two wide field">
+                                    <label><b>接单人员：</b></label>
+                                </div>
+                                <div class="three wide fields">
+                                    <span>{{parkData.handleName}}（{{parkData.handlePhone}}）</span>
+                                </div>
+                            </div>
+                            <!--<div class="inline fields"  ms-if="submitType === 'NO'">
+                                <div class="two wide field">
+                                    <label><b>退回原因：</b></label>
+                                </div>
+                                <textarea rows="4" ms-duplex="parkData.notAcceptReason" placeholder="请填写退回原因"></textarea>
+                            </div>-->
+                        </form>
+                    </div>
+                    <!--退回-->
+                    <div class="extra-info" ms-if="orderType === 'return'">
+                        <form class="ui form">
+                            <div class="inline fields">
+                                <div class="two wide field">
+                                    <label><b>接单人员：</b></label>
+                                </div>
+                                <div class="three wide fields">
+                                    <span>{{parkData.handleName}}（{{parkData.handlePhone}}）</span>
+                                </div>
+                            </div>
+                            <div class="inline fields"  ms-if="submitType === 'NO'">
+                                <div class="two wide field">
+                                    <label><b>退回原因：</b></label>
+                                </div>
+                                <textarea rows="4" ms-duplex="parkData.notAcceptReason" placeholder="请填写退回原因"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <!--反馈-->
+                    <div class="extra-info" ms-if="orderType === 'feedback'">
+                        <form class="ui form">
+                            <div class="inline fields">
+                                <div class="eight wide field">
+                                    <label><b>操作（及人员）</b></label>
+                                </div>
+                                <div class="eight wide field">
+                                    <label><b>操作时间</b></label>
+                                </div>
+                            </div>
+                            <div class="inline fields" ms-repeat="trackingInfo">
+                                <div class="eight wide field">
+                                    <span>{{el.operatingContent}}</span>
+                                </div>
+                                <div class="eight wide fields">
+                                    <span>{{el.operatingTime}}</span>
+                                </div>
+                            </div>
+                            <div class="sixteen wide field">
+                                <div class="ui divider"></div>
+                            </div>
+                            <div class="inline fields">
+                                <div class="two wide field">
+                                    <label><b>反馈内容：</b></label>
+                                </div>
+                                <textarea rows="4" ms-duplex="parkData.feedBackText" placeholder="请填写反馈内容"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <!--跟踪流程-->
+                    <div class="extra-info" ms-if="orderType === 'track'">
+                        <form class="ui form">
+                            <div class="inline fields">
+                                <div class="eight wide field">
+                                    <label><b>操作（及人员）</b></label>
+                                </div>
+                                <div class="eight wide field">
+                                    <label><b>操作时间</b></label>
+                                </div>
+                            </div>
+                            <div class="inline fields" ms-repeat="trackingInfo">
+                                <div class="eight wide field">
+                                    <span>{{el.operatingContent}}</span>
+                                </div>
+                                <div class="eight wide fields">
+                                    <span>{{el.operatingTime}}</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--详情-->
+                    <div class="extra-info" ms-if="orderType === 'detail'">
+                        <form class="ui form">
+                            <div class="inline fields">
+                                <div class="eight wide field">
+                                    <label><b>操作（及人员）</b></label>
+                                </div>
+                                <div class="eight wide field">
+                                    <label><b>操作时间</b></label>
+                                </div>
+                            </div>
+                            <div class="inline fields">
+                                <div class="eight wide field">
+                                    <span>用户已取消</span>
+                                </div>
+                                <div class="eight wide fields">
+                                    <span>{{parkData.updateTime}}</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve green button">确定</div>
+            <div class="ui cancel orange button">取消</div>
+        </div>
+    </div>
+
+    <!--供应商操作-->
+    <div class="ui large modal" id="supplierModal">
+        <div class="header">
+            {{supplierData.title}}
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <div class="ui two column grid">
+                        <div class="column">
+                            <label><b>报修时间：</b></label>
+                            <span>{{supplierData.applicationTime}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>报修单状态：</b></label>
+                            <span>{{supplierData.workOrderStatus}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>报修类型：</b></label>
+                            <span>{{supplierData.serviceName}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>报修地址：</b></label>
+                            <span>{{supplierData.address}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>报修企业：</b></label>
+                            <span>{{supplierData.companyName}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>维修供应商：</b></label>
+                            <span>{{supplierData.supplierName}}</span>
+                        </div>
+                        <div class="column">
+                            <label><b>申请人/电话：</b></label>
+                            <span>{{supplierData.userName}} / {{supplierData.userPhone}}</span>
+                        </div>
+                        <div class="sixteen wide column">
+                            <label><b>详细描述：</b></label><br>
+                            <div class="ui message">
+                                {{supplierData.description}}
+                            </div>
+                        </div>
+                        <div class="sixteen wide column" ms-if="supplierData.image != null">
+                            <label><b>照片：</b></label><br>
+                            <div class="ui medium bordered images">
+                                <img ms-src="el" ms-repeat="supplierData.image">
+                            </div>
+                        </div>
+                        <div class="sixteen wide column">
+                            <div class="ui divider"></div>
+                        </div>
+                    </div>
+                    <!--接单-->
+                    <div class="extra-info" ms-if="sOrderType === 'receive'">
+                        <form class="ui form">
+                            <div class="inline fields">
+                                <div class="two wide field">
+                                    <label><b>接单方：</b></label>
+                                </div>
+                                <div class="eight wide fields">
+                                    <span>{{supplierData.supplierName}}</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--反馈-->
+                    <div class="extra-info" ms-if="sOrderType === 'feedback'">
+                        <form class="ui form">
+                            <div class="inline fields">
+                                <div class="eight wide field">
+                                    <label><b>操作（及人员）</b></label>
+                                </div>
+                                <div class="eight wide field">
+                                    <label><b>操作时间</b></label>
+                                </div>
+                            </div>
+                            <div class="inline fields" ms-repeat="trackingInfoSupplier">
+                                <div class="eight wide field">
+                                    <span>{{el.operatingContent}}</span>
+                                </div>
+                                <div class="eight wide fields">
+                                    <span>{{el.operatingTime}}</span>
+                                </div>
+                            </div>
+                            <div class="sixteen wide field">
+                                <div class="ui divider"></div>
+                            </div>
+                            <div class="inline fields">
+                                <div class="two wide field">
+                                    <label><b>反馈内容：</b></label>
+                                </div>
+                                <textarea rows="4" ms-duplex="supplierData.feedBackText" placeholder="请填写反馈内容"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <!--跟踪流程-->
+                    <div class="extra-info" ms-if="sOrderType === 'track'">
+                        <form class="ui form">
+                            <div class="inline fields">
+                                <div class="eight wide field">
+                                    <label><b>操作（及人员）</b></label>
+                                </div>
+                                <div class="eight wide field">
+                                    <label><b>操作时间</b></label>
+                                </div>
+                            </div>
+                            <div class="inline fields" ms-repeat="trackingInfoSupplier">
+                                <div class="eight wide field">
+                                    <span>{{el.operatingContent}}</span>
+                                </div>
+                                <div class="eight wide fields">
+                                    <span>{{el.operatingTime}}</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--详情-->
+                    <div class="extra-info" ms-if="sOrderType === 'detail'">
+                        <form class="ui form" ms-if="supplierData.status === 'CANCEL'">
+                            <div class="inline fields">
+                                <div class="eight wide field">
+                                    <label><b>操作（及人员）</b></label>
+                                </div>
+                                <div class="eight wide field">
+                                    <label><b>操作时间</b></label>
+                                </div>
+                            </div>
+                            <div class="inline fields">
+                                <div class="eight wide field">
+                                    <span>用户已取消</span>
+                                </div>
+                                <div class="eight wide fields">
+                                    <span>{{supplierData.updateTime}}</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve green button">确定</div>
+            <div class="ui cancel orange button">取消</div>
+        </div>
+    </div>
+</div>
+<div class="ui small modal" id="confirm">
+    <div class="header">提示</div>
+    <div class="content">
+        删除后将无法恢复！<br>
+        确认删除？
+    </div>
+    <div class="actions">
+        <button class="ui green approve button">确定</button>
+        <button class="ui orange deny button">取消</button>
+    </div>
+</div>

@@ -1,0 +1,220 @@
+<div ms-controller="overview">
+    <div class="ui fluid container">
+        <!-- 数据概览 -->
+        <div class="ui top attached block header">
+            数据概览
+        </div>
+        <div class="ui attached segment">
+            <div class="ui column grid">
+                <div class="four wide column">
+                    <div class="intro">
+                        欢迎登陆我司后台
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <div class="ui card">
+                        <div class="content">
+                            <div class="header">
+                                当前用户
+                            </div>
+                            <div class="description">
+                                <div class="ui mini horizontal blue statistics">
+                                    <div class="statistic" ms-repeat="grossData.totalUserCount">
+                                        <div class="value">
+                                            {{el.value}}
+                                        </div>
+                                        <div class="label">
+                                            {{el.title}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <div class="ui card">
+                        <div class="content">
+                            <div class="header">
+                                本月新增用户
+                            </div>
+                            <div class="description">
+                                <div class="ui mini horizontal blue statistics">
+                                    <div class="statistic" ms-repeat="grossData.monthUserCount">
+                                        <div class="value">
+                                            {{el.value}}
+                                        </div>
+                                        <div class="label">
+                                            {{el.title}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <div class="ui card">
+                        <div class="content">
+                            <div class="header">
+                                园区数据
+                            </div>
+                            <div class="description">
+                                <div class="ui mini horizontal blue statistics">
+                                    <div class="statistic" ms-repeat="grossData.parkCount">
+                                        <div class="value">
+                                            {{el.value}}
+                                        </div>
+                                        <div class="label">
+                                            {{el.title}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <div class="ui card">
+                        <div class="content">
+                            <div class="header">
+                                工单数据
+                            </div>
+                            <div class="description">
+                                <div class="ui mini horizontal blue statistics">
+                                    <div class="statistic" ms-repeat="grossData.orderCount">
+                                        <div class="value">
+                                            {{el.value}}
+                                        </div>
+                                        <div class="label">
+                                            {{el.title}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 工单数据走势图 -->
+        <div class="ui top attached block header">
+            总体工单数据走势
+        </div>
+        <div class="ui attached segment">
+            <div class="ui form">
+                <div class="fields">
+                    <div class="field">
+                        <select class="ui dropdown" ms-duplex="queryData.rangeType">
+                            <option value="PARK">园区工单</option>
+                            <option value="SUPPLIER">供应商工单</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <div class="date date-timepicker">
+                            <div class="ui action input">
+                                <input size="16" type="text" ms-duplex="queryData.startDate" readonly placeholder="开始时间">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="date date-timepicker">
+                            <div class="ui action input">
+                                <input size="16" type="text" ms-duplex="queryData.endDate" readonly placeholder="结束时间">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="two wide field">
+                        <button class="ui blue button" ms-click="search">查询</button>
+                    </div>
+                    <!--<div class="nine wide field">
+                        <button class="ui right floated toggle button" ms-class="active:byMonth" ms-click="countBy()">最近12个月（按月统计）</button>
+                    </div>-->
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui message">
+                <!--<div class="ui four column centered grid">
+                    <div class="column">工单数量</div>
+                    <div class="column">维修服务</div>
+                    <div class="column">2016.06.12 - 2016.08.04</div>
+                    <div class="column">共13周</div>
+                </div>-->
+                <div id="data-trend" style="width: 100%; height:400px;"></div>
+            </div>
+        </div>
+
+        <!-- 企业工单占比与排名 -->
+        <div class="ui top attached block header">
+            工单数据
+        </div>
+        <div class="ui attached segment">
+            <div class="ui form">
+                <div class="fields">
+                    <div class="field">
+                        <select class="ui dropdown" ms-duplex="queryData.rangeType">
+                            <option value="PARK">园区工单</option>
+                            <option value="SUPPLIER">供应商工单</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <div class="date date-timepicker">
+                            <div class="ui action input">
+                                <input size="16" type="text" ms-duplex="queryData.startDate" readonly placeholder="开始时间">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="date date-timepicker">
+                            <div class="ui action input">
+                                <input size="16" type="text" ms-duplex="queryData.endDate" readonly placeholder="结束时间">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button class="ui blue button" ms-click="search">查询</button>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui two column grid" style="position:relative">
+                <div class="column">
+                    <div class="ui attached message">
+                        <!--<div class="ui four column centered grid">
+                            <div class="column">工单数量</div>
+                            <div class="column">维修服务占比</div>
+                            <div class="column">2016.06.12 - 2016.08.04</div>
+                            <div class="column">共13周</div>
+                        </div>-->
+                        <div id="zone-share" style="width: 100%; height:400px;"></div>
+                    </div>
+                    <div class="ui bottom attached center aligned header">企业工单占比</div>
+                </div>
+                <div class="ui vertical divider"></div>
+                <div class="column">
+                    <div class="ui attached message">
+                        <!--<div class="ui four column centered grid">
+                            <div class="column">工单数量</div>
+                            <div class="column">维修服务排名</div>
+                            <div class="column">2016.06.12 - 2016.08.04</div>
+                            <div class="column">共13周</div>
+                        </div>-->
+                        <div id="zone-rank" style="width: 100%; height:400px;"></div>
+                    </div>
+                    <div class="ui bottom attached centered aligned header">企业工单排名</div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 消息提醒 -->
+        <div class="ui top attached block header">消息提醒</div>
+        <div class="ui attached segment">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+{
+  "status": 200,
+  "message": "文件上传成功！",
+  "data": {
+    "results": {
+      "imgDeflateUrl": "http://assets.daowangtech.com//testFile/1.png",
+      "imgUrl": "http://assets.daowangtech.com//testFile/1.png",
+      "id": 5,
+      "sorted": 0,
+      "isMain": false
+    }
+  }
+}

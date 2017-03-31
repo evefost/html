@@ -1,0 +1,63 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 12,
+    "results": {
+      "tBody": [
+        {
+          "id": 2,
+          "userName": "谢红追",
+          "phone": "13045888185",
+          "parkId": "2",
+          "parkName": "园区名称",
+          "roleName": "系统管理员",
+          "post": "职位名称",
+          "gender": "MALE",
+          "createTime": "2016-08-29  10:27:59",
+          "updateTime": "2016-08-29  10:28:03",
+          "useStatus": "NO",
+          "birthday": "2016-09-05",
+          "roleIds":"2,3"
+        },
+        {
+          "id": 3,
+          "id": 2,
+          "userName": "谢红追1",
+          "phone": "13045888185",
+          "parkId": "1",
+          "parkName": "园区名称",
+          "roleName": "系统管理员",
+          "post": "职位名称",
+          "gender": "FEMALE",
+          "createTime": "2016-08-29  10:27:59",
+          "updateTime": "2016-08-29  10:28:03",
+          "useStatus": "YES",
+          "birthday": "2016-09-05",
+          "roleIds":"1,2,3"
+        },
+        {
+          "id": 5,
+          "id": 2,
+          "userName": "谢红追2",
+          "phone": "13045888185",
+          "parkId": "1",
+          "parkName": "园区名称",
+          "roleName": "系统管理员",
+          "post": "职位名称",
+          "gender": "FEMALE",
+          "createTime": "2016-08-29  10:27:59",
+          "updateTime": "2016-08-29  10:28:03",
+          "useStatus": "YES",
+          "birthday": "2016-09-05",
+          "roleIds":"1,2,3"
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

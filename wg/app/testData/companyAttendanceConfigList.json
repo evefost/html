@@ -1,0 +1,35 @@
+{
+  "status": 200,
+  "message": "查询成功！",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 20,
+    "pageCounts": 1,
+    "recordsTotal": 4,
+    "results": {
+      "tBody": [
+        {
+          "id": 3,
+          "parkId": 1,
+          "parkName": "华丰金融港",
+          "cityCode": "sz",
+          "cityName": "深圳",
+          "companyId": 1,
+          "companyName": "道网科技",
+          "isDistanceLimit": "NO",
+          "distanceLimit": 400,
+          "inDistanceLimitNeedphoto": "NO",
+          "outDistanceLimitNeedphoto": "YES",
+          "isEnable": "YES",
+          "createTime": 1472642890000,
+          "updateTime": 1472642890000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

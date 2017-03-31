@@ -1,0 +1,23 @@
+{
+  "status": 200,
+  "message": "查询企业详情成功",
+  "data": {
+    "results": {
+      "id": 1,
+      "parkId": 1,
+      "parkName": "华丰金融港",
+      "cityCode": "sz",
+      "cityName": "深圳市",
+      "regionCode": "ba",
+      "regionName": "宝安",
+      "codeName": "深圳市-宝安",
+      "noticeType": "INPARK",
+      "createTime": 1472709473000,
+      "updateTime": 1472709479000,
+      "createUid": 1,
+      "updateUid": "",
+      "status": 1,
+      "content": "这是另一篇园区入住公告"
+    }
+  }
+}

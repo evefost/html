@@ -1,0 +1,45 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 20,
+    "pageCounts": 1,
+    "recordsTotal": 32,
+    "results": {
+      "tBody": [
+        {
+          "id": 1,
+          "code": "0001",
+          "billYearMonth": "2016-05",
+          "zoneBelongsTo": "华丰西乡园区",
+          "totalAmount": "32000",
+          "uploadTime": "2016-08-22",
+          "uploader": "张三",
+          "operation": "详情"
+        },
+        {
+          "id": 2,
+          "code": "0002",
+          "billYearMonth": "2016-04",
+          "zoneBelongsTo": "华丰西乡园区",
+          "totalAmount": "12400",
+          "uploadTime": "2016-06-13",
+          "uploader": "陆雪",
+          "operation": "详情"
+        },
+        {
+          "id": 3,
+          "code": "0003",
+          "billYearMonth": "2016-02",
+          "zoneBelongsTo": "华丰固戍园区",
+          "totalAmount": "18500",
+          "uploadTime": "2016-04-12",
+          "uploader": "李祎玮",
+          "operation": "详情"
+        }
+      ],
+      "tFooter": []
+    }
+  }
+}

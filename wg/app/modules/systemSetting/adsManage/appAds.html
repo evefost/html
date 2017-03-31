@@ -1,0 +1,205 @@
+<div ms-controller="ad">
+    <div class="ui fluid container">
+        <form class="ui form">
+            <div class="ui five column grid">
+                <div class="row">
+                    <div class="column">
+                        <input type="text" placeholder="请输入广告主题" ms-duplex="queryData.title">
+                    </div>
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action fluid input">
+                                <input size="16" type="text" ms-duplex="queryData.startDate" readonly placeholder="更新时间-起">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action fluid input">
+                                <input size="16" type="text" ms-duplex="queryData.endDate" readonly placeholder="更新时间-止">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.location">
+                            <option value="0">广告位置</option>
+                            <option value="INDEX_BANNER">首页Banner</option>
+                            <option value="SERVICE_BANNER">客服Banner</option>
+                            <option value="LUNCH_BANNER">午餐服务Banner</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="left menu">
+                                <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                                <button class="ui labeled icon orange button" ms-click="reset">重置<i class="icon undo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row grid-row">
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.onlineStatus">
+                            <option value="0">状态</option>
+                            <option value="1">待上架</option>
+                            <option value="2">已上架</option>
+                            <option value="-1">已下架</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="ui divider"></div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="right menu">
+                <button class="ui labeled icon green button" ms-click="showAddWin">新增广告<i class="icon plus"></i></button>
+            </div>
+        </div>
+        <table class="data-table ui teal selectable celled table" style="width:100%"></table>
+
+        <div class="ui large modal" id="adModal">
+            <div class="header">
+                {{adData.header}}
+            </div>
+            <div class="content">
+                <form class="ui form" id="data">
+                    <div class="inline fields">
+                        <div class="two wide field">
+                            <label>广告主题<i class="red star icon"></i></label>
+                        </div>
+                        <div class="six wide field">
+                            <input type="text" name="title" ms-duplex="adData.title" placeholder="请输入广告主题">
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <div class="two wide field">
+                            <label>上架时间<i class="red star icon"></i></label>
+                        </div>
+                        <div class="three wide field">
+                            <div class="ui fluid container date date-timepicker">
+                                <div class="ui action fluid input">
+                                    <input size="16" type="text" ms-duplex="adData.onlineTime" name="onlineTime" readonly placeholder="上架时间-起">
+                                    <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="three wide field">
+                            <div class="ui fluid container date date-timepicker">
+                                <div class="ui action fluid input">
+                                    <input size="16" type="text" ms-duplex="adData.offlineTime" name="offlineTime" readonly placeholder="上架时间-止">
+                                    <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <div class="two wide field">
+                            <label>广告位置<i class="red star icon"></i></label>
+                        </div>
+                        <div class="field">
+                            <select class="ui dropdown" name="showLocation" ms-duplex="adData.showLocation" id="showLocation">
+                                <option value="0">请选择投放位置</option>
+                                <option value="INDEX_BANNER">首页Banner</option>
+                                <option value="SERVICE_BANNER">客服Banner</option>
+                                <option value="LUNCH_BANNER">午餐服务Banner</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <div class="two wide field">
+                            <label>移动端图片<i class="red star icon"></i></label>
+                        </div>
+                        <div class="seven wide field">
+                            <div class="ui special cards">
+                                <div class="card ui-card-400x300">
+                                    <div class="cursor-file-button cursor-fileinput-lineheight-400x300">
+                                        +
+                                        <input type="file" name="imageFile" ms-change="uploadImage">
+                                    </div>
+                                    <div class="blurring dimmable image" ms-visible="adData.image != ''">
+                                        <div class="ui inverted dimmer">
+                                            <div class="content">
+                                                <div class="center ui-card-dimmer-buttons">
+                                                    <button ms-click="showResourceImg" type="button" class="ui inverted green button">查看原图</button>
+                                                    <button ms-click="delResourceImg" type="button" class="ui inverted red button">删除图片</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img class="img-width-400x300" ms-src="adData.image" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="four wide field">
+                            <div class="ui info icon message">
+                                <i class="green info circle icon"></i>
+                                <div class="content">
+                                    <div class="header">
+                                    </div>
+                                    <p>请上传像素为750*480的.jpg、jpeg、.png、.gif图片</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <div class="two wide field">
+                            <label>图片交互<i class="red star icon"></i></label>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="clickAction" ms-duplex-string="adData.clickAction" value="URL" id="linkToUrl" />
+                                <label for="linkToUrl">链接到地址</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="clickAction" ms-duplex-string="adData.clickAction" value="H5" id="linkToH5" />
+                                <label for="linkToH5">链接到H5内容</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="clickAction" ms-duplex-string="adData.clickAction" value="NONE" id="none"/>
+                                <label for="none">无交互</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <div class="two wide field">
+                            <label>链接地址</label>
+                        </div>
+                        <div class="ten wide field">
+                            <input name="actionInfo" type="text" ms-duplex="adData.actionInfo" placeholder="请输入广告图片链接到的地址">
+                        </div>
+                    </div>
+                    <div class="ui hidden divider"></div>
+                    <div class="field">
+                        <label>广告H5</label>
+                        <div class="ui hidden divider"></div>
+                        <div id="wangeditor-container">
+                            <textarea style="height:320px; width:100%" id="description" name="htmlContent" ms-duplex="adData.htmlContent"></textarea>
+                        </div>
+                    </div>
+                    <input type="text" name="id" ms-duplex="adData.id" ms-if="isEdit" style="display:none">
+                </form>
+            </div>
+            <div class="ui actions">
+                <div class="ui cancel olive button">取消</div>
+                <div class="ui approve primary button">确认</div>
+            </div>
+        </div>
+        <div class="ui small modal" id="confirm">
+            <div class="header">提示</div>
+            <div class="content">
+                删除后将无法恢复！<br>
+                确认删除？
+            </div>
+            <div class="actions">
+                <button class="ui green approve button">确定</button>
+                <button class="ui orange deny button">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,209 @@
+<div ms-controller="company" class="ui fluid container">
+    <div class="ui form">
+        <div class="ui five column stackable doubling grid">
+            <div class="row">
+                <div class="column">
+                    <input type="text" placeholder="企业名称" ms-duplex="queryData.name">
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="企业编码" ms-duplex="queryData.id">
+                </div>
+                <div class="column">
+                    <select class="ui fluid dropdown" ms-duplex="queryData.industryId">
+                        <option value="0">所属行业</option>
+                        <option ms-repeat="industrySet" ms-value="el.id">{{el.name}}</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="地址关键字" ms-duplex="queryData.address">
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="联系人职务" ms-duplex="queryData.contactsPosition">
+                </div>
+            </div>
+            <div class="row grid-row">
+                <div class="column">
+                    <div class="date date-timepicker">
+                        <div class="ui action fluid input">
+                            <input size="16" type="text" ms-duplex="queryData.startTime" readonly placeholder="更新时间-起">
+                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="date date-timepicker">
+                        <div class="ui action fluid input">
+                            <input size="16" type="text" ms-duplex="queryData.endTime" readonly placeholder="更新时间-止">
+                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="联系人" ms-duplex="queryData.contacts">
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="联系电话" ms-duplex="queryData.contactsPhone">
+                </div>
+                <div class="column">
+                    <div class="ui container fluid secondary menu operation-menu">
+                        <div class="left menu">
+                            <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                            <button class="ui labeled icon orange button" ms-click="reset">重置<i class="icon undo"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="right menu">
+                <button class="ui labeled icon green button" ms-click="showAddWin">新增企业<i class="icon plus"></i></button>
+            </div>
+        </div>
+    </div>
+    <table class="data-table ui blue selectable table" style="width:100%"></table>
+
+    <!--新增/编辑企业-->
+    <div class="ui large modal" id="companyModal">
+        <div class="header">
+            {{companyData.title}}
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <form class="ui form" id="companyForm">
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>企业名称<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入长度30以内的中文, 英文或数字" name="name" ms-duplex="companyData.name">
+                                <input type="text" name="id" ms-duplex="companyData.id" ms-if="isEdit" style="display:none">
+                            </div>
+                            <div class="eight wide field">
+                                <label>所属行业<i class="icon red star"></i></label>
+                                <select class="ui fluid selection dropdown" multiple="" id="multi-select" ms-duplex="companyData.industryIds">
+                                    <option ms-repeat="industrySet" ms-value="el.id">{{el.name}}</option>
+                                </select>
+                                <input type="text" name="industryIds" style="display:none" id="industryIds">
+                            </div>
+                        </div>
+                        <div class="fields">
+                        </div>
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>企业地址<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入有效的电话号码" name="address" ms-duplex="companyData.address">
+                            </div>
+                            <div class="eight wide field">
+                                <label>联系人<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入长度30以内的中文, 英文" name="contacts" ms-duplex="companyData.contacts">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>联系方式<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入有效的电话号码" name="contactsPhone" ms-duplex="companyData.contactsPhone">
+                            </div>
+                            <div class="eight wide field">
+                                <label>联系人职务<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请填写联系人职务" name="contactsPosition" ms-duplex="companyData.contactsPosition">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui cancel olive button">取消</div>
+            <div class="ui approve primary button">保存</div>
+        </div>
+    </div>
+    <!--企业详情-->
+    <div class="ui large modal" id="modalDetail">
+        <div class="header">详情</div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <div class="ui two column grid">
+                        <div class="column">
+                            <div class="ui grid">
+                                <div class="six wide column">
+                                    <div class="ui one column grid">
+                                        <div class="column">
+                                            <b>企业名称/编码</b>
+                                        </div>
+                                        <div class="column">
+                                            <b>企业地址</b>
+                                        </div>
+                                        <div class="column">
+                                            <b>联系人职务</b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ten wide column">
+                                    <div class="ui one column grid">
+                                        <div class="column">
+                                            {{companyData.name}} / {{companyData.id}}
+                                        </div>
+                                        <div class="column">
+                                            {{companyData.address}}
+                                        </div>
+                                        <div class="column">
+                                            {{companyData.contactsPosition}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui grid">
+                                <div class="six wide column">
+                                    <div class="ui one column grid">
+                                        <div class="column">
+                                            <b>所属行业</b>
+                                        </div>
+                                        <div class="column">
+                                            <b>联系人/联系方式</b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ten wide column">
+                                    <div class="ui one column grid">
+                                        <div class="column">
+                                            {{companyData.industry.split(',').join('，')}}
+                                        </div>
+                                        <div class="column">
+                                            {{companyData.contacts}} / {{companyData.contactsPhone}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            新增时间: {{companyData.createTime}}
+                        </div>
+                        <div class="column">
+                            新增时间: {{companyData.createTime}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="ui primary button approve">确定</button>
+        </div>
+    </div>
+    <div class="ui small modal" id="confirm">
+        <div class="header">提示</div>
+        <div class="content">
+            删除后将无法恢复！<br>
+            确认删除？
+        </div>
+        <div class="actions">
+            <button class="ui green approve button">确定</button>
+            <button class="ui orange deny button">取消</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,210 @@
+<div ms-controller="companySetting">
+    <div class="ui container fluid">
+        <button class="ui button orange" ms-click="back"><i class="icon reply"></i> 返回园区设置</button>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui segment">
+        <div class="ui hidden divider"></div>
+        <div class="ui form">
+            <div class="ui stackable doubling five column grid">
+                <div class="row">
+                    <div class="column">
+                        <input type="text" placeholder="企业名称" ms-duplex="queryData.companyName">
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.isDistanceLimit">
+                            <option value="0">设定范围内必须打卡</option>
+                            <option value="YES">是</option>
+                            <option value="NO">否</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.inDistanceLimitNeedphoto">
+                            <option value="0">设定范围内必须拍照</option>
+                            <option value="YES">是</option>
+                            <option value="NO">否</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.outDistanceLimitNeedphoto">
+                            <option value="0">设定范围外必须拍照</option>
+                            <option value="YES">是</option>
+                            <option value="NO">否</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.isEnable">
+                            <option value="0">启用状态</option>
+                            <option ms-repeat="commonData.roleCommonData.useStatus" ms-value="{{el.value}}">{{el.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row grid-row">
+                    <div class="sixteen wide column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="right menu">
+                                <button class="ui labeled icon primary button" ms-click="search"><i class="search icon"></i>查询</button>
+                                <button class="ui labeled icon orange button" ms-click="reset"><i class="undo icon"></i>重置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui container fluid secondary menu operation-menu">
+                <div class="right menu">
+                    <button class="ui labeled icon green button" ms-click="showAddWin"><i class="plus icon"></i>新增</button>
+                </div>
+            </div>
+        </div>
+        <table class="data-table ui blue table" style="width:100%"></table>
+    </div>
+    <!-- 新增/修改 企业设置 -->
+    <div class="ui modal" id="companyConfig">
+        <div class="header">{{isEdit ? '修改企业设置' : '新增企业设置'}}</div>
+        <div class="content">
+            <form class="ui form" id="formData">
+                <div class="ui grid">
+                    <div class="four wide column">
+                        企业名称
+                    </div>
+                    <div class="four wide column">
+                        <div ms-if="!isEdit">
+                            <select class="ui fluid search dropdown" name="companyId" ms-duplex="companyConfig.companyId">
+                                <option value="0">请输入企业名称</option>
+                                <option ms-repeat="companyList.list" ms-value="{{el.companyId}}">{{el.companyName}}</option>
+                            </select>
+                        </div>
+                        <div ms-if="isEdit">{{companyConfig.companyName}}</div>
+                        <input type="text" ms-value="{{companyConfig.id}}" style="display: none" name="id">
+                        <input type="text" ms-value="{{parkId}}" style="display: none" name="parkId">
+                        <input type="text" ms-value="{{companyConfig.parkName}}" style="display: none" name="parkName">
+                        <input type="text" ms-value="{{companyConfig.companyId}}" style="display: none" name="companyId" ms-if="isEdit">
+                        <input type="text" ms-value="{{companyConfig.companyName}}" style="display: none" name="companyName">
+                        <input type="text" ms-value="{{companyConfig.isEnable}}" style="display: none" name="isEnable">
+                        <input type="text" ms-value="{{companyConfig.cityName}}" style="display: none" name="cityName">
+                        <input type="text" ms-value="{{companyConfig.cityCode}}" style="display: none" name="cityCode">
+                        <input type="text" ms-value="{{companyConfig.createUid}}" style="display: none" name="createUid">
+                        <!--  updateUid 应为本登陆用户的用户id，待修改 -->
+                        <input type="text" ms-value="{{companyConfig.updateUid}}" style="display: none" name="updateUid">
+                        <input type="text" ms-value="{{companyConfig.status}}" style="display: none" name="status">
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        企业经纬度坐标
+                    </div>
+                    <div class="four wide column">
+                        <div class="ui action input">
+                            <input type="text" ms-duplex="companyConfig.lonlat" name="lonlat" id="lonlat"/>
+                                    <span class="ui button basic compact add-on" title="百度地图API查经纬度"
+                                          ms-click="showBaiduMap()"><i class="icon search blue"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        是否必须在设定范围内打卡
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="isDistanceLimit" value="YES" id="editIsPunch" ms-duplex-text="companyConfig.isDistanceLimit"/>
+                            <label for="editIsPunch">是</label>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="isDistanceLimit" value="NO" id="editNotPunch" ms-duplex-text="companyConfig.isDistanceLimit"/>
+                            <label for="editNotPunch">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        距离园区默认有效范围
+                    </div>
+                    <div class="three wide column">
+                        <div class="ui right labeled input">
+                            <input type="text" name="distanceLimit" ms-duplex="companyConfig.distanceLimit">
+                            <div class="ui label">米</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        有效范围内是否必须拍照上传
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="inDistanceLimitNeedphoto" value="YES" id="editIsInnerPhoto" ms-duplex-text="companyConfig.inDistanceLimitNeedphoto"/>
+                            <label for="editIsInnerPhoto">是</label>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="inDistanceLimitNeedphoto" value="NO" id="editNotInnerPhoto" ms-duplex-text="companyConfig.inDistanceLimitNeedphoto"/>
+                            <label for="editNotInnerPhoto">否</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        有效范围外是否必须拍照上传
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="outDistanceLimitNeedphoto" value="YES" id="editIsOutPhoto" ms-duplex-text="companyConfig.outDistanceLimitNeedphoto"/>
+                            <label for="editIsOutPhoto">是</label>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="outDistanceLimitNeedphoto" value="NO" id="editNotOutPhoto" ms-duplex-text="companyConfig.outDistanceLimitNeedphoto"/>
+                            <label for="editNotOutPhoto">否</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui cancel olive button">取消</div>
+            <div class="ui approve primary button">确认</div>
+        </div>
+    </div>
+    <div class="ui small modal" id="confirm">
+        <div class="header">提示</div>
+        <div class="content">
+            删除后将无法恢复！<br>
+            确认删除？
+        </div>
+        <div class="actions">
+            <button class="ui green approve button">确定</button>
+            <button class="ui orange deny button">取消</button>
+        </div>
+    </div>
+    <div class="ui modal" id="baiduMapWin">
+        <div class="header">百度地图-经纬度</div>
+        <div class="content">
+            <div class="ui form stackable doubling three column grid">
+                <div class="row">
+                    <div class="column">
+                        <input placeholder="输入具体地址查询经纬度" ms-duplex="baiduMapPositionName"/>
+                    </div>
+                    <div class="column">
+                        <button class="ui button blue" ms-click="searchBaiduMapPoint"><i class="search icon"></i>查询</button>
+                    </div>
+                    <div class="right menu">
+                        <b> 经度：</b><span id="lng_number">{{companyConfig.lon}}</span>
+                        <b> 纬度：</b><span id="lat_number">{{companyConfig.lat}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div id="baiduMap" style="height: 485px;"></div>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green large ">确定坐标</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+</div>

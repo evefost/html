@@ -1,0 +1,359 @@
+<div ms-controller="park" class="ui fluid container">
+    <div class="ui form">
+        <div class="ui five column stackable doubling grid">
+            <div class="row">
+                <div class="column">
+                    <input type="text" placeholder="园区名称" ms-duplex="queryData.name">
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="园区编码" ms-duplex="queryData.code">
+                </div>
+                <div class="column">
+                    <select class="ui fluid dropdown"  ms-duplex="queryData.cityCode">
+                        <option value="0">所属城市</option>
+                        <option value="sz">深圳</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select class="ui fluid dropdown" ms-duplex="queryData.regionCode" id="region">
+                        <option value="0">所属区域</option>
+                        <option value="ns">南山</option>
+                        <option value="ft">福田</option>
+                        <option value="ba">保安</option>
+                        <option value="lg">龙岗</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select class="ui fluid dropdown" ms-duplex="queryData.isEnable">
+                        <option value="0">启用状态</option>
+                        <option ms-repeat="commonData.roleCommonData.useStatus" ms-value="{{el.value}}">{{el.name}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row grid-row">
+                <div class="column">
+                    <div class="date date-timepicker">
+                        <div class="ui action fluid input">
+                            <input size="16" type="text" ms-duplex="queryData.startTime" readonly placeholder="更新时间-起">
+                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="date date-timepicker">
+                        <div class="ui action fluid input">
+                            <input size="16" type="text" ms-duplex="queryData.endTime" readonly placeholder="更新时间-止">
+                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="地址关键字" ms-duplex="queryData.addressKey">
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="联系人" ms-duplex="queryData.contacts">
+                </div>
+                <div class="column">
+                    <div class="ui container fluid secondary menu operation-menu">
+                        <div class="left menu">
+                            <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                            <button class="ui labeled icon orange button" ms-click="reset">重置<i class="icon undo"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row grid-row">
+                <div class="column">
+                    <input type="text" placeholder="联系电话" ms-duplex="queryData.contactsPhone">
+                </div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="right menu">
+                <button class="ui labeled icon green button" ms-click="showAddWin">新增园区<i class="icon plus"></i></button>
+            </div>
+        </div>
+    </div>
+    <table class="data-table ui blue selectable table" style="width:100%"></table>
+
+    <!--新增/编辑园区-->
+    <div id="parkModal" class="ui large modal">
+        <div class="header">
+            {{parkData.title}}
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <form class="ui form" id="parkForm">
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>园区名称<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入长度30以内的中文, 英文或数字" name="name" ms-duplex="parkData.name">
+                            </div>
+                            <div class="eight wide field">
+                                <label>园区编码<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入长度30以内的英文或数字或连字符" name="code" ms-duplex="parkData.code">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>主要行业<i class="icon red star"></i></label>
+                                <select class="ui fluid selection dropdown" multiple="" id="multi-select" ms-duplex="parkData.industryIds">
+                                    <option ms-repeat="industrySet" ms-value="el.id">{{el.name}}</option>
+                                </select>
+                                <input type="text" name="industryIds" style="display:none" id="industryIds">
+                            </div>
+                            <div class="eight wide field">
+                                <label>联系人<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入长度30以内的中文, 英文" name="contacts" ms-duplex="parkData.contacts">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>联系电话<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入有效的电话号码" name="contactsPhone" ms-duplex="parkData.contactsPhone">
+                            </div>
+                            <div class="eight wide field">
+                                <label>联系人职务<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请填写联系人职务" name="contactsPosition" ms-duplex="parkData.contactsPosition">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="sixteen wide field">
+                                <label>园区简介</label>
+                                <div id="wangeditor-container">
+                                    <textarea style="height:320px; width:100%" id="description" name="description" ms-duplex="parkData.description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>所属城市<i class="icon red star"></i></label>
+                                <select class="ui fluid dropdown" name="cityCode" ms-duplex="parkData.cityCode" id="cityCode">
+                                    <option value="0">所属城市</option>
+                                    <option value="sz">深圳</option>
+                                </select></div>
+                            <div class="eight wide field">
+                                <label>所属区域<i class="icon red star"></i></label>
+                                <select class="ui fluid dropdown" name="regionCode" ms-duplex="parkData.regionCode">
+                                    <option value="0">所属区域</option>
+                                    <option ms-repeat="regionList" ms-value="{{el.code}}">{{el.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>园区地址<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入长度30以内的中文, 英文或数字" name="address" ms-duplex="parkData.address">
+                            </div>
+                            <div class="four wide field">
+                                <label>经度坐标<i class="icon star red"></i></label>
+                                <input type="number" ms-duplex="parkData.longitude" name="longitude" />
+                            </div>
+                            <div class="four wide field">
+                                <label>纬度坐标<i class="icon star red"></i></label>
+                                <div class="ui action input">
+                                    <input type="number" ms-duplex="parkData.latitude" name="latitude"/>
+                                    <span class="ui button basic compact add-on" title="百度地图API查经纬度"
+                                          ms-click="showBaiduMap"><i class="icon search blue"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>园区Logo</label>
+                            <div class="ui special cards">
+                                <div class="card ui-card-400x300">
+                                    <div class="cursor-file-button cursor-fileinput-lineheight-400x300">
+                                        +
+                                        <input type="file" name="logoImage" ms-change="uploadImage">
+                                    </div>
+                                    <div class="blurring dimmable image" ms-visible="parkData.logo != ''">
+                                        <div class="ui inverted dimmer">
+                                            <div class="content">
+                                                <div class="center ui-card-dimmer-buttons">
+                                                    <button ms-click="showResourceImg" type="button" class="ui inverted green button">查看原图</button>
+                                                    <button ms-click="delResourceImg" type="button" class="ui inverted red button">删除图片</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img class="img-width-400x300" ms-src="parkData.logo" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" name="id" ms-duplex="parkData.id" ms-if="isEdit" style="display:none">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="ui approve green button">保存</button>
+            <button class="ui cancel orange button">取消</button>
+        </div>
+    </div>
+    <!--园区详情-->
+    <div class="ui large modal" id="modalDetail">
+        <div class="header">详情</div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <div class="ui three column grid">
+                        <div class="row">
+                            <div class="column">
+                                <b>园区名称/编码</b>
+                            </div>
+                            <div class="column">
+                                {{parkData.name}} / {{parkData.code}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>主要行业</b>
+                            </div>
+                            <div class="column">
+                                {{parkData.industry.split(',').join('，')}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>联系人/电话</b>
+                            </div>
+                            <div class="column">
+                                {{parkData.contacts}} / {{parkData.contactsPhone}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>联系人职务</b>
+                            </div>
+                            <div class="column">
+                                {{parkData.contactsPosition}}
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="sixteen wide column">
+                                <div class="ui divider"></div>
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="column">
+                                <b>所属城市</b>
+                            </div>
+                            <div class="column">
+                                {{parkData.cityName}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>所属区域</b>
+                            </div>
+                            <div class="column">
+                                {{parkData.regionName}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>园区地址</b>
+                            </div>
+                            <div class="column">
+                                {{parkData.address}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>经纬度坐标</b>
+                            </div>
+                            <div class="column">
+                                经度: {{parkData.longitude}}， 纬度: {{parkData.latitude}}
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="sixteen wide column">
+                                <div class="ui divider"></div>
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="sixteen wide column">
+                                <b>园区简介</b>
+                            </div>
+                            <div class="sixteen wide column">
+                                <div class="ui hidden divider"></div>
+                            </div>
+                            <div class="sixteen wide column">
+                                {{parkData.description|html}}
+                            </div>
+                            <div class="sixteen wide column">
+                                <div class="ui divider"></div>
+                            </div>
+                        </div>
+                        <div class="row grid-row" ms-if="parkData.logo !== ''">
+                            <div class="sixteen wide column">
+                                <b>园区Logo</b>
+                            </div>
+                            <div class="sixteen wide column">
+                                <div class="ui hidden divider"></div>
+                            </div>
+                            <div class="sixteen wide column">
+                                <img class="img-width-180x180" ms-src="parkData.logo" />
+                            </div>
+                            <div class="sixteen wide column">
+                                <div class="ui divider"></div>
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="eight wide column">
+                                新增时间: {{parkData.createTime}}
+                            </div>
+                            <div class="eight wide column">
+                                更新时间: {{parkData.updateTime}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="ui primary button approve">确定</button>
+        </div>
+    </div>
+    <div class="ui small modal" id="confirm">
+        <div class="header">提示</div>
+        <div class="content">
+            删除后将无法恢复！<br>
+            确认删除？
+        </div>
+        <div class="actions">
+            <button class="ui green approve button">确定</button>
+            <button class="ui orange deny button">取消</button>
+        </div>
+    </div>
+    <div class="ui modal" id="baiduMapWin">
+        <div class="header">百度地图-经纬度</div>
+        <div class="content">
+            <div class="ui form stackable doubling three column grid">
+                <div class="row">
+                    <div class="column">
+                        <input placeholder="输入具体地址查询经纬度" ms-duplex="baiduMapPositionName"/>
+                    </div>
+                    <div class="column">
+                        <button class="ui button blue" ms-click="searchBaiduMapPoint"><i class="search icon"></i>查询</button>
+                    </div>
+                    <div class="right menu">
+                        <b> 经度：</b><span id="lng_number">{{parkData.longitude}}</span>
+                        <b> 纬度：</b><span id="lat_number">{{parkData.latitude}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div id="baiduMap" style="height: 485px;"></div>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green large ">确定坐标</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+</div>

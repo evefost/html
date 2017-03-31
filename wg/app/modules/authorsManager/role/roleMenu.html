@@ -1,0 +1,66 @@
+<div ms-controller="roleMenu">
+    <div class="ui container fluid">
+        <div class="ui container fluid">
+            <button class="ui button orange" ms-click="back"><i class="icon reply"></i> 返回角色管理</button>
+        </div>
+        <div class="ui divider"></div>
+        <div id="roleMenuList" class="div-grid">
+            <div class="div-grid-row div-grid-row-top div-grid-row-left">
+                <div class="div-grid-column-2">
+                    <b>一级模块</b>
+                </div>
+                <div class="div-grid-column-2">
+                    <b>二级模块</b>
+                </div>
+                <div class="div-grid-column-2">
+                    <b>三级模块</b>
+                </div>
+                <div class="div-grid-column-10">
+                    <b>功能</b>
+                </div>
+            </div>
+            <div id="roleMenuBody"></div>
+            <!--<div class="div-grid-row div-grid-row-left" ms-repeat="roleAllMenuList" ms-if-loop="el.level==1">
+                <div class="div-grid-column-2">
+                    <div class="ui checkbox">
+                        <input type="checkbox" ms-click="checkRoleMenu('1')" ms-value="el.id">
+                        <label>{{el.name}}</label>
+                    </div>
+                </div>
+                <div class="div-grid-column-10 div-grid-column-10-no-padding">
+                    <div class="div-grid-row" ms-repeat="roleAllMenuList"
+                         ms-if-loop="el.level==2 && el.parentId ==$outer.el.id">
+                        <div class="div-grid-column-2">
+                            <div class="ui checkbox">
+                                <input type="checkbox" ms-click="checkRoleMenu('2')" ms-value="el.id">
+                                <label>{{el.name}}</label>
+                            </div>
+                        </div>
+                        <div class="div-grid-column-10 div-grid-column-10-no-padding">
+                            <div class="div-grid-row" ms-repeat="roleAllMenuList"
+                                 ms-if-loop="el.level==3 && el.parentId ==$outer.el.id">
+                                <div class="div-grid-column-2">
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" ms-click="checkRoleMenu('3')" ms-value="el.id">
+                                        <label>{{el.name}}</label>
+                                    </div>
+                                </div>
+                                <div class="div-grid-column-10">
+                                    <div class="ui checkbox" ms-repeat="roleAllMenuList"
+                                         ms-if-loop="el.level==-1 && el.parentId ==$outer.el.id">
+                                        <input type="checkbox" ms-value="el.id">
+                                        <label>{{el.name}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div class="actions">
+        <div class="ui approve button green" ms-click="saveRoleMenu">保 存</div>
+    </div>
+</div>

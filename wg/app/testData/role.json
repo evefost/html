@@ -1,0 +1,52 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 3,
+    "results": {
+      "tBody": [
+        {
+          "id": 1,
+          "createUid": 1,
+          "updateUid": 1,
+          "createTime": 1463735852000,
+          "updateTime": 1463735855000,
+          "useStatus": "YES",
+          "name": "超级管理员",
+          "isPersist":"YES",
+          "type":"INNER",
+          "description": "我是一个超级管理员"
+        },
+        {
+          "id": 3,
+          "createUid": 1,
+          "updateUid": 1,
+          "createTime": 1464057041000,
+          "updateTime": 1464057044000,
+          "useStatus": "YES",
+          "name": "运营经理",
+          "isPersist":"NO",
+          "type":"PARK",
+          "description": "我是一个运营经理"
+        },
+        {
+          "id": 2,
+          "createUid": 1,
+          "updateUid": 1,
+          "createTime": 1464056996000,
+          "updateTime": 1464056998000,
+          "useStatus": "NO",
+          "name": "供应商经理",
+          "isPersist":"NO",
+          "type":"SUPPLIER",
+          "description": "我是一个供应商经理"
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

@@ -1,0 +1,197 @@
+<div ms-controller="orderService" class="house">
+    <div class="ui container fluid">
+        <div class="ui form stackable doubling five column grid">
+            <div class="row">
+                <div class="column">
+                    <select class="ui dropdown fluid" ms-duplex="orderSearch.orderSource">
+                        <option value="0">工单来源</option>
+                        <option ms-repeat="orderSourceList" ms-value="el.value" >{{el.name}}</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <div ms-visible="orderStatus=='UNHANDLED'">
+                        <select class="ui dropdown fluid" ms-duplex="orderSearch.handleResult" >
+                            <option value="0">处理结果</option>
+                            <option value="NOT_CONTACT">未联系</option>
+                            <option value="CONTACT_FAILED">联系失败</option>
+                            <option value="CONTACT_AGAIN">需再次联系</option>
+                        </select>
+                    </div>
+                    <div ms-visible="orderStatus=='HANDLING'">
+                        <select class="ui dropdown fluid" ms-duplex="orderSearch.handleResult" >
+                            <option value="0">处理结果</option>
+                            <option value="NOT_DISPATCH">待派单</option>
+                            <option value="NOT_TRANSFER">待转派</option>
+                        </select>
+                    </div>
+                    <div ms-visible="orderStatus=='DISPATCHING'">
+                        <select class="ui dropdown fluid" ms-duplex="orderSearch.handleResult" >
+                            <option value="0">处理结果</option>
+                            <option value="DSK">待实勘</option>
+                            <option value="SKZ">实勘中</option>
+                            <option value="YSK">已实勘</option>
+                            <option value="DDK">待带看</option>
+                            <option value="DKZ">带看中</option>
+                            <option value="YDK">已带看</option>
+                        </select>
+                    </div>
+                    <div ms-visible="orderStatus==='HANDLED'">
+                        <select class="ui dropdown fluid" ms-duplex="orderSearch.handleResult" >
+                            <option value="0">处理结果</option>
+                            <option value="DISPATCHING">已签约</option>
+                            <option value="TRANSFERED">不签约</option>
+                            <option value="NOT_ACCEPT">不受理</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="date date-timepicker">
+                        <div class="ui action input fluid">
+                            <input size="16" type="text" ms-duplex="orderSearch.startTime" readonly placeholder="处理日期-起">
+                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="date date-timepicker">
+                        <div class="ui action input fluid">
+                            <input size="16" type="text" ms-duplex="orderSearch.endTime" readonly placeholder="处理日期-止">
+                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <button class="ui button blue" ms-click="search"><i class="search icon"></i>查询</button>
+                    <button class="ui button blue" ms-click="reset"><i class="refresh icon"></i>重置</button>
+                </div>
+            </div>
+            <div class="row grid-row">
+                <div class="column">
+                    <input placeholder="工单号" ms-duplex="orderSearch.orderSn" />
+                </div>
+                <div class="column">
+                    <input placeholder="客户名称" ms-duplex="orderSearch.realName" />
+                </div>
+                <div class="column">
+                    <input placeholder="客户电话" ms-duplex="orderSearch.phone" />
+                </div>
+                <div class="column">
+                    <input placeholder="客服名称" ms-duplex="orderSearch.workerName" />
+                </div>
+                <div class="column">
+                    <input placeholder="坐席号" ms-duplex="orderSearch.accountId" />
+                </div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="ui basic buttons">
+                <button type="button" class="ui button" ms-class="active:orderStatus=='UNHANDLED'" ms-click="changeOrderStatus('UNHANDLED')">待处理</button>
+                <button type="button" class="ui button" ms-class="active:orderStatus=='HANDLING'" ms-click="changeOrderStatus('HANDLING')">处理中</button>
+                <button type="button" class="ui button" ms-class="active:orderStatus=='DISPATCHING'" ms-click="changeOrderStatus('DISPATCHING')">已派单</button>
+                <button type="button" class="ui button" ms-class="active:orderStatus=='HANDLED'" ms-click="changeOrderStatus('HANDLED')">已处理</button>
+            </div>
+            <div class="right menu">
+                <button class="ui button teal" ms-click="showOrderAddWin"><i class="add icon"></i>新建{{btnText}}工单</button>
+                <!-- <button class="ui button orange" ms-click="pickTFOrder" ms-if="orderStatus=='UNHANDLED'"><i class="pointing up icon"></i>自接{{btnText}}工单</button> -->
+            </div>
+        </div>
+        <div class="auto-scroll-table">
+            <table class="ui teal table selectable celled data-table" width="100%" >
+                <!-- tbody -->
+            </table>
+        </div>
+    </div>
+    <div class="ui modal fullscreen" id="orderPaidangWin">
+        <div class="header">派单/转单</div>
+        <div class="content" style="height: 560px">
+            <div class="ui container fluid">
+                <div class="ui form">
+                    <div class="two fields">
+                        <div class="field">
+                            <label>工单类型</label>
+                            <select class="ui dropdown fluid" ms-duplex="orderPaidang.orderType" disabled>
+                                <option ms-repeat="orderTypeList" ms-value="el.value" >{{el.name}}</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>工单号</label>
+                            <input type="text" ms-duplex="orderPaidang.orderSn" disabled />
+                        </div>
+                        <div class="field">
+                            <label>派单类型</label>
+                            <input type="text" ms-duplex="orderPaidang.handleResultText" disabled />
+                        </div>
+                        <div class="field">
+                            <label>预约时间<i class="icon star red" ></i></label>
+                            <input type="text" ms-duplex="orderPaidang.appointmentTime" disabled />
+                            <!--<div class="date date-timepicker">
+                                <div class="ui action input">
+                                    <input size="16" type="text" readonly ms-duplex="orderPaidangAppointmentTime">
+                                    <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="ui divider"></div>
+                <div class="flex-container">
+                    <div class="flex">
+                        <div class="ui form">
+                            <div class="inline fields">
+                                <div class="field">
+                                    <input placeholder="员工姓名" ms-duplex="searchUser.realName" />
+                                </div>
+                                <div class="field">
+                                    <input placeholder="员工电话号码" ms-duplex="searchUser.phone" />
+                                </div>
+                                <div class="field">
+                                    <button class="ui button blue" ms-click="userSearch"><i class="search icon"></i>查询</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                        <div class="auto-scroll-table">
+                            <table id="orderUserTable" class="ui teal table selectable celled" width="100%" >
+                            </table>
+                        </div>
+                    </div>
+                    <div class="flex-width-150">
+                        <div class="ui segment text-align-center" style="height:350px;padding-top:100px;">
+                            <div class="ui tiny image">
+                                <div class="ui circular red label approveStatus green">{{selectUserInfo.accountName}}</div>
+                                <p></p>
+                                <b>{{selectUserInfo.realName}}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve button large green">确定</div>
+            <div class="ui cancel button large orange">取消</div>
+        </div>
+    </div>
+    <div class="ui small modal" id="cancelWin">
+        <div class="header">取消预约</div>
+        <div class="content" style="height:300px">
+            <form class="ui form">
+                <div class="two fields">
+                    <div class="field">
+                        <label>取消原因</label>
+                        <input ms-duplex="orderCancel.id" type="hidden"/>
+                        <textarea rows="4" ms-duplex="orderCancel.reason"
+                                  placeholder="请输入取消原因"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green" >确定</div>
+            <div class="ui cancel button orange" >取消</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "status": 200,
+  "message": "成功显示考勤列表",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 5,
+    "pageCounts": 1,
+    "recordsTotal": 1,
+    "results": {
+      "tBody": [
+        {
+          "parkName": "华丰金融港",
+          "companyName": "道网科技",
+          "userName": "谢红追",
+          "signDate": "2016/08/29",
+          "signInTime": "08:43:43",
+          "signInDistance": 50,
+          "signInRemark": "我在外出差",
+          "signInImage": "http://assets.daowangtech.com//testFile/2.png",
+          "signOutTime": "18:43:03",
+          "signOutDistance": 30,
+          "signOutRemark": "我在外面刚出差回来",
+          "signOutImage": "http://assets.daowangtech.com//testFile/1.png"
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

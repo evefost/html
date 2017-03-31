@@ -1,0 +1,107 @@
+<div ms-controller="serviceTimeout">
+    <div class="ui pointing menu">
+        <a class="active item">
+            维修服务
+        </a>
+    </div>
+    <div class="ui grid">
+        <div class="twelve wide column">
+            <div class="ui segment">
+                <form class="ui form" id="timeoutConfig">
+                    <div class="ui one column grid">
+                        <div class="column">
+                            <div class="ui segment">
+                                <div class="ui three column grid">
+                                    <div class="column">
+                                        <div class="ui circular basic segment">
+                                            <h2 class="ui header">
+                                                超时未派
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="ui one column grid">
+                                            <div class="column" ms-repeat="configMap.UNSEND_TIMEOUT.data">{{el.configName}}<br>{{el.configDesc}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="column"  ms-repeat-item="configMap.UNSEND_TIMEOUT.data">
+                                        <select class="ui fluid dropdown" ms-duplex="item.configValue">
+                                            <option value="0">请选择时间</option>
+                                            <option ms-repeat="timeAmount" ms-value="el.value">{{el.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="ui segment">
+                                <div class="ui three column grid">
+                                    <div class="column">
+                                        <div class="ui circular basic segment">
+                                            <h2 class="ui header">
+                                                超时未接
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="ui one column grid">
+                                            <div class="column" ms-repeat="configMap.UNRECEIVE_TIMEOUT.data">{{el.configName}}<br>{{el.configDesc}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="column">
+                                        <div class="ui one column grid">
+                                            <div class="column" ms-repeat-item="configMap.UNRECEIVE_TIMEOUT.data">
+                                                <select class="ui fluid dropdown" ms-duplex="item.configValue">
+                                                    <option value="0">请选择时间</option>
+                                                    <option ms-repeat="timeAmount" ms-value="el.value">{{el.name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="ui segment">
+                                <div class="ui three column grid">
+                                    <div class="column">
+                                        <div class="ui circular basic segment">
+                                            <h2 class="ui header">
+                                                超时未反馈
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="ui one column grid">
+                                            <div class="column" ms-repeat="configMap.UNFEEDBACK_TIMEOUT.data">{{el.configName}}<br>{{el.configDesc}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="column">
+                                        <div class="ui one column grid">
+                                            <div class="column" ms-repeat-item="configMap.UNFEEDBACK_TIMEOUT.data">
+                                                <select class="ui fluid dropdown" ms-duplex="item.configValue">
+                                                    <option value="0">请选择时间</option>
+                                                    <option ms-repeat="timeAmount" ms-value="el.value">{{el.name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="ui hidden divider"></div>
+                <div class="ui six column centered grid">
+                    <div class="column">
+                        <button class="ui teal button" ms-click="save">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

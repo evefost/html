@@ -1,0 +1,49 @@
+{
+  "status": 200,
+  "message": "success",
+  "predefined": {
+    "suppliers": ["深圳XX公司", "深圳YY公司", "深圳ZZ公司"],
+    "repairTypes": ["水", "空调", "刷墙", "地板抛光"],
+    "acceptors": ["小二", "小三"]
+  },
+  "data": {
+    "pageNo": 1,
+    "pageSize": 20,
+    "pageCount": 4,
+    "recordsTotal": 76,
+    "results": {
+      "tBody": [
+        {
+          "id": 1,
+          "code": "001",
+          "applyTime": "1472022332",
+          "dispatchTime": "1472022648",
+          "acceptTime": "1472024026",
+          "feedbackTime": "1472028445",
+          "enterprise": "华丰集团",
+          "zone": "华丰西乡园区",
+          "repairType": "水",
+          "adress": "金融港15楼",
+          "applierContact": "陆娟 13676728408",
+          "acceptor": "王伟",
+          "supplier": "深圳KK公司",
+          "status": "未派单",
+          "description": "楼道厕所水管漏水，请帮忙修理，谢谢！",
+          "images": ["img0001.jpg", "img0002.jpg", "img0003.jpg"],
+          "sendback": "派错人了？",
+          "flowTrack": [
+            {
+              "operation": "深圳KK公司(13798512600)已接单",
+              "time": "1472024338"
+            },
+            {
+              "operation": "反馈: 已完成",
+              "time": "1472024442"
+            }
+          ]
+        }
+      ],
+      "tFooter": []
+    }
+  }
+}

@@ -1,0 +1,133 @@
+<div ms-controller="message">
+    <div class="ui container fluid">
+        <div class="ui form stackable doubling five column grid">
+            <div class="row">
+                <div class="column">
+                    <select class="ui dropdown fluid" ms-duplex="searchFormData.cityCode">
+                        <option value="0">城市</option>
+                        <option ms-repeat="cityList" ms-value="el.code">{{el.name}}</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <input type="text" ms-duplex="searchFormData.parkNames" placeholder="所属园区">
+                </div>
+                <div class="column">
+                    <button type="button" class="ui button blue" ms-click="search"><i class="search icon"></i>查询
+                    </button>
+                    <button type="button" class="ui button orange" ms-click="reset"><i class="undo icon"></i>重置</button>
+                </div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="right menu">
+                <button class="ui button green" ms-click="showAddWin(false)"><i class="add icon"></i>发布消息</button>
+            </div>
+        </div>
+        <div class="auto-scroll-table">
+            <table class="ui blue table selectable celled data-table" width="100%"></table>
+        </div>
+    </div>
+    <div class="ui modal large" id="messageInfoWin">
+        <div class="header">消息详情</div>
+        <div class="content">
+            <div class="ui container fluid">
+                <div class="ui form">
+                    <div class="inline equal width fields">
+                        <div class="field">
+                            <label>消息主题：</label>
+                            <span>{{message.title}}</span>
+                        </div>
+                        <div class="field">
+                            <label>发布时间：</label>
+                            <span>{{message.createTime}}</span>
+                        </div>
+                    </div>
+                    <div class="inline equal width fields">
+                        <div class="field">
+                            <label>发布城市：</label>
+                            <span>{{message.cityNames}}</span>
+                        </div>
+                        <div class="field">
+                            <label>发布平台：</label>
+                            <span>{{message.platform.replace(/ANDROID/i, '安卓').split(',').join('，');}}</span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>发布园区：</label>
+                        <span>{{message.parkNames.split(',').join('，')}}</span>
+                    </div>
+                    <div class="field">
+                        <label>消息内容：</label>
+                        <div class="ui message">
+                            {{message.content|html}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui cancel button large orange">关闭</div>
+        </div>
+    </div>
+    <div class="ui large modal" id="messageAddWin">
+        <div class="header">发布消息</div>
+        <div class="content" style="height:480px;">
+            <form class="ui form">
+                <div class="inline field">
+                    <label>发布平台<i class="icon star red"></i></label>
+                    <div class="ui checkbox">
+                        <input type="checkbox" ms-duplex="platForms" value="ANDROID"/>
+                        <label>安卓</label>
+                    </div>
+                    <div class="ui checkbox">
+                        <input type="checkbox" ms-duplex="platForms" value="iOS"/>
+                        <label>IOS</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>消息主题<i class="icon star red"></i></label>
+                    <input type="text" ms-duplex="message.title" placeholder="消息主题"/>
+                </div>
+                <div class="field">
+                    <label>消息内容<i class="icon star red"></i></label>
+                    <div id="wangeditor-container">
+                        <textarea id="messageRichEditor" type="text" ms-duplex="message.content"
+                                  placeholder="消息主体内容"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <table class="ui celled striped table">
+                        <thead>
+                        <tr>
+                            <th colspan="2">发送城市和园区<i class="icon star red"></i></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ms-repeat="cityList">
+                            <td class="collapsing">
+                                <div class="ui checkbox">
+                                    <input type="checkbox" ms-duplex="cityCodes" ms-value="el.code"/>
+                                    <label>{{el.name}}</label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui checkbox" ms-if-loop="el.cityCode == $outer.el.code"
+                                     ms-repeat="allParkList">
+                                    <input type="checkbox" ms-duplex="parkIds" ms-value="el.parkId"/>
+                                    <label>{{el.parkName}}</label>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green">确定</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+{
+    "status": 200,
+    "message": "成功显示客户规模分类列表",
+    "data": {
+        "pageNo": 1,
+        "pageSize": 10,
+        "pageCounts": 9,
+        "recordsTotal": 88,
+        "results": {
+            "tBody": [
+                {
+                    "id": 294,
+					"number": "1",
+					"name": "20人以下",
+					"totals": "包含客户数：16",
+					"creatTime": "2014-11-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 292,
+                    "number": "2",
+					"name": "20-99人",
+					"totals": "18",
+					"creatTime": "2015-10-10 18:45:25",
+					"updateTime": "2017-11-10 16:45:25"
+                },
+                {
+                    "id": 291,
+                    "number": "3",
+					"name": "100-499人",
+					"totals": "68",
+					"creatTime": "2014-10-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 290,
+                    "number": "4",
+					"name": "500-999人",
+					"totals": "28",
+					"creatTime": "2013-10-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 289,
+                    "number": "1",
+					"name": "1000-4999人",
+					"totals": "包含客户数：16",
+					"creatTime": "2014-11-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 286,
+                    "number": "2",
+					"name": "5000-9999人",
+					"totals": "18",
+					"creatTime": "2015-10-10 18:45:25",
+					"updateTime": "2017-11-10 16:45:25"
+                },
+                {
+                    "id": 285,
+                    "number": "6",
+					"name": "10000人以上",
+					"totals": "28",
+					"creatTime": "2013-10-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                }
+            ],
+            "tFooter": [],
+            "tHeader": []
+        }
+    }
+}

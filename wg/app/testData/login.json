@@ -1,0 +1,97 @@
+{
+  "status": 200,
+  "message": "获取权限数据成功！",
+  "data":{
+    "results": [
+      {
+        "id": "1",
+        "menuName": "房产管理系统",
+        "description":"打造最齐全，最贴心，最全面的在线办公房产租赁平台",
+        "width":"four",
+        "child":[],
+        "themeColor":"teal",
+        "iconClass": "icon teal home",
+        "url": "boss/fygl/home",
+        "sorted": 1
+      },
+      {
+        "id": "2",
+        "menuName": "运营管理系统",
+        "description":"打造最齐全，最贴心，最全面的在线办公房产租赁平台",
+        "width":"four",
+        "child":[],
+        "themeColor":"orange",
+        "iconClass": "icon orange users",
+        "url": "boss/yygl/home",
+        "sorted": 2
+      },
+      {
+        "id": "3",
+        "menuName": "房产管理系统",
+        "description":"打造最齐全，最贴心，最全面的在线办公房产租赁平台",
+        "width":"four",
+        "child":[],
+        "themeColor":"green",
+        "iconClass": "icon green building",
+        "url": "fcgl/index.html",
+        "sorted": 3
+      },
+      {
+        "id": "4",
+        "menuName": "400客服中心",
+        "description":"打造最齐全，最贴心，最全面的在线办公房产租赁平台",
+        "width":"four",
+        "child":[],
+        "themeColor":"blue",
+        "iconClass": "icon blue phone",
+        "url": "400kf/index.html",
+        "sorted": 4
+      },
+      {
+        "id": "5",
+        "menuName": "财务结算中心",
+        "description":"打造最齐全，最贴心，最全面的在线办公房产租赁平台",
+        "width":"eight",
+        "child":[],
+        "themeColor":"yellow",
+        "iconClass": "icon yellow money",
+        "url": "klz/index.html",
+        "sorted": 5
+      },
+      {
+        "id": "6",
+        "menuName": "道网官网管理后台",
+        "description":"打造最齐全，最贴心，最全面的在线办公房产租赁平台",
+        "width":"four",
+        "child":[],
+        "themeColor":"olive",
+        "iconClass": "icon olive browser",
+        "url": "klz/index.html",
+        "sorted": 6
+      },
+      {
+        "id": "7",
+        "menuName": "OA政务办公系统",
+        "description":"打造最齐全，最贴心，最全面的在线办公房产租赁平台",
+        "width":"four",
+        "child":[],
+        "themeColor":"pink",
+        "iconClass": "icon pink file",
+        "url": "klz/index.html",
+        "sorted": 7
+      },
+      {
+        "id": "8",
+        "menuName": "DEMO 管理系统",
+        "description":"DEMO项目集成管理，前端高解耦集成解决方案扩展模板",
+        "width":"sixteen",
+        "child":[],
+        "themeColor":"purple",
+        "iconClass": "icon purple sitemap",
+        "url": "demo/index.html",
+        "sorted": 8
+      }
+    ]
+  }
+
+}

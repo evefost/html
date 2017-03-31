@@ -1,0 +1,36 @@
+{
+  "status": 200,
+  "message": "查询成功",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 10,
+    "results": [
+      {
+        "id": 1,
+        "name": "金融"
+      },
+      {
+        "id": 2,
+        "name": "计算机"
+      },
+      {
+        "id": 3,
+        "name": "地产"
+      },
+      {
+        "id": 4,
+        "name": "服饰"
+      },
+      {
+        "id": 5,
+        "name": "饮食"
+      },
+      {
+        "id": 6,
+        "name": "娱乐"
+      }
+    ]
+  }
+}

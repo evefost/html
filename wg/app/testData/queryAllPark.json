@@ -1,0 +1,116 @@
+{
+  "status": 200,
+  "message": "园区列表查询成功",
+  "data": {
+    "results": [
+      {
+        "parkId": 1,
+        "parkName": "华丰金融港",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 2,
+        "parkName": "海景大厦",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 3,
+        "parkName": "华丰科技园",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 4,
+        "parkName": "华丰商贸园区",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 5,
+        "parkName": "道网园区",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 6,
+        "parkName": "华丰商贸园区1",
+        "cityCode": "gz",
+        "cityName": "广州"
+      },
+      {
+        "parkId": 7,
+        "parkName": "华丰商贸园区2",
+        "cityCode": "gz",
+        "cityName": "广州"
+      },
+      {
+        "parkId": 8,
+        "parkName": "华丰商贸园区3",
+        "cityCode": "gz",
+        "cityName": "广州"
+      },
+      {
+        "parkId": 9,
+        "parkName": "华丰商贸园区",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 10,
+        "parkName": "华丰商贸园区",
+        "cityCode": "bj",
+        "cityName": "北京"
+      },
+      {
+        "parkId": 11,
+        "parkName": "华丰商贸园区",
+        "cityCode": "sh",
+        "cityName": "上海"
+      },
+      {
+        "parkId": 12,
+        "parkName": "华丰商贸园区",
+        "cityCode": "sh",
+        "cityName": "上海"
+      },
+      {
+        "parkId": 13,
+        "parkName": "华丰商贸园区",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 14,
+        "parkName": "会展中心",
+        "cityCode": "gz",
+        "cityName": "广州"
+      },
+      {
+        "parkId": 15,
+        "parkName": "昌盛",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 16,
+        "parkName": "雄大园区",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 17,
+        "parkName": "园区详情功能功能",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      },
+      {
+        "parkId": 18,
+        "parkName": "万科实业",
+        "cityCode": "sz",
+        "cityName": "深圳"
+      }
+    ]
+  }
+}

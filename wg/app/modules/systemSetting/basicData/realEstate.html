@@ -1,0 +1,320 @@
+<div ms-controller="user" class="house">
+    <div class="ui two column stackable grid my-grid height-max">
+        <div class="four wide column height-max dept-column dept-tree-container">
+            <div class="ui segment height-max">
+                <div class="ui small form">
+                    <div class="sixteen wide field">
+                        <input type="text" ms-input="searchDeptTree" placeholder="直接输入部门名称过滤">
+                    </div>
+                </div>
+                <div class="ui divider"></div>
+                <ul id="deptZtree" class="ztree"></ul>
+            </div>
+        </div>
+        <div class="twelve wide column height-max dept-column">
+            <div class="ui segment height-max">
+                <div class="ui form">
+                    <div class="inline fields">
+                        <div class="field ">
+                            <input placeholder="请输入房号" ms-duplex="searchData.room" />
+                        </div>
+                        <div class="field">
+                            <select class="ui dropdown" ms-duplex="searchData.deptId">
+                                <option value="0">所属经营部</option>
+                                <option ms-repeat="allDeptSelectQue" ms-value="el.id" >{{el.departmentName}}</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <select class="ui dropdown" ms-duplex="searchData.parkId">
+                                <option value="0">所属园区</option>
+                                <option ms-repeat="allParkSelectQue" ms-value="el.id" >{{el.departmentName}}</option>
+                            </select>
+                        </div>
+                        <div class="field ">
+                            <button class="ui button blue" ms-click="search"><i class="search icon"></i>查询</button>
+                            <button class="ui labeled icon orange button" ms-click="reset">清空<i class="icon undo"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui divider"></div>
+                <div class="ui container fluid secondary menu operation-menu">
+                    <div class="right menu">
+                        <button type="button" class="ui button orange" ms-click="uploadBillExcel"><i class="cloud upload icon"></i>导入</button>
+                        <button type="button" class="ui button green" ms-click="exportBillExcel"><i class="file excel outline icon"></i>导出</button>
+                        <button class="ui button teal" ms-click="showAddWin(false)"><i class="add icon"></i>新增用户</button>
+                    </div>
+                </div>
+                <div class="auto-scroll-table">
+                    <table class="ui teal table selectable celled data-table" width="100%" >
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui modal" id="houseInfoAddWin">
+        <div class="header">楼盘/园区新增|修改</div>
+        <div class="content">
+            <form class="ui form" id="houseInfo">
+                <div class="three fields">
+                    <div class="field">
+                        <label>所属经营部<i class="icon star red" ></i></label>
+                        <input type="text" name="upDeptName" ms-duplex="upDeptName" disabled placeholder=""/>
+                    </div>
+                    <div class="field">
+                        <label>园区编码<i class="icon star red" ></i></label>
+                        <input type="text" name="departmentNumber" ms-duplex="park.departmentNumber" placeholder="园区编码"/>
+                    </div>
+                    <div class="field">
+                        <label>园区名称<i class="icon star red" ></i></label>
+                        <input type="text" name="departmentName" ms-duplex="park.departmentName" placeholder="园区名称"/>
+                    </div>
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <label>楼盘所属城市<i class="icon star red"></i></label>
+                        <div class="ui icon input customer-select-ztree">
+                            <i class="sitemap icon"></i>
+                            <input placeholder="请选择" ms-duplex="park.areaName"
+                                   data-duplex-changed="areaTreeChange" type="text" readonly>
+                        </div>
+                        <div class="ztree-menu">
+                            <ul class="ztree" id="houseInfo_ztreeCityArea"></ul>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>街道所属区域<i class="icon star red"></i></label>
+                        <div class="ui icon input customer-select-ztree">
+                            <i class="sitemap icon"></i>
+                            <input placeholder="请选择" ms-duplex="park.houseAreaName"
+                                   data-duplex-changed="houseAreaTreeChange" type="text" readonly>
+                        </div>
+                        <div class="ztree-menu">
+                            <ul class="ztree" id="houseInfo_ztreeAddressArea"></ul>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>园区地址<i class="icon star red" ></i></label>
+                        <input type="text" ms-duplex="park.departmentAddress" placeholder="园区地址"/>
+                    </div>
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <label>经度坐标<i class="icon star red"></i></label>
+                        <input type="number" min=0 ms-duplex="park.longitude" placeholder="请输入经度坐标"/>
+                    </div>
+                    <div class="field">
+                        <label>纬度坐标<i class="icon star red"></i></label>
+                        <div class="ui action input">
+                            <input type="number" ms-duplex="park.latitude" placeholder="请输入纬度坐标"/>
+                            <span class="ui button basic compact add-on" title="百度地图API查经纬度"
+                                  ms-click="showBaiduMap"><i class="icon search blue"></i></span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>园区电话<i class="icon star red" ></i></label>
+                        <input type="text" ms-duplex="park.departmentTel" placeholder="园区电话"/>
+                    </div>
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <label>园区邮箱<i class="icon star red" ></i></label>
+                        <input type="text" ms-duplex="park.departmentEmail" placeholder="园区邮箱"/>
+                    </div>
+                    <div class="field">
+                        <label>园区描述</label>
+                        <textarea rows="5" ms-duplex="park.description" placeholder="园区描述性信息"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>园区Logo<i class="icon star red" ></i>(图片不能大于5M)</label>
+                        <div class="ui special cards">
+                            <div class="card ui-card-autox200">
+                                <div class="cursor-file-button cursor-fileinput-lineheight-autox200"> +
+                                    <input name="imgUrl_file" type="file" ms-change="uploadImage()"  accept="image/png,image/jpeg,image/gif"/>
+                                </div>
+                                <div class="blurring dimmable image" ms-visible="park.imgUrl!=''">
+                                    <div class="ui inverted dimmer">
+                                        <div class="content">
+                                            <div class="center ui-card-dimmer-buttons">
+                                                <button ms-click="showResourceImg()" type="button"  class="ui inverted green button">查看原图</button>
+                                                <button ms-click="delResourceImg()" type="button"  class="ui inverted red button">删除图片</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img class="img-width-autox200" ms-src="park.imgUrl" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green">确定</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+    <div class="ui modal fullscreen" id="baiduMapWin">
+        <div class="header">百度地图-经纬度</div>
+        <div class="content">
+            <div class="ui form stackable doubling three column grid">
+                <div class="row">
+                    <div class="column">
+                        <input placeholder="输入具体地址查询经纬度" ms-duplex="baiduMapPositionName"/>
+                    </div>
+                    <div class="column">
+                        <button class="ui button blue" ms-click="searchBaiduMapPoint"><i class="search icon"></i>查询</button>
+                    </div>
+                    <div class="right menu">
+                        <b> 经度：</b><span id="lng_number">{{park.longitude}}</span>
+                        <b> 纬度：</b><span id="lat_number">{{park.latitude}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div id="baiduMap" style="height: 485px;"></div>
+        </div>
+        <div class="actions">
+            <div class="ui approve button teal large ">确定坐标</div>
+        </div>
+    </div>
+    <div class="ui modal" id="parkBuild">
+        <div class="header">新增/修改楼栋</div>
+        <div class="content">
+            <form class="ui form">
+                <div class="two fields">
+                    <div class="field">
+                        <label>楼栋名称<i class="icon star red" ></i></label>
+						<div class="ui right labeled input">
+                            <input type="text" ms-duplex="build.departmentName" placeholder="楼栋名称"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>楼层数<i class="icon star red"></i></label>
+                        <div class="ui right labeled input">
+                            <input type="number" min=0 placeholder="请输入楼层数" ms-duplex="build.allFloor">
+                            <div class="ui basic label">
+                                层
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green">确定</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+
+
+    <div class="ui modal" id="userAddWin">
+        <div class="header">新增/修改楼盘信息</div>
+        <div class="content">
+            <form class="ui form">
+                <label class="ui green ribbon label">基本信息</label>
+                <p></p>
+                <div class="three fields">
+                    <div class="field">
+                        <label>所属经营部 <span style="color:orangered"></span></label>
+                        <select class="ui dropdown"  ms-change="changeDeptData()" ms-duplex="user.departmentId">
+                                <option value="0">请选择所属经营部</option>
+                                <option ms-repeat="houseSelect.allDeptSelect" ms-value="el.id" >{{el.departmentName}}</option>
+                            </select>
+                    </div>
+                    <div class="field">
+                        <label>所属园区 <span style="color:orangered"></span></label>
+                        <select class="ui dropdown" ms-change="changeParkData()" ms-duplex="user.parkId">
+                                <option value="0">请选择所属园区</option>
+                                <option ms-repeat="houseSelect.allParkSelect" ms-value="el.id" >{{el.departmentName}}</option>
+                            </select>
+                    </div>
+                    <div class="field">
+                        <label>楼栋 <span style="color:orangered"></span></label>
+                        <select class="ui dropdown" ms-change="changeBuildData()" ms-duplex="user.buildId">
+                                <option value="0">请选择楼栋</option>
+                                <option ms-repeat="houseSelect.allBuildSelect" ms-value="el.id" >{{el.departmentName}}</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <label>楼层<i class="icon star red" ></i></label>
+                        <select class="ui dropdown" ms-duplex="user.curFloor">
+                                <option value="0">请选择楼层</option>
+                                <option ms-repeat="houseSelect.allFloorSelect" ms-value="el.id" >{{el.departmentName}}</option>
+                            </select>
+                    </div>
+                    <div class="field">
+                        <label>房号<i class="icon star red" ></i></label>
+                        <input type="text" ms-duplex="user.room" placeholder="房号"/>
+                    </div>
+                    <div class="field">
+                        <label>面积<i class="icon star red"></i></label>
+                        <div class="ui right labeled input">
+                            <input type="number" min=0 placeholder="请输入面积" ms-duplex="user.buildArea">
+                            <div class="ui basic label">
+                                ㎡
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label class="ui green ribbon label">物业信息</label>
+                <p></p>
+                <div class="three fields">
+                    <div class="field">
+                        <label>电费单价</label>
+                        <div class="ui right labeled input">
+                            <input placeholder="请输入电费" ms-duplex="user.elePrice"/>
+                            <div class="ui basic label">
+                                元/KWh
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>公摊电价</label>
+                        <div class="ui right labeled input">
+                            <input placeholder="请输入电费" ms-duplex="user.shareElePrice"/>
+                            <div class="ui basic label">
+                                元/KWh
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>水费单价</label>
+                        <div class="ui right labeled input">
+                            <input placeholder="请输入水费" ms-duplex="user.waterPrice"/>
+                            <div class="ui basic label">
+                                元/m³
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <label>公摊水价</label>
+                        <div class="ui right labeled input">
+                            <input placeholder="请输入水费" ms-duplex="user.shareWaterPrice"/>
+                            <div class="ui basic label">
+                                元/m³
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>物业费</label>
+                        <div class="ui right labeled input">
+                            <input type="text" placeholder="请输入物业费" ms-duplex="user.manageCost">
+                            <select class="ui basic floating button" style="width:110px" ms-duplex="user.manageCostUnit">
+                                <option class="item" value="元/月">元/月</option>
+                                <option class="item" value="元/㎡/月">元/㎡/月</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green">确定</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div ms-controller="billSetting">
+    <form class="ui form">
+        <div class="ui five column grid">
+            <div class="column">
+                <select class="ui fluid dropdown"  ms-duplex="queryData.cityCode" id="cityCode">
+                    <option value="0">所属城市</option>
+                    <option value="sz">深圳</option>
+                </select>
+            </div>
+            <div class="column">
+                <select class="ui fluid dropdown" ms-duplex="queryData.regionCode" id="region">
+                    <option value="0">所属区域</option>
+                    <option ms-repeat="regionList" ms-value="{{el.code}}">{{el.name}}</option>
+                </select>
+            </div>
+            <div class="column">
+                <input type="text" placeholder="园区名称" ms-duplex="queryData.parkName">
+            </div>
+            <div class="column">
+                <select class="ui fluid dropdown" ms-duplex="queryData.configFlag">
+                    <option value="0">设置状态</option>
+                    <option value="YES">已设置</option>
+                    <option value="NO">未设置</option>
+                </select>
+            </div>
+            <div class="column">
+                <div class="ui container fluid secondary menu operation-menu">
+                    <div class="left menu">
+                        <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                        <button class="ui labeled icon orange button" ms-click="reset">重置<i class="icon undo"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="ui divider"></div>
+    <table class="data-table ui blue selectable table" style="width:100%"></table>
+</div>

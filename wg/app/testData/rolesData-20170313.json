@@ -1,0 +1,2277 @@
+{
+  "status": 200,
+  "message": "获取快乐租权限数据成功！",
+  "data": {
+    "results": {
+      "roleCommonData": {
+        "sex": [
+          {
+            "name": "男",
+            "value": "MALE"
+          },
+          {
+            "name": "女",
+            "value": "FEMALE"
+          }
+        ],
+        "useStatus": [
+          {
+            "value": "YES",
+            "name": "是"
+          },
+          {
+            "value": "NO",
+            "name": "否"
+          }
+        ],
+        "roleType":[
+          {
+            "value": "INNER",
+            "name": "我司"
+          },
+          {
+            "value": "PARK",
+            "name": "物业 "
+          },
+          {
+            "value": "SUPPLIER",
+            "name": "供应商"
+          }
+        ],
+        "platform":[
+          {
+            "value": "USERAPP",
+            "name": "用户端APP"
+          },
+          {
+            "value": "SERVERAPP",
+            "name": "服务端APP"
+          }
+        ],
+        "areaList": [
+          {
+            "id": 1,
+            "code": "chn",
+            "upAreaCode": "",
+            "name": "中国",
+            "value": "chn",
+            "level": 0
+          },
+          {
+            "id": 2,
+            "code": "gd",
+            "upAreaCode": "chn",
+            "name": "广东省",
+            "value": "gd",
+            "level": 1
+          },
+          {
+            "id": 3,
+            "code": "sz",
+            "upAreaCode": "gd",
+            "name": "深圳",
+            "value": "sz",
+            "level": 2
+          },
+          {
+            "id": 201,
+            "code": "ns",
+            "upAreaCode": "sz",
+            "name": "南山",
+            "value": "ns",
+            "level": 3
+          },
+          {
+            "id": 201,
+            "code": "kjy",
+            "upAreaCode": "ns",
+            "name": "科技园",
+            "value": "kjy",
+            "level": 4
+          },
+          {
+            "id": 201,
+            "code": "hqc",
+            "upAreaCode": "ns",
+            "name": "华侨城",
+            "value": "hqc",
+            "level": 4
+          },
+          {
+            "id": 201,
+            "code": "nszxq",
+            "upAreaCode": "ns",
+            "name": "南山中心区",
+            "value": "nszxq",
+            "level": 4
+          },
+          {
+            "id": 202,
+            "code": "xx",
+            "upAreaCode": "sz",
+            "name": "西乡",
+            "value": "xx",
+            "level": 3
+          },
+          {
+            "id": 203,
+            "code": "ba",
+            "upAreaCode": "sz",
+            "name": "宝安",
+            "value": "ba",
+            "level": 3
+          },
+          {
+            "id": 4,
+            "code": "gz",
+            "upAreaCode": "gd",
+            "name": "广州",
+            "level": 2
+          },
+          {
+            "id": 201,
+            "code": "byq",
+            "upAreaCode": "gz",
+            "name": "白云区",
+            "value": "byq",
+            "level": 3
+          },
+          {
+            "id": 202,
+            "code": "zxq",
+            "upAreaCode": "gz",
+            "name": "中心区",
+            "value": "zxq",
+            "level": 3
+          },
+          {
+            "id": 5,
+            "code": "bj",
+            "upAreaCode": "chn",
+            "name": "北京",
+            "value": "bj",
+            "level": 2
+          },
+          {
+            "id": 6,
+            "code": "sh",
+            "upAreaCode": "chn",
+            "name": "上海",
+            "value": "sh",
+            "level": 2
+          }
+        ],
+        "roleList":[
+          {
+            "id":1,
+            "roleName":"超级管理员"
+          },{
+            "id":2,
+            "roleName":"客服专员"
+          },{
+            "id":3,
+            "roleName":"运营专员"
+          },{
+            "id":4,
+            "roleName":"普工"
+          }
+        ],
+        "isJob":[
+          {
+            "name":"在职",
+            "value":"1"
+          },
+          {
+            "name":"离职",
+            "value":"2"
+          }
+        ],
+        "userInfoSex":[
+          {
+            "name":"男",
+            "value":"1"
+          },
+          {
+            "name":"女",
+            "value":"2"
+          }
+        ],
+        "jobPosition":[
+          {
+            "name":"初级工程师",
+            "value":"JUNIOR"
+          },
+          {
+            "name":"中级工程师",
+            "value":"SECONDARY"
+          },
+          {
+            "name":"高级工程师",
+            "value":"SUPERIOR"
+          }
+        ],
+        "accountType":[
+          {
+            "name":"系统帐号",
+            "value":"ACCOUNT"
+          },
+          {
+            "name":"内部经纪人",
+            "value":"INNER"
+          },
+          {
+            "name":"实勘人员",
+            "value":"SURVEY"
+          }
+        ],
+        "accountAllType":[
+          {
+            "name":"系统帐号",
+            "value":"ACCOUNT"
+          },
+          {
+            "name":"内部经纪人",
+            "value":"INNER"
+          },
+          {
+            "name":"全民经纪人",
+            "value":"ALL_PEOPLE"
+          },
+          {
+            "name":"中介经纪人",
+            "value":"AGENCY"
+          },
+          {
+            "name":"实勘人员",
+            "value":"SURVEY"
+          }
+        ],
+        "deptTree":[
+          {
+            "id":1,
+            "pId":0,
+            "name":"道网科技"
+          },
+          {
+            "id":12,
+            "pId":1,
+            "name":"产品部"
+          },
+          {
+            "id":2,
+            "pId":1,
+            "name":"客服部"
+          },
+          {
+            "id":3,
+            "pId":1,
+            "name":"运营部"
+          },
+          {
+            "id":4,
+            "pId":1,
+            "name":"经纪部"
+          },
+          {
+            "id":9,
+            "pId":1,
+            "name":"商务拓展部"
+          },
+          {
+            "id":10,
+            "pId":1,
+            "name":"市场部"
+          },
+          {
+            "id":11,
+            "pId":1,
+            "name":"测试部"
+          },
+          {
+            "id":5,
+            "pId":2,
+            "name":"客服一组"
+          },
+          {
+            "id":6,
+            "pId":2,
+            "name":"客服二组"
+          }
+        ],
+        "cityList":[
+          {
+            "id":1,
+            "areaCode":"chn",
+            "name":"中国",
+            "upAreaCode":"",
+            "level":1,
+            "mapLocationId":2933,
+            "sorted":0,
+            "createTime":1452981717000,
+            "updateTime":1469086118000,
+            "createUid":null,
+            "updateUid":1,
+            "status":0
+          },
+          {
+            "id":2,
+            "areaCode":"gd",
+            "name":"广东省",
+            "upAreaCode":"chn",
+            "level":2,
+            "mapLocationId":2928,
+            "sorted":0,
+            "createTime":1453003260000,
+            "updateTime":1469085880000,
+            "createUid":null,
+            "updateUid":1,
+            "status":0
+          },
+          {
+            "id":4,
+            "areaCode":"sz",
+            "name":"深圳",
+            "upAreaCode":"gd",
+            "level":3,
+            "mapLocationId":2929,
+            "sorted":0,
+            "createTime":1453003260000,
+            "updateTime":1468896650000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":7,
+            "areaCode":"ns",
+            "name":"南山",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":2,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468907970000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":8,
+            "areaCode":"kjy",
+            "name":"科技园",
+            "upAreaCode":"ns",
+            "level":5,
+            "mapLocationId":2930,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468908106000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":9,
+            "areaCode":"xx",
+            "name":"西乡",
+            "upAreaCode":"ba",
+            "level":5,
+            "mapLocationId":2926,
+            "sorted":4,
+            "createTime":null,
+            "updateTime":1468918927000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":10,
+            "areaCode":"ba",
+            "name":"宝安",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":2927,
+            "sorted":4,
+            "createTime":null,
+            "updateTime":1468897334000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":11,
+            "areaCode":"xa",
+            "name":"新安",
+            "upAreaCode":"ba",
+            "level":5,
+            "mapLocationId":6,
+            "sorted":4,
+            "createTime":null,
+            "updateTime":1468918967000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":12,
+            "areaCode":"nszxq",
+            "name":"南山中心区",
+            "upAreaCode":"ns",
+            "level":5,
+            "mapLocationId":7,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468908257000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":35,
+            "areaCode":"hqc",
+            "name":"华侨城",
+            "upAreaCode":"ns",
+            "level":5,
+            "mapLocationId":8,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468908028000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":36,
+            "areaCode":"ft",
+            "name":"福田",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":9,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468897454000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":37,
+            "areaCode":"lh",
+            "name":"罗湖",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":10,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468897403000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":38,
+            "areaCode":"lg",
+            "name":"龙岗",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":11,
+            "sorted":5,
+            "createTime":null,
+            "updateTime":1468897266000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":39,
+            "areaCode":"yt",
+            "name":"盐田",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":12,
+            "sorted":6,
+            "createTime":null,
+            "updateTime":1468897218000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":40,
+            "areaCode":"longh",
+            "name":"龙华",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":13,
+            "sorted":7,
+            "createTime":null,
+            "updateTime":1468897181000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":41,
+            "areaCode":"ps",
+            "name":"坪山",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":14,
+            "sorted":8,
+            "createTime":null,
+            "updateTime":1468897083000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":44,
+            "areaCode":"hh",
+            "name":"后海",
+            "upAreaCode":"ns",
+            "level":5,
+            "mapLocationId":17,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468908069000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":45,
+            "areaCode":"nt",
+            "name":"南头",
+            "upAreaCode":"ns",
+            "level":5,
+            "mapLocationId":18,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468908287000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":46,
+            "areaCode":"ny",
+            "name":"南油",
+            "upAreaCode":"ns",
+            "level":5,
+            "mapLocationId":19,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468908143000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":47,
+            "areaCode":"qh",
+            "name":"前海",
+            "upAreaCode":"ns",
+            "level":5,
+            "mapLocationId":20,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468908329000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":48,
+            "areaCode":"sk",
+            "name":"蛇口",
+            "upAreaCode":"ns",
+            "level":5,
+            "mapLocationId":2931,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468908358000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":49,
+            "areaCode":"xl",
+            "name":"西丽",
+            "upAreaCode":"ns",
+            "level":5,
+            "mapLocationId":22,
+            "sorted":1,
+            "createTime":null,
+            "updateTime":1468908391000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":50,
+            "areaCode":"bsq",
+            "name":"保税区",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":23,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468908553000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":51,
+            "areaCode":"bjs",
+            "name":"笔架山",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":24,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468908581000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":52,
+            "areaCode":"bgl",
+            "name":"八卦岭",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":25,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468908484000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":53,
+            "areaCode":"cgm",
+            "name":"车公庙",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":26,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468908623000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":54,
+            "areaCode":"ftzxq",
+            "name":"福田中心区",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":27,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468908663000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":55,
+            "areaCode":"hg",
+            "name":"皇岗",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":28,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468908694000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":56,
+            "areaCode":"hq",
+            "name":"华强",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":29,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468908744000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":57,
+            "areaCode":"jt",
+            "name":"景田",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":30,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468908779000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":59,
+            "areaCode":"lianh",
+            "name":"莲花",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":31,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468909479000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":60,
+            "areaCode":"ml",
+            "name":"梅林",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":32,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468909569000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":61,
+            "areaCode":"nkzx",
+            "name":"农科中心",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":33,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468909617000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":62,
+            "areaCode":"sb",
+            "name":"上步",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":34,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468917580000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":63,
+            "areaCode":"ss",
+            "name":"石厦",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":35,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468916959000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":64,
+            "areaCode":"sxs",
+            "name":"上下沙",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":36,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468909649000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":65,
+            "areaCode":"xmh",
+            "name":"香蜜湖",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":37,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468917640000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":66,
+            "areaCode":"xz",
+            "name":"新洲",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":38,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468917705000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":67,
+            "areaCode":"zzl",
+            "name":"竹子林",
+            "upAreaCode":"ft",
+            "level":5,
+            "mapLocationId":39,
+            "sorted":2,
+            "createTime":null,
+            "updateTime":1468917731000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":68,
+            "areaCode":"bx",
+            "name":"布心",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":40,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918094000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":69,
+            "areaCode":"ban",
+            "name":"宝安南",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":41,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918061000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":70,
+            "areaCode":"cz",
+            "name":"翠竹",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":42,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918175000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":71,
+            "areaCode":"cww",
+            "name":"蔡屋围",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":43,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918137000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":72,
+            "areaCode":"dm",
+            "name":"东门",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":44,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918214000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":73,
+            "areaCode":"hongh",
+            "name":"洪湖",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":45,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918330000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":74,
+            "areaCode":"hbl",
+            "name":"黄贝岭",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":46,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918244000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":75,
+            "areaCode":"lt",
+            "name":"莲塘",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":47,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918355000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":76,
+            "areaCode":"ng",
+            "name":"泥岗",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":48,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918382000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":77,
+            "areaCode":"rmn",
+            "name":"人民南",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":49,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918407000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":79,
+            "areaCode":"shuik",
+            "name":"水库",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":50,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918474000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":80,
+            "areaCode":"sg",
+            "name":"笋岗",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":51,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918546000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":82,
+            "areaCode":"shuib",
+            "name":"水贝",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":52,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918509000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":83,
+            "areaCode":"yh",
+            "name":"银湖",
+            "upAreaCode":"lh",
+            "level":5,
+            "mapLocationId":53,
+            "sorted":3,
+            "createTime":null,
+            "updateTime":1468918576000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":84,
+            "areaCode":"bazxq",
+            "name":"宝安中心区",
+            "upAreaCode":"ba",
+            "level":5,
+            "mapLocationId":54,
+            "sorted":4,
+            "createTime":null,
+            "updateTime":1468918631000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":85,
+            "areaCode":"fy",
+            "name":"福永",
+            "upAreaCode":"ba",
+            "level":5,
+            "mapLocationId":55,
+            "sorted":4,
+            "createTime":null,
+            "updateTime":1468918686000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":86,
+            "areaCode":"sy",
+            "name":"石岩",
+            "upAreaCode":"ba",
+            "level":5,
+            "mapLocationId":56,
+            "sorted":4,
+            "createTime":null,
+            "updateTime":1468918770000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":87,
+            "areaCode":"sj",
+            "name":"沙井",
+            "upAreaCode":"ba",
+            "level":5,
+            "mapLocationId":57,
+            "sorted":4,
+            "createTime":null,
+            "updateTime":1468918802000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":88,
+            "areaCode":"songg",
+            "name":"松岗",
+            "upAreaCode":"ba",
+            "level":5,
+            "mapLocationId":58,
+            "sorted":4,
+            "createTime":null,
+            "updateTime":1468918837000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":90,
+            "areaCode":"bt",
+            "name":"坂田",
+            "upAreaCode":"lg",
+            "level":5,
+            "mapLocationId":59,
+            "sorted":5,
+            "createTime":null,
+            "updateTime":1468919115000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":91,
+            "areaCode":"bj",
+            "name":"布吉",
+            "upAreaCode":"lg",
+            "level":5,
+            "mapLocationId":60,
+            "sorted":5,
+            "createTime":null,
+            "updateTime":1468919090000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":92,
+            "areaCode":"hengg",
+            "name":"横岗",
+            "upAreaCode":"lg",
+            "level":5,
+            "mapLocationId":61,
+            "sorted":5,
+            "createTime":null,
+            "updateTime":1468919142000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":93,
+            "areaCode":"hgzxc",
+            "name":"龙岗中心城",
+            "upAreaCode":"lg",
+            "level":5,
+            "mapLocationId":62,
+            "sorted":5,
+            "createTime":null,
+            "updateTime":1468919173000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":94,
+            "areaCode":"pd",
+            "name":"坪地",
+            "upAreaCode":"lg",
+            "level":5,
+            "mapLocationId":63,
+            "sorted":5,
+            "createTime":null,
+            "updateTime":1468919236000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":95,
+            "areaCode":"ph",
+            "name":"平湖",
+            "upAreaCode":"lg",
+            "level":5,
+            "mapLocationId":64,
+            "sorted":5,
+            "createTime":null,
+            "updateTime":1468919275000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":96,
+            "areaCode":"ms",
+            "name":"梅沙",
+            "upAreaCode":"yt",
+            "level":5,
+            "mapLocationId":65,
+            "sorted":6,
+            "createTime":null,
+            "updateTime":1468919335000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":97,
+            "areaCode":"stj",
+            "name":"沙头角",
+            "upAreaCode":"yt",
+            "level":5,
+            "mapLocationId":66,
+            "sorted":6,
+            "createTime":null,
+            "updateTime":1468919384000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":98,
+            "areaCode":"ytg",
+            "name":"盐田港",
+            "upAreaCode":"yt",
+            "level":5,
+            "mapLocationId":67,
+            "sorted":6,
+            "createTime":null,
+            "updateTime":1468919405000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":103,
+            "areaCode":"kz",
+            "name":"坑梓",
+            "upAreaCode":"ps",
+            "level":5,
+            "mapLocationId":68,
+            "sorted":8,
+            "createTime":null,
+            "updateTime":1468919703000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":104,
+            "areaCode":"pings",
+            "name":"坪山",
+            "upAreaCode":"ps",
+            "level":5,
+            "mapLocationId":69,
+            "sorted":8,
+            "createTime":null,
+            "updateTime":1468919745000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":105,
+            "areaCode":"guangm",
+            "name":"光明",
+            "upAreaCode":"gm",
+            "level":5,
+            "mapLocationId":70,
+            "sorted":9,
+            "createTime":null,
+            "updateTime":1469092998000,
+            "createUid":null,
+            "updateUid":1,
+            "status":0
+          },
+          {
+            "id":106,
+            "areaCode":"gongm",
+            "name":"公明",
+            "upAreaCode":"gm",
+            "level":5,
+            "mapLocationId":71,
+            "sorted":9,
+            "createTime":null,
+            "updateTime":1469412675000,
+            "createUid":null,
+            "updateUid":1,
+            "status":0
+          },
+          {
+            "id":107,
+            "areaCode":"dap",
+            "name":"大鹏",
+            "upAreaCode":"dp",
+            "level":5,
+            "mapLocationId":72,
+            "sorted":10,
+            "createTime":null,
+            "updateTime":1469090264000,
+            "createUid":null,
+            "updateUid":1,
+            "status":0
+          },
+          {
+            "id":108,
+            "areaCode":"ky",
+            "name":"葵涌",
+            "upAreaCode":"dp",
+            "level":5,
+            "mapLocationId":73,
+            "sorted":10,
+            "createTime":null,
+            "updateTime":1469412688000,
+            "createUid":null,
+            "updateUid":1,
+            "status":0
+          },
+          {
+            "id":109,
+            "areaCode":"no",
+            "name":"南澳",
+            "upAreaCode":"dp",
+            "level":5,
+            "mapLocationId":74,
+            "sorted":10,
+            "createTime":null,
+            "updateTime":1469412698000,
+            "createUid":null,
+            "updateUid":1,
+            "status":0
+          },
+          {
+            "id":110,
+            "areaCode":"dl",
+            "name":"大浪",
+            "upAreaCode":"longh",
+            "level":5,
+            "mapLocationId":75,
+            "sorted":7,
+            "createTime":null,
+            "updateTime":1468919532000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":111,
+            "areaCode":"gl",
+            "name":"观澜",
+            "upAreaCode":"longh",
+            "level":5,
+            "mapLocationId":76,
+            "sorted":7,
+            "createTime":null,
+            "updateTime":1468919594000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":113,
+            "areaCode":"mz",
+            "name":"民治",
+            "upAreaCode":"longh",
+            "level":5,
+            "mapLocationId":78,
+            "sorted":7,
+            "createTime":null,
+            "updateTime":1468919619000,
+            "createUid":null,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":127,
+            "areaCode":"lhq",
+            "name":"龙华",
+            "upAreaCode":"longh",
+            "level":5,
+            "mapLocationId":750,
+            "sorted":7,
+            "createTime":1464851907000,
+            "updateTime":1468919660000,
+            "createUid":1,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":128,
+            "areaCode":"gm",
+            "name":"光明",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":919,
+            "sorted":9,
+            "createTime":1467619585000,
+            "updateTime":1468897040000,
+            "createUid":1,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":129,
+            "areaCode":"dp",
+            "name":"大鹏",
+            "upAreaCode":"sz",
+            "level":4,
+            "mapLocationId":920,
+            "sorted":10,
+            "createTime":1467619689000,
+            "updateTime":1468897000000,
+            "createUid":1,
+            "updateUid":7,
+            "status":0
+          },
+          {
+            "id":130,
+            "areaCode":"gs",
+            "name":"固戍",
+            "upAreaCode":"ba",
+            "level":5,
+            "mapLocationId":2935,
+            "sorted":4,
+            "createTime":1468919024000,
+            "updateTime":1468919024000,
+            "createUid":7,
+            "updateUid":7,
+            "status":0
+          }
+        ],
+        "roleNameList":[
+          {
+            "roleName":"超级管理员",
+            "id":1
+          },
+          {
+            "roleName":"客服主管",
+            "id":2
+          },
+          {
+            "roleName":"运营主管",
+            "id":3
+          },
+          {
+            "roleName":"商务拓展专员",
+            "id":6
+          },
+          {
+            "roleName":"测试组",
+            "id":7
+          },
+          {
+            "roleName":"客服专员",
+            "id":8
+          },
+          {
+            "roleName":"运营专员",
+            "id":9
+          },
+          {
+            "roleName":"市场主管",
+            "id":10
+          },
+          {
+            "roleName":"内部经纪人",
+            "id":11
+          },
+          {
+            "roleName":"商务拓展主管",
+            "id":12
+          },
+          {
+            "roleName":"市场专员",
+            "id":13
+          }
+        ],
+        "adPosition":[
+          {
+            "name":"首页Banner",
+            "value":"1"
+          },
+          {
+            "name":"增值服务Banner",
+            "value":"2"
+          }
+        ],
+        "housePutStatus":[
+          {
+            "name":"待上架",
+            "value":"READY_PUT"
+          },
+          {
+            "name":"上架",
+            "value":"ON_PUT"
+          },
+          {
+            "name":"下架",
+            "value":"OFF_PUT"
+          },
+          {
+            "name":"新增待审",
+            "value":"XZDS"
+          },
+          {
+            "name":"修改待审",
+            "value":"XGDS"
+          },
+          {
+            "name":"新增未通过",
+            "value":"XZWTG"
+          },
+          {
+            "name":"修改未通过",
+            "value":"XGWTG"
+          }
+        ],
+        "newsTypeId":[
+          {
+            "name":"行业解读",
+            "value":1
+          },
+          {
+            "name":"租赁百科",
+            "value":2
+          },
+          {
+            "name":"小编推荐",
+            "value":3
+          }
+        ],
+        "bankInfoList":[
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":1,
+            "bankName":"中国银行"
+          },
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":2,
+            "bankName":"中国工商银行"
+          },
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":3,
+            "bankName":"中国建设银行"
+          },
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":4,
+            "bankName":"中国农业银行"
+          },
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":5,
+            "bankName":"招商银行"
+          },
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":6,
+            "bankName":"交通银行"
+          },
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":7,
+            "bankName":"兴业银行"
+          },
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":8,
+            "bankName":"中国民生银行"
+          },
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":9,
+            "bankName":"中国光大银行"
+          },
+          {
+            "createTime":null,
+            "updateTime":null,
+            "createUid":null,
+            "updateUid":null,
+            "status":null,
+            "bankId":10,
+            "bankName":"广东发展银行"
+          }
+        ],
+        "certificateType":[
+          {
+            "name":"旧证照",
+            "value":"OLD"
+          },
+          {
+            "name":"多证合一",
+            "value":"COMPOSE"
+          },
+          {
+            "name":"团队",
+            "value":"GROUP"
+          }
+        ],
+        "newsPutStatus":[
+          {
+            "name":"上架",
+            "value":"ON_PUT"
+          },
+          {
+            "name":"下架",
+            "value":"OFF_PUT"
+          }
+        ],
+        "linkTypeId":[
+          {
+            "name":"增值服务",
+            "value":1
+          },
+          {
+            "name":"合作单位",
+            "value":2
+          },
+          {
+            "name":"小编推荐",
+            "value":3
+          },
+          {
+            "name":"行业解读",
+            "value":4
+          },
+          {
+            "name":"租赁百科",
+            "value":5
+          }
+        ],
+        "auditStatus":[
+          {
+            "name":"待审核",
+            "value":1
+          },
+          {
+            "name":"已通过",
+            "value":2
+          },
+          {
+            "name":"未通过",
+            "value":3
+          }
+        ],
+        "auditResult":[
+          {
+            "name":"通过,且不需要实勘",
+            "value":1
+          },
+          {
+            "name":"通过,但需要实勘",
+            "value":2
+          },
+          {
+            "name":"未通过",
+            "value":3
+          }
+        ],
+        "orderSourceList":[
+          {
+            "name":"400电话",
+            "value":"PHONE_400"
+          },
+          {
+            "name":"WEB端",
+            "value":"WEB"
+          },
+          {
+            "name":"APP端",
+            "value":"APP"
+          },
+          {
+            "name":"微信端",
+            "value":"WECHAT"
+          },
+          {
+            "name":"经纪人APP",
+            "value":"BROKER_APP"
+          }
+        ],
+        "orderTypeList":[
+          {
+            "name":"房源投放",
+            "value":"TF"
+          },
+          {
+            "name":"预约看房",
+            "value":"KF"
+          },
+          {
+            "name":"委托找房",
+            "value":"ZF"
+          }
+        ],
+        "handleResultList":[
+          {
+            "name":"签约",
+            "value":"SIGN"
+          },
+          {
+            "name":"准备签约",
+            "value":"READY_SIGN"
+          },
+          {
+            "name":"未签约",
+            "value":"NO_SIGN"
+          },
+          {
+            "name":"部分签约",
+            "value":"PARTIAL_SIGN"
+          },
+          {
+            "name":"继续跟进",
+            "value":"TRAIL"
+          },
+          {
+            "name":"暂不跟进",
+            "value":"NOT_TRAIL"
+          },
+          {
+            "name":"未联系",
+            "value":"NOT_CONTACT"
+          },
+          {
+            "name":"联系失败",
+            "value":"CONTACT_FAILED"
+          },
+          {
+            "name":"再次联系",
+            "value":"CONTACT_AGAIN"
+          },
+          {
+            "name":"受理",
+            "value":"ACCEPT"
+          },
+          {
+            "name":"不受理",
+            "value":"NOT_ACCEPT"
+          },
+          {
+            "name":"已派单",
+            "value":"DISPATCHING"
+          },
+          {
+            "name":"待派单",
+            "value":"NOT_DISPATCH"
+          },
+          {
+            "name":"待转派",
+            "value":"NOT_TRANSFER"
+          },
+          {
+            "name":"已转派",
+            "value":"TRANSFERED"
+          },
+          {
+            "name":"已取消",
+            "value":"CANCELED"
+          },
+          {
+            "name":"已回收",
+            "value":"CALLBACK"
+          }
+        ],
+        "launchTypeList":[
+          {
+            "name":"线下拓展",
+            "value":"OFFLINE"
+          },
+          {
+            "name":"微信端",
+            "value":"WECHAT"
+          },
+          {
+            "name":"网站",
+            "value":"WEBSITE"
+          },
+          {
+            "name":"用户APP",
+            "value":"USER_APP"
+          },
+          {
+            "name":"经纪人APP",
+            "value":"BROKER_APP"
+          },
+          {
+            "name":"400电话",
+            "value":"PHONE400"
+          },
+          {
+            "name":"华丰集团",
+            "value":"HUAFENG"
+          }
+        ]
+
+      },
+      "project": {
+        "user": "admin",
+        "userName": "张三",
+        "userId": "45",
+        "workNumber": "4579",
+        "roleName": "超级管理员",
+        "name": "智慧园区管理系统"
+      },
+      "roleMenuList": [
+        {
+          "name": "我的工作台",
+          "iconClass": "icon home",
+          "url": "app/overview",
+          "child": [
+              {
+                  "id": "10100000",
+                  "iconClass": "icon home",
+                  "name": "首页",
+                  "url": "app/overview/home",
+                  "child": []
+              }
+          ]
+        },
+        {
+          "name": "客服管理",
+          "iconClass": "icon tasks",
+          "url": "app/serviceManage",
+          "child": [
+            {
+              "id": "20100000",
+              "iconClass": "icon configure",
+              "name": "维修服务",
+              "url": "app/serviceManage/repair",
+              "child": []
+            },
+            {
+              "id": "20600000",
+              "iconClass": "icon file excel outline",
+              "name": "账单服务",
+              "url": "app/serviceManage/bill",
+              "child": []
+            },
+            {
+              "id": "20700000",
+              "iconClass": "icon sign in",
+              "name": "考勤管理",
+              "url": "app/serviceManage/decorationManage",
+              "child": []
+            },
+            {
+              "id": "20900000",
+              "iconClass": "icon food",
+              "name": "企业订餐",
+              "url": "app/serviceManage/takeout",
+              "child": []
+            }
+          ]
+        },
+        {
+          "name": "基础物业服务*",
+          "iconClass": "icon tasks",
+          "url": "app/sServiceManage",
+          "child": [
+            {
+              "id": "20100000",
+              "iconClass": "icon configure",
+              "name": "维修服务",
+              "url": "app/sServiceManage/repair",
+              "child": []
+            },
+            {
+              "id": "20600000",
+              "iconClass": "icon file excel outline",
+              "name": "账单服务",
+              "url": "app/sServiceManage/bill",
+              "child": []
+            }
+          ]
+        },
+        {
+          "name": "运营管理",
+          "iconClass": "icon line chart",
+          "url": "app/operationManage",
+          "child": [
+            {
+              "id": "30100000",
+              "iconClass": "",
+              "name": "广告管理",
+              "url": "app/operationManage/ad",
+              "child": []
+            },
+            {
+              "id": "30200000",
+              "iconClass": "",
+              "name": "问卷调查",
+              "url": "app/operationManage/survey",
+              "child": []
+            }
+          ]
+        },
+        {
+          "name": "基础资料",
+          "iconClass": "icon grid layout",
+          "url": "app/basicData",
+          "child": [
+            {
+              "id": "40100000",
+              "iconClass": "",
+              "name": "园区管理",
+              "url": "app/basicData/park",
+              "child": []
+            },
+            {
+              "id": "40200000",
+              "iconClass": "",
+              "name": "企业管理",
+              "url": "app/basicData/company",
+              "child": []
+            },
+            {
+              "id": "40300000",
+              "iconClass": "",
+              "name": "供应商管理",
+              "url": "app/basicData/supplier",
+              "child": []
+            }
+          ]
+        },
+        {
+          "name": "系统管理",
+          "iconClass": "icon sitemap",
+          "url": "app/authors",
+          "child": [
+            {
+              "name": "用户管理",
+              "iconClass": "icon list layout",
+              "url": "",
+              "child": [
+                {
+                  "name": "园区用户",
+                  "iconClass": "icon list layout",
+                  "url": "app/authors/parkUser",
+                  "child": []
+                },
+                {
+                  "name": "企业用户",
+                  "iconClass": "icon list layout",
+                  "url": "app/authors/enterpriseUser",
+                  "child": []
+                },
+                {
+                  "name": "我司用户",
+                  "iconClass": "icon list layout",
+                  "url": "app/authors/companyUser",
+                  "child": []
+                }
+              ]
+            },
+            {
+              "name": "角色管理",
+              "iconClass": "icon doctor",
+              "url": "app/authors/role",
+              "child": []
+            },
+            {
+              "name": "用户反馈",
+              "iconClass": "icon comment outline",
+              "url": "app/authors/userFeedback",
+              "child": []
+            },
+            {
+              "name": "消息管理",
+              "iconClass": "icon comments outline",
+              "url": "app/authors/messageManager",
+              "child": []
+            }
+          ]
+        },
+        {
+          "name": "基础物业服务",
+          "iconClass": "icon tasks",
+          "url": "app/wuyeService",
+          "child": [
+            {
+              "id": "20200000",
+              "iconClass": "icon configure",
+              "name": "设备台账",
+              "url": "app/wuyeService/eqtAccount",
+              "child": [
+                {
+                  "id": "2021000",
+                  "iconClass": "",
+                  "name": "台账目录",
+                  "url": "app/wuyeService/accountList"
+                },
+                {
+                  "id": "2022000",
+                  "iconClass": "",
+                  "name": "所有设备",
+                  "url": "app/wuyeService/allEquipment"
+                }
+              ]
+            },
+            {
+              "id": "20500000",
+              "iconClass": "icon file excel outline",
+              "name": "工单管理",
+              "url": "app/wuyeService/orderManage",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "指派跟踪",
+                  "url": "app/wuyeService/assignTracking"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "工单设置",
+                  "url": "app/wuyeService/orderSet"
+                }
+              ]
+            },
+            {
+              "id": "20500000",
+              "iconClass": "icon file excel outline",
+              "name": "费用管理 ",
+              "url": "app/wuyeService/costManage",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "水电数据",
+                  "url": "app/wuyeService/hydropowerData"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "费用统计",
+                  "url": "app/wuyeService/costStatistics"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "费用标准及注意事项",
+                  "url": "app/wuyeService/others"
+                }
+              ]
+            },
+            {
+              "id": "20600000",
+              "iconClass": "icon file excel outline",
+              "name": "装修管理",
+              "url": "app/wuyeService/decorateManage",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "装修流程",
+                  "url": "app/wuyeService/decorateProcess"
+                }
+              ]
+            },
+            {
+              "id": "20600000",
+              "iconClass": "icon file excel outline",
+              "name": "停车服务",
+              "url": "app/wuyeService/parkService",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "停车场设置",
+                  "url": "app/wuyeService/parkSet"
+                }
+              ]
+            },
+            {
+              "id": "20600000",
+              "iconClass": "icon file excel outline",
+              "name": "孵化服务",
+              "url": "app/wuyeService/incubateService",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "服务申请",
+                  "url": "app/wuyeService/serviceApplicate"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "服务设置",
+                  "url": "app/wuyeService/serviceSet"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "客户服务",
+          "iconClass": "icon phone",
+          "url": "app/cusService",
+          "child": [
+            {
+              "id": "20100000",
+              "iconClass": "icon configure",
+              "name": "客户管理",
+              "url": "app/cusService/cusManage",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "客户资料管理",
+                  "url": "app/cusService/cusInfoManage"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "客户分类设置",
+                  "url": "app/cusService/cusCateSet"
+                }
+              ]
+            },
+            {
+              "id": "20600000",
+              "iconClass": "icon file excel outline",
+              "name": "通知公告",
+              "url": "app/cusService/notice",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "通知公告",
+                  "url": "app/cusService/noticeInfo"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "iconClass": "icon setting",
+          "name": "系统设置",
+          "url": "app/systemSetting",
+          "child": [
+            {
+              "id": "50200000",
+              "iconClass": "",
+              "name": "基础资料",
+              "url": "app/systemSetting/basicData",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "组织机构",
+                  "url": "app/systemSetting/organization"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "人员管理",
+                  "url": "app/systemSetting/userManage"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "楼盘库",
+                  "url": "app/systemSetting/realEstate"
+                }
+              ]
+            },
+            {
+              "id": "50300000",
+              "iconClass": "",
+              "name": "系统用户管理",
+              "url": "app/systemSetting/systemUserManage",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "系统用户",
+                  "url": "app/systemSetting/systemUser"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "角色管理",
+                  "url": "app/systemSetting/roleManage"
+                }
+              ]
+            },
+            {
+              "id": "50400000",
+              "iconClass": "",
+              "name": "APP用户管理",
+              "url": "app/systemSetting/appUserManage",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "APP用户",
+                  "url": "app/systemSetting/appUser"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "认证审核 ",
+                  "url": "app/systemSetting/certificatAudit"
+                },
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "意见反馈 ",
+                  "url": "app/systemSetting/feedback"
+                }
+              ]
+            },
+            {
+              "id": "50500000",
+              "iconClass": "",
+              "name": "APP广告管理",
+              "url": "app/systemSetting/appAdsManage",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "APP广告",
+                  "url": "app/systemSetting/appAds"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "status": 200,
+  "message": "查询成功",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 2,
+    "results": {
+      "tBody": [
+        {
+          "id": "",
+          "createUid": "",
+          "createTime": "",
+          "updateUid": "",
+          "updateTime": "2016-08-31 20:09:49",
+          "status": "",
+          "areaCode": "sz",
+          "cityName": "SS",
+          "parkId": "",
+          "parkName": "华丰金融港",
+          "companyId": "",
+          "companyName": "道网科技",
+          "userId": "",
+          "userName": "admin",
+          "userPhone": "13045888185",
+          "platform": "SERVERAPP",
+          "userType": "INNER",
+          "content": "服务态度差"
+        },
+        {
+          "id": "",
+          "createUid": "",
+          "createTime": "",
+          "updateUid": "",
+          "updateTime": "2016-08-31 20:09:49",
+          "status": "",
+          "areaCode": "sh",
+          "cityName": "SS",
+          "parkId": "",
+          "parkName": "华丰金融港",
+          "companyId": "",
+          "companyName": "道网科技",
+          "userId": "",
+          "userName": "admin",
+          "userPhone": "13045888185",
+          "platform": "USERAPP",
+          "userType": "INNER",
+          "content": "服务态度差"
+        }
+      ],
+      "tFooter": []
+    }
+  }
+}

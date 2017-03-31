@@ -1,0 +1,135 @@
+<div ms-controller="parkUser" class="house">
+    <div class="ui container fluid">
+        <div class="ui form stackable doubling five column grid">
+            <div class="row">
+                <div class="column">
+                    <select class="ui dropdown fluid" ms-duplex="searchFormData.gender">
+                        <option value="0">性别</option>
+                        <option ms-repeat="sexList" ms-value="el.value" >{{el.name}}</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select class="ui dropdown fluid" ms-duplex="searchFormData.useStatus">
+                        <option value="0">启用状态</option>
+                        <option ms-repeat="useStatusList" ms-value="el.value" >{{el.name}}</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <div class="date date-timepicker">
+                        <div class="ui action input fluid">
+                            <input size="16" type="text" ms-duplex="searchFormData.startDate" readonly placeholder="更新时间-起">
+                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="date date-timepicker">
+                        <div class="ui action input fluid">
+                            <input size="16" type="text" ms-duplex="searchFormData.endDate" readonly placeholder="更新时间-止">
+                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <button type="button" class="ui button blue" ms-click="search"><i class="search icon"></i>查询</button>
+                    <button type="button" class="ui button orange" ms-click="reset"><i class="undo icon"></i>重置</button>
+                </div>
+            </div>
+            <div class="row grid-row">
+                <div class="column">
+                    <input placeholder="用户姓名" ms-duplex="searchFormData.userName" />
+                </div>
+                <div class="column">
+                    <input placeholder="手机号码" ms-duplex="searchFormData.phone" />
+                </div>
+                <div class="column">
+                    <input placeholder="所属园区" ms-duplex="searchFormData.parkName" />
+                </div>
+                <div class="column">
+                    <input placeholder="职务名称" ms-duplex="searchFormData.post" />
+                </div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="right menu">
+                <button class="ui button green" ms-click="showAddWin(false)"><i class="add icon"></i>新增用户</button>
+            </div>
+        </div>
+        <div class="auto-scroll-table">
+            <table class="ui blue table selectable data-table" width="100%" ></table>
+        </div>
+    </div>
+    <div class="ui modal" id="parkUserAddWin">
+        <div class="header">园区用户新增/修改</div>
+        <div class="content" style="min-height: 450px;">
+            <form class="ui form">
+                <div class="two fields">
+                    <div class="field">
+                        <label>员工姓名<i class="icon star red" ></i></label>
+                        <input type="text" ms-duplex="parkUser.userName" placeholder="请输入30长度以内的中文,英文" maxlength="30"/>
+                    </div>
+                    <div class="field">
+                        <label>所属园区<i class="icon star red" ></i></label>
+                        <div id="parkNameSelect" class="ui floating labeled icon dropdown fluid button search-input-list">
+                            <i class="filter icon"></i>
+                            <span class="text"></span>
+                            <div class="menu">
+                                <div class="ui left icon input search-input-list-input">
+                                    <i class="search icon"></i>
+                                    <input type="text" name="search" placeholder="模糊搜索园区" ms-duplex="inputParkName" ms-input="queryParkByName">
+                                </div>
+                                <div class="scrolling menu">
+                                    <div class="item" ms-if="queryParkList.length<=0"></div>
+                                    <div class="item" ms-repeat="queryParkList" ms-data-parkid="el.parkId" ms-click="setParkId">
+                                        {{el.parkName}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>手机号码<i class="icon star red" ></i></label>
+                        <input type="text" ms-duplex="parkUser.phone" placeholder="请输入有效的手机号码" maxlength="11"/>
+                    </div>
+                    <div class="field">
+                        <label>出生日期</label>
+                        <div class="date date-timepicker">
+                            <div class="ui action input">
+                                <input size="16" type="text" ms-duplex="parkUser.birth" readonly>
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>职务<i class="icon star red" ></i></label>
+                        <input type="text" ms-duplex="parkUser.post" placeholder="请输入30长度以内的中文,英文" maxlength="30"/>
+                    </div>
+                    <div class="field">
+                        <label>性别<i class="icon star red" ></i></label>
+                        <select class="ui dropdown fluid" ms-duplex="parkUser.gender">
+                            <option ms-repeat="sexList" ms-value="el.value" >{{el.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>所属角色<i class="icon star red" ></i></label>
+                    <select class="ui dropdown link-change fluid"  multiple id="roleIdsSelect">
+                        <option ms-repeat="roleList" ms-value="el.id" >{{el.name}}</option>
+                    </select>
+                </div>
+                <input type="hidden" ms-duplex="parkUser.useStatus" />
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green">确定</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+</div>

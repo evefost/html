@@ -1,0 +1,48 @@
+{
+  "status": 200,
+  "message": "success",
+  "data":{
+    "results":[
+      {
+        "parkId": 1,
+        "parkName": "固戍园区"
+      },
+      {
+        "parkId": 2,
+        "parkName": "宝安园区"
+      },
+      {
+        "parkId": 3,
+        "parkName": "西乡园区"
+      },
+      {
+        "parkId": 4,
+        "parkName": "科技园园区"
+      },
+      {
+        "parkId": 2,
+        "parkName": "宝安园区"
+      },
+      {
+        "parkId": 3,
+        "parkName": "西乡园区"
+      },
+      {
+        "parkId": 4,
+        "parkName": "科技园园区"
+      },
+      {
+        "parkId": 2,
+        "parkName": "宝安园区"
+      },
+      {
+        "parkId": 3,
+        "parkName": "西乡园区"
+      },
+      {
+        "parkId": 4,
+        "parkName": "科技园园区"
+      }
+    ]
+  }
+}

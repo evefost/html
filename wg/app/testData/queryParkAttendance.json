@@ -1,0 +1,54 @@
+{
+  "status": 200,
+  "message": "查询成功！",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 20,
+    "pageCounts": 1,
+    "recordsTotal": 1,
+    "results": {
+      "tBody": [
+        {
+          "id": 1,
+          "parkId": 1,
+          "parkName": "华丰金融港",
+          "cityId": 1,
+          "cityName": "深圳",
+          "companyId": 0,
+          "companyName": "",
+          "isDistanceLimit": "NO",
+          "distanceLimit": "300",
+          "inDistanceLimitNeedphoto": "NO",
+          "outDistanceLimitNeedphoto": "YES",
+          "isEnable": "YES",
+          "createTime": 1472621843000,
+          "updateTime": 1472842881000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0
+        },
+        {
+          "id": 2,
+          "parkId": 2,
+          "parkName": "西乡固戍园区",
+          "cityId": 2,
+          "cityName": "东莞",
+          "companyId": 0,
+          "companyName": "",
+          "isDistanceLimit": "NO",
+          "distanceLimit": "160",
+          "inDistanceLimitNeedphoto": "NO",
+          "outDistanceLimitNeedphoto": "YES",
+          "isEnable": "YES",
+          "createTime": 1472641653000,
+          "updateTime": 1472641853000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

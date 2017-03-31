@@ -1,0 +1,23 @@
+{
+  "status": 200,
+  "message": "",
+  "data": {
+    "results": {
+      "id": 1,
+      "parkId": 0,
+      "companyId": 0,
+      "lonlat": "",
+      "isDistanceLimit": "YES",
+      "distanceLimit": 300,
+      "inDistanceLimitNeedphoto": "NO",
+      "outDistanceLimitNeedphoto": "YES",
+      "isEnable": "YES",
+      "createTime": 1472625195000,
+      "updateTime": 1472625195000,
+      "createUid": 1,
+      "updateUid": 1,
+      "status": 0,
+      "_id": 1
+    }
+  }
+}

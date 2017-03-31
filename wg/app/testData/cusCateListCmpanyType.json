@@ -1,0 +1,48 @@
+{
+    "status": 200,
+    "message": "成功显示客户性质分类列表",
+    "data": {
+        "pageNo": 1,
+        "pageSize": 10,
+        "pageCounts": 9,
+        "recordsTotal": 88,
+        "results": {
+            "tBody": [
+                {
+                    "id": 294,
+					"number": "1",
+					"name": "国企",
+					"totals": "包含客户数：16",
+					"creatTime": "2014-11-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 292,
+                    "number": "2",
+					"name": "民营",
+					"totals": "18",
+					"creatTime": "2015-10-10 18:45:25",
+					"updateTime": "2017-11-10 16:45:25"
+                },
+                {
+                    "id": 291,
+                    "number": "3",
+					"name": "外资",
+					"totals": "68",
+					"creatTime": "2014-10-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                },
+                {
+                    "id": 290,
+                    "number": "4",
+					"name": "合资",
+					"totals": "28",
+					"creatTime": "2013-10-10 18:45:25",
+					"updateTime": "2016-11-10 16:45:25"
+                }
+            ],
+            "tFooter": [],
+            "tHeader": []
+        }
+    }
+}

@@ -1,0 +1,67 @@
+<div ms-controller="constantManager">
+    <div class="ui container fluid">
+        <div class="ui container fluid">
+            <div class="ui form">
+                <div class="inline fields">
+                    <div class="field">
+                        <input type="text" ms-duplex="constantKey" placeholder="参数Key">
+                    </div>
+                    <div class="field">
+                        <input type="text" ms-duplex="constantField" placeholder="参数Field">
+                    </div>
+                    <div class="field">
+                        <input type="text" ms-duplex="constantValue" placeholder="参数Value">
+                    </div>
+                    <div class="field">
+                        <input type="text" ms-duplex="constantDesc" placeholder="参数Desc">
+                    </div>
+                    <div class="field ">
+                        <button class="ui button blue" ms-click="search"><i class="search icon"></i>查询</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="right menu">
+                <button class="ui button teal" ms-click="showAddWin(false)"><i class="add icon"></i>新增</button>
+            </div>
+        </div>
+        <div class="auto-scroll-table">
+            <table id="example" class="ui teal table selectable celled data-table" width="100%" >
+                <!-- tbody -->
+            </table>
+        </div>
+    </div>
+    <div class="ui modal" id="constantAddWin">
+        <div class="header">系统参数新增/修改</div>
+        <div class="content">
+            <form class="ui form">
+                <div class="field">
+                    <label>参数Key<i class="icon star red" ></i></label>
+                    <div class="icon star red">
+                        <input type="text" ms-duplex="constantData.constantKey">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>参数Field<i class="icon star red" ></i></label>
+                    <input type="text" ms-duplex="constantData.constantField"/>
+                </div>
+                <div class="field">
+                    <label>参数Value<i class="icon star red" ></i></label>
+                    <input type="text" ms-duplex="constantData.constantValue"/>
+                </div>
+                <div class="field">
+                    <label>参数描述</label>
+                    <div class="field">
+                        <input type="text" ms-duplex="constantData.constantDesc"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green">确定</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+</div>

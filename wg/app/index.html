@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<title>智慧园区后台管理系统-主页</title>
+
+		<link rel="stylesheet" href="../resource/css/semantic.css">
+		<link rel="stylesheet" href="../resource/css/amazeui.datetimepicker.css" />
+		<link rel="stylesheet" href="../resource/css/jquery.dataTables.css">
+		<link rel="stylesheet" href="../resource/css/amazeui.datetimepicker.css">
+		<link rel="stylesheet" href="../resource/css/metroStyle.css">
+		<link rel="stylesheet" href="../resource/css/webuploader.css">
+		<link rel="stylesheet" href="../resource/css/wangEditor.css">
+
+		<link rel="stylesheet" href="css/app.css">
+
+		<script src="../resource/vendor/jquery/jquery-2.2.0.min.js"></script>
+		<script src="../resource/vendor/require/require.min.js"></script>
+		<script src="../resource/vendor/avalon/avalon.modern.min.js" data-main="app"></script>
+		<!--<script src="js/lib/require.js" type="text/javascript" data-main="app"></script>-->
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=K5b5RL1922eI8Yj7MLlIVllDaQooQfTX"></script>
+	</head>
+
+	<body ms-controller="app">
+
+		<div class="top-menu">
+			<div class="ui fixed inverted blue menu">
+				<div class="ui container fluid">
+					<div class="header item project-name">
+						<i ms-click="toggleLeftMenu" class="sidebar icon cursor"></i><span>{{roleData.project.name}}</span>
+					</div>
+					<a ms-attr-href="#!/{{el.url}}" ms-repeat="topMenuList" ms-click="clickTopMenu(el.url,el.name)" class="item" ms-class="{{currentTopUrl == el.url ?'active':''}}">
+						<i ms-class="{{el.iconClass}}"></i> {{el.name}}
+					</a>
+					<div class="right menu">
+						<!--<a class="item">
+                    <i class="icon mail"></i>
+                    <div class="floating bottom ui orange circular label">22</div>
+                </a>-->
+						<div class="ui simple dropdown item">
+							{{roleData.project.roleName}}：{{roleData.project.user}}
+							<i class="dropdown icon"></i>
+							<div class="menu">
+								<span class="item" ms-click="modifyPassword"><i class="icon umbrella"></i> 修改密码</span>
+								<span class="item" ms-click="loginOut"><i class="sign out icon"></i> 退出</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ui container fluid main">
+			<div class="left-menu" ms-if="showLeftMenu">
+				<div class="ui blue vertical menu visible" ms-each="leftMenuList">
+					<a class="item" ms-if="el.child && el.child.length<=0" ms-attr-href="#!/{{el.url}}" ms-class="{{currentLeftUrl == el.url ?'active':''}}">
+						<i ms-attr-class="el.iconClass"></i> {{el.name}}
+					</a>
+					<div class="items" ms-if="el.child && el.child.length>0">
+						<div class="header" ms-click="toggleMenuList">{{el.name}}<i class="icon angle down"></i></div>
+						<div class="child-items" ms-each="leftMenuList[$index].child">
+							<a class="item" ms-attr-href="#!/{{el.url}}" ms-class="{{currentLeftUrl == el.url ?'active':''}}">{{el.name}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ms-view class="main-content"></div>
+		</div>
+		<div class="ui modal small" id="myAccountPwdWin">
+			<div class="header">密码管理</div>
+			<div class="content">
+				<form class="ui form">
+					<div class="field">
+						<label>新密码<i class="icon star red" ></i></label>
+						<input type="text" ms-duplex="newPwd" placeholder="不少于6个字符" />
+					</div>
+					<div class="field">
+						<label>重复密码<i class="icon star red" ></i></label>
+						<input type="text" ms-duplex="reNewPwd" placeholder="再次输入密码" />
+					</div>
+				</form>
+			</div>
+			<div class="actions">
+				<div class="ui approve button green">确定</div>
+				<div class="ui cancel button orange">取消</div>
+			</div>
+		</div>
+	</body>
+
+</html>

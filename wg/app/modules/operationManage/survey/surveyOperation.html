@@ -1,0 +1,151 @@
+<div ms-controller="surveyOperation">
+    <div class="ui fluid container">
+        <div class="ui container fluid">
+            <button class="ui button orange" ms-click="back"><i class="icon reply"></i> 返回问卷列表</button>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui grid">
+            <div class="fourteen wide column">
+                <div class="ui top attached block header">
+                    问卷问题
+                    <h4 class="ui right floated header">
+                        <i class="ui green plus icon" title="新增问题" ms-click="questionAdd"></i>
+                    </h4>
+                </div>
+                <div class="ui attached segment">
+
+                    <!--原有问题-->
+                    <div class="ui clearing segment" ms-repeat-item="surveyData.topicList">
+                        <button class="ui compact right floated orange button" ms-click="questionDelete">
+                            删除
+                        </button>
+                        <button class="ui compact right floated blue button" ms-click="questionEdit">
+                            修改
+                        </button>
+                        <h4 class="ui left floated header">
+                            {{item.topicTitle}}
+                        </h4>
+                        <input type="hidden" ms-value="item.topicId" data-new="false">
+                        <div class="ui clearing hidden fitted divider"></div>
+                        <div class="ui mini horizontal list">
+                            <div class="item" ms-repeat="item.itemList">
+                                <div class="content">
+                                    <div class="header">
+                                        <div class="ui checkbox" ms-class="radio:item.topicType === 'RADIO'">
+                                            <input ms-attr-type="{{item.topicType}}" tabindex="0" class="hidden">
+                                            <label>{{el.content}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui small modal" id="questionModal">
+                    <div class="header">
+                        {{isEdit ? '编辑问题' : '新增问题'}}
+                    </div>
+                    <div class="content">
+                        <form class="ui form">
+                            <div class="fields">
+                                <div class="three wide field">
+                                    问题<i class="ui red star icon"></i>
+                                </div>
+                                <div class="ten wide field">
+                                    <textarea rows="2" ms-duplex="topicItem.topicTitle" id="topicTitle"></textarea>
+                                </div>
+                            </div>
+                            <div class="fields">
+                                <div class="three wide field">
+                                    选择类型<i class="ui red star icon"></i>
+                                </div>
+                                <div class="ten wide field">
+                                    <div class="inline fields">
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="type" tabindex="0" class="hidden" id="RADIO" ms-duplex-string="topicItem.topicType" value="RADIO">
+                                                <label for="RADIO">单选</label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="type" tabindex="0" class="hidden" id="CHECKBOX" ms-duplex-string="topicItem.topicType" value="CHECKBOX">
+                                                <label for="CHECKBOX">多选</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui hidden fitted divider"></div>
+                            <div class="fields" ms-repeat="topicItem.itemList">
+                                <div class="three wide field">
+                                    <div ms-if="$index == 0">选项<i class="ui red star icon"></i></div>
+                                </div>
+                                <div class="eight wide field">
+                                    <input type="text" placeholder="请输入问题选项" class="option" ms-duplex="el.content">
+                                </div>
+                                <div class="two wide field">
+                                    <div ms-if="$index > 1"><i class="ui circular red remove icon" style="cursor:pointer" title="删除选项"></i></div>
+                                </div>
+                            </div>
+                            <!--<div class="fields">
+                                <div class="three wide field">
+
+                                </div>
+                                <div class="eight wide field">
+                                    <input type="text" class="option">
+                                </div>
+                                <div class="two wide field">
+                                </div>
+                            </div>-->
+                            <!--<div class="fields mutable">
+                                <div class="three wide field">
+
+                                </div>
+                                <div class="eight wide field">
+                                    <input type="text">
+                                </div>
+                                <div class="two wide field">
+                                    <i class="ui circular red remove icon" style="cursor:pointer" title="删除选项"></i>
+                                </div>
+                            </div>
+                            <div class="fields mutable">
+                                <div class="three wide field">
+
+                                </div>
+                                <div class="eight wide field">
+                                    <input type="text">
+                                </div>
+                                <div class="two wide field">
+                                    <i class="ui circular red remove icon" style="cursor:pointer" title="删除选项"></i>
+                                </div>
+                            </div>-->
+                            <div class="fields" id="addBefore">
+                                <div class="three wide field">
+                                </div>
+                                <div class="eight wide field">
+                                    <button class="ui green button" ms-click="addOption">添加选项</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="actions">
+                        <button class="ui orange deny button">取消</button>
+                        <button class="ui green approve button">确定</button>
+                    </div>
+                </div>
+                <div class="ui small modal" id="confirm">
+                    <div class="header">提示</div>
+                    <div class="content">
+                        确认删除？
+                    </div>
+                    <div class="actions">
+                        <button class="ui green approve button">确定</button>
+                        <button class="ui orange deny button">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

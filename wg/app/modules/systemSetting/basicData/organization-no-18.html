@@ -1,0 +1,105 @@
+<div ms-controller="dept" class="house">
+    <div class="ui two column stackable grid my-grid height-max">
+        <div class="four wide column height-max dept-column dept-tree-container">
+            <div class="ui segment height-max">
+                <div class="ui small form">
+                    <div class="wide field">
+                          <input type="text"  ms-duplex="deptName" placeholder="请输入部门名称">
+                    </div>
+                    <div class="fields">
+                        <div class="sixteen wide field">
+                            <div class="ui button blue fluid" ms-click="search"><i class="icon search"></i>搜 索</div>
+                        </div>
+                        <!--
+                        <div class="eight wide field">
+                            <div class="ui button green fluid"><i class="file sort icon"></i>排 序</div>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="ui divider"></div>
+                <ul id="deptZtree" class="ztree"></ul>
+            </div>
+        </div>
+        <div class="twelve wide column height-max dept-column">
+            <div class="ui segment height-max">
+                <form class="ui form">
+                    <div class="fields">
+                        <div class="eight wide field">
+                            <label>部门编号</label>
+                            <input name="showName" ms-duplex="dept.departmentNumber" type="text" />
+                        </div>
+                        <div class="eight wide field">
+                            <label>部门名称<i class="icon star red" ></i></label>
+                            <input name="showName" ms-duplex="dept.departmentName" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="fields">
+                        <div class="eight wide field">
+                            <label>上级部门<i class="icon star red" ></i></label>
+                            <div class="ui icon input customer-select-ztree">
+                                <i class="sitemap icon"></i>
+                                <input type="hidden" name="areaCode"/>
+                                <input data-duplex-changed="houseAreaTreeChange" placeholder="请选择" type="text" readonly>
+                            </div>
+                            <div class="ztree-menu">
+                                <ul class="ztree" id="deptSelectZtree"></ul>
+                            </div>
+                        </div>
+                        <div class="eight wide field">
+                            <label>部门电话</label>
+                            <input name="showName" ms-duplex="dept.departmentTel" type="text" />
+                        </div>
+                        <!--<div class="field">
+                            <label>部门类别<i class="icon star red" ></i></label>
+                            <select class="ui dropdown" ms-duplex="dept.departmentType">
+                                <option ms-repeat="deptTypeList" ms-value="el.value" >{{el.name}}</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>状态<i class="icon star red" ></i></label>
+                            <select class="ui dropdown" ms-duplex="dept.useStatus">
+                                <option ms-repeat="useStatusList" ms-value="el.value" >{{el.name}}</option>
+                            </select>
+                        </div>
+                        -->
+                    </div>
+                    <div class="fields">
+                        <div class="eight wide field">
+                            <label>部门邮箱</label>
+                            <input name="showName" ms-duplex="dept.departmentEmail" type="text" />
+                        </div>
+                        <div class="eight wide field">
+                            <label>部门地址</label>
+                            <input name="showName" ms-duplex="dept.departmentAddress" type="text" />
+                        </div>
+                    </div>
+                    <!--
+                    <div class="field">
+                        <label>负责区域</label>
+                        <div class="ui icon input customer-select-ztree">
+                            <i class="sitemap icon"></i>
+                            <input ms-duplex="dept.areaName" placeholder="请选择" type="text" readonly>
+                        </div>
+                        <div class="ztree-menu">
+                            <ul class="ztree" id="dept_ztreeCity"></ul>
+                        </div>
+                    </div>
+                    -->
+                    <div class="field">
+                        <label>排序</label>
+                        <input type="number" ms-duplex="dept.sorted"  />
+                    </div>
+                    <div class="field">
+                        <label>部门描述</label>
+                        <textarea rows="5" ms-duplex="dept.description" placeholder="部门描述性信息"></textarea>
+                    </div>
+                    <div class="field">
+                        <button ms-if="!isEdit" ms-click="saveOrUpdateDept" class="ui button teal" type="button"><i class="icon save"></i>新 增</button>
+                        <button ms-if="isEdit" ms-click="saveOrUpdateDept" class="ui button orange" type="button"><i class="icon save"></i>修 改</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

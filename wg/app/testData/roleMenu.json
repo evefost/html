@@ -1,0 +1,147 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "results":[
+      {
+        "id": 2,
+        "parentId": 0,
+        "level": 1,
+        "name": "基础资料"
+      },
+      {
+        "id": 200,
+        "parentId": 2,
+        "level": 2,
+        "name": "首页"
+      },
+      {
+        "id": 201,
+        "level": 2,
+        "parentId": 2,
+        "name": "楼盘管理"
+      },
+      {
+        "id": 202,
+        "parentId": 2,
+        "level": 2,
+        "name": "会员管理"
+      },
+      {
+        "id": 203,
+        "parentId": 2,
+        "level": 2,
+        "name": "楼盘基础数据管理"
+      },
+      {
+        "id": 2001,
+        "parentId": 203,
+        "level": 3,
+        "name": "楼盘价位管理"
+      },
+      {
+        "id": 2002,
+        "parentId": 203,
+        "level": 3,
+        "name": "楼盘类型管理"
+      },
+      {
+        "id": 2003,
+        "parentId": 203,
+        "level": 3,
+        "name": "楼盘属性管理"
+      },
+      {
+        "id": 20001,
+        "parentId": 2003,
+        "level": -1,
+        "name": "新增属性"
+      },
+      {
+        "id": 20002,
+        "parentId": 2003,
+        "level": -1,
+        "name": "删除属性"
+      },
+      {
+        "id": 3,
+        "level": 1,
+        "parentId": 0,
+        "name": "运营管理"
+      },
+      {
+        "id": 301,
+        "level": 2,
+        "parentId": 3,
+        "name": "首页"
+      },
+      {
+        "id": 302,
+        "level": 2,
+        "parentId": 3,
+        "name": "广告管理"
+      },
+      {
+        "id": 303,
+        "level": 2,
+        "parentId": 3,
+        "name": "合同管理"
+      },
+      {
+        "id": 3001,
+        "level": 3,
+        "parentId": 303,
+        "name": "楼盘合同管理"
+      },
+      {
+        "id": 3002,
+        "level": 3,
+        "parentId": 303,
+        "name": "租赁合同管理"
+      },
+      {
+        "id": 4,
+        "level": 1,
+        "parentId": 0,
+        "name": "客服管理"
+      },
+      {
+        "id": 401,
+        "level": 2,
+        "parentId": 4,
+        "name": "工单分配"
+      },
+      {
+        "id": 402,
+        "level": 2,
+        "parentId": 4,
+        "name": "工单管理"
+      },
+      {
+        "id": 5,
+        "level": 1,
+        "parentId": 0,
+        "name": "系统设置"
+      },
+      {
+        "id": 501,
+        "level": 2,
+        "parentId": 5,
+        "name": "部门管理"
+      },
+      {
+        "id": 502,
+        "level": 2,
+        "parentId": 5,
+        "name": "用户管理"
+      },
+      {
+        "id": 503,
+        "level": 2,
+        "parentId": 5,
+        "name": "角色管理"
+      }
+    ],
+    "roleMenuIds":"2,200,202,203,2002,2003,3,303,3001,3002,4,401,402,5,503"
+  }
+}

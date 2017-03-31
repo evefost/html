@@ -1,0 +1,270 @@
+<div ms-controller="user" class="house">
+    <div class="ui two column stackable grid my-grid height-max">
+        <div class="four wide column height-max dept-column dept-tree-container">
+            <div class="ui segment height-max">
+                <div class="ui small form">
+                    <div class="sixteen wide field">
+                        <input type="text" ms-input="searchDeptTree" placeholder="请输入关键字">
+                    </div>
+                    <div class="sixteen wide field">
+                        <select class="ui dropdown" ms-change="switchStatus()" ms-duplex="selectQuery">
+                            <option value="1">行业</option>
+                            <option value="2">等级</option>
+                        </select>
+                    </div>
+                </div>
+                <!--<div class="ui form stackable doubling three column grid">
+                    <div class="row">
+                        <div class="eight wide column">
+                            <input type="text" ms-input="searchDeptTree" placeholder="直接输入部门名称过滤">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="two wide column">
+                            <select class="ui dropdown" data-duplex-changed="sQuerysearch()" ms-duplex="selectQuery" style="min-width:2em;">
+                                <option value="1">行业</option>
+                                <option value="2">性质</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="ui divider"></div>
+                <!--<div style="color:orangered"><i class="icon warning"></i>新增的部门需重新登录后在下面部门树中方可见</div>-->
+                <ul id="deptZtree" class="ztree"></ul> <!--ms-visible="curOpt==='industry'"
+                <ul id="levelTree" class="ztree" ms-visible="curOpt==='levelTree'"></ul>-->
+            </div>
+        </div>
+        <div class="twelve wide column height-max dept-column">
+            <div class="ui segment height-max">
+                <div class="ui form stackable doubling four column grid">
+                    <div class="row">
+                        <div class="column">
+                            <input placeholder="客户名称" ms-duplex="searchData.companyName" />
+                        </div>
+                        <div class="column">
+                            <div class="date date-timepicker">
+                                    <div class="ui action input fluid">
+                                            <input size="16" type="text" ms-duplex="searchData.settledTimeStart" readonly placeholder="入住时间-始">
+                                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                            <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="date date-timepicker">
+                                    <div class="ui action input fluid">
+                                            <input size="16" type="text" ms-duplex="searchData.settledTimeEnd" readonly placeholder="入住时间-止">
+                                            <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                            <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <select class="ui dropdown" ms-duplex="searchData.companyType">
+                                <option value="0">性质</option>
+                                <option ms-repeat="companyTypeList" ms-value="el.value" >{{el.name}}</option>
+                            </select>
+                        </div>
+                        </div>
+                    <div class="row grid-row">
+                        <div class="column">
+                            <select class="ui dropdown" ms-duplex="searchData.companySize">
+                                <option value="0">规模</option>
+                                <option ms-repeat="companySizeList" ms-value="el.value" >{{el.name}}</option>
+                            </select>
+                        </div>
+                        <div class="column"  ms-visible="curOpt==='industry'">
+                            <select class="ui dropdown" ms-duplex="searchData.levelTree">
+                                <option value="0">级别</option>
+                                <option ms-repeat="levelTreeList" ms-value="el.id">{{el.name}}</option>
+                            </select>
+                        </div>
+                        <div class="column"  ms-visible="curOpt==='levelTree'">
+                            <select class="ui dropdown" ms-duplex="searchData.levelTree">
+                                <option value="0">行业</option>
+                                <option ms-repeat="levelTreeList" ms-value="el.id">{{el.name}}</option>
+                            </select>
+                        </div>
+
+
+												<!--
+                        <div class="field">
+                            <select class="ui dropdown" ms-duplex="isJob">
+                                <option value="0">在职状态</option>
+                                <option ms-repeat="isJobList" ms-value="el.value" >{{el.name}}</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <select class="ui dropdown" ms-duplex="useStatus">
+                                <option value="0">启用状态</option>
+                                <option ms-repeat="useStatusList" ms-value="el.value" >{{el.name}}</option>
+                            </select>
+                        </div>
+                        <div class="field ">
+                            <input placeholder="员工姓名" ms-duplex="realName" />
+                        </div>
+                        <div class="field ">
+                            <input placeholder="手机号码" ms-duplex="phone" />
+                        </div>-->
+                        <div class="row">
+                            <button class="ui button blue" ms-click="search"><i class="search icon"></i>查询</button>
+                            <button type="button" class="ui button orange" ms-click="reset"><i class="undo icon"></i>重置</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui divider"></div>
+                <div class="ui container fluid secondary menu operation-menu">
+                    <div class="right menu">
+                        <button type="button" class="ui button orange" ms-click="uploadBillExcel"><i class="cloud upload icon"></i>导入</button>
+                        <button type="button" class="ui button green" ms-click="exportBillExcel"><i class="file excel outline icon"></i>导出</button>
+                        <button class="ui button teal" ms-click="showAddWin(false)"><i class="add icon"></i>新增用户</button>
+                    </div>
+                </div>
+                <div class="auto-scroll-table">
+                    <table class="ui teal table selectable celled data-table" width="100%" >
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui modal" id="userAddWin">
+        <div class="header">用户新增/修改</div>
+        <div class="content">
+            <form class="ui form">
+                <label class="ui green ribbon label">基础资料</label>
+                <p></p>
+                <div class="three fields">
+                    <div class="field">
+                        <div class="field">
+                            <label>公司名称<i class="icon star red" ></i></label>
+                            <input type="text" ms-duplex="user.companyName" placeholder="公司名称"/>
+                         </div>
+                    </div>
+                    <div class="field">
+                        <label>客户级别<i class="icon star red" ></i></label>
+                        <select class="ui dropdown" ms-duplex="user.levelTree">
+                            <option value="0">级别</option>
+                            <option ms-repeat="levelTreeList" ms-value="el.id">{{el.name}}</option>
+                        </select>
+                    </div>
+					<div class="field">
+                        <label>所属行业<i class="icon star red" ></i></label>
+                        <select class="ui dropdown" ms-duplex="user.industry">
+                            <option value="0">请选择</option>
+                            <option ms-repeat="industryTreeList" ms-value="el.id">{{el.name}}</option>
+                        </select>
+                    </div>
+                    </div>
+               <div class="three fields">
+                    <div class="field">
+                        <label>公司规模<i class="icon star red" ></i></label>
+                        <select class="ui dropdown" ms-duplex="user.companySize">
+                            <option value="0">请选择</option>
+                            <option ms-repeat="companySizeList" ms-value="el.value" >{{el.name}}</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>公司性质<i class="icon star red" ></i></label>
+                        <select class="ui dropdown" ms-duplex="user.companyType">
+                            <option value="0">请选择</option>
+                            <option ms-repeat="companyTypeList" ms-value="el.value" >{{el.name}}</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                            <label>联系人<i class="icon star red" ></i></label>
+                            <input type="text" ms-duplex="user.contactPerson" placeholder="请输入联系人姓名"/>
+                    </div>
+                    </div>
+                    <div class="three fields">
+                        <div class="field">
+                            <label>性别<i class="icon star red" ></i></label>
+                            <select class="ui dropdown" ms-duplex="user.gender">
+                                <option ms-repeat="sexList" ms-value="el.value" >{{el.name}}</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>手机号码<i class="icon star red" ></i></label>
+                        <input placeholder="11位手机号码" type="text" ms-duplex="user.phone" maxlength="11"/>
+                    </div>
+                </div>
+                <label class="ui green ribbon label">租赁信息</label>
+                <p></p>
+                <div class="three fields">
+                    <div class="field">
+                        <label>所属园区<i class="icon star red" ></i></label>
+                        <div id="parkNameSelect" class="ui floating labeled icon dropdown fluid button search-input-list">
+                            <i class="filter icon"></i>
+                            <span class="text"></span>
+                            <div class="menu">
+                                <div class="ui left icon input search-input-list-input">
+                                    <i class="search icon"></i>
+                                    <input type="text" name="search" placeholder="模糊搜索园区" ms-duplex="user.inputParkName" ms-input="queryParkByName">
+                                </div>
+                                <div class="scrolling menu">
+                                    <div class="item" ms-if="queryParkList.length<=0"></div>
+                                    <div class="item" ms-repeat="queryParkList" ms-data-parkid="el.parkId" ms-click="setParkId">
+                                        {{el.parkName}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>所在楼栋<i class="icon star red" ></i></label>
+                        <select class="ui dropdown" ms-duplex="user.houseFloor">
+                            <option value="0">请选择楼栋</option>
+                            <option ms-repeat="houseFloorList" ms-value="el.value" >{{el.name}}</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>入住房号<i class="icon star red" ></i></label>
+                        <input type="text" ms-duplex="user.roomNumber" placeholder="请输入入住房号"/>
+                    </div>
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <label>合同期限</label>
+                        <div class="date date-timepicker">
+                            <div class="ui action input">
+                                <input size="16" type="text" ms-duplex="user.contractTimeStart" placeholder="请选择合同开始时间" readonly>
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+						<div class="date date-timepicker">
+                            <div class="ui action input">
+                                <input size="16" type="text" ms-duplex="user.contractTimeEnd" placeholder="请选择合同到期时间" readonly>
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+					<div class="field">
+                        <label>租金<i class="icon star red" ></i></label>
+                        <div class="ui right labeled input">
+                            <input type="number" min=0 ms-duplex="user.rent" placeholder="请输入租金"/>
+                            <select class="ui basic floating button" style="width:110px" ms-duplex="user.rentUnit">
+                                <option class="item" value="元/㎡/月">元/㎡/月</option>
+                                <option class="item" value="元/月">元/月</option>
+                            </select>
+                        </div>
+                    </div>
+					<div class="field">
+                        <label>入驻时间</label>
+                        <div class="date date-timepicker">
+                            <div class="ui action input">
+                                <input size="16" type="text" ms-duplex="user.settledTime" placeholder="请选择入驻时间" readonly>
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+                <p></p>
+                <p></p>
+                <p></p>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green">确定</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+</div>

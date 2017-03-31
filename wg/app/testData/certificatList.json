@@ -1,0 +1,73 @@
+{
+  "status": 200,
+  "message": "查询成功！",
+  "data": {
+    "page0": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 25,
+    "results": {
+      "tBody": [
+        {
+          "userName": "dhw",
+          "phone": "18682036781",
+          "image": "http://assets.daowangtech.com//testFile/3.png",
+          "parkName": "华丰金融港",
+          "companyName": "道网科技",
+          "gender": "MALE",
+          "createTime": "2016-09-03 14:31:26",
+          "updateTime": "2016-09-05 09:52:04",
+          "authStatus": "-1",
+          "userStatus": "1",
+          "points": 20,
+          "authImage": "http://assets.daowangtech.com//testFile/1.png",
+          "content": "contentcontentcontent",
+          "auths": 1,
+          "operatorName": "张三",
+          "operatorPhone": "13022255555",
+          "operateDate": "2012-06-12 12:12:23"
+        },
+        {
+          "userName": "fffff",
+          "phone": "13700000004",
+          "image": "http://assets.daowangtech.com//testFile/3.png",
+          "parkName": "华丰金融港",
+          "companyName": "华丰",
+          "gender": "FEMALE",
+          "createTime": "2016-09-05 09:52:04",
+          "updateTime": "2016-09-05 09:52:04",
+          "authStatus": "1",
+          "userStatus": "0",
+          "points": 2210,
+          "authImage": "http://assets.daowangtech.com//testFile/1.png",
+          "content": "",
+          "auths": -1,
+          "operatorName": "",
+          "operatorPhone": "",
+          "operateDate": ""
+        },
+        {
+          "userName": "fffff",
+          "phone": "13700000004",
+          "image": "http://assets.daowangtech.com//testFile/3.png",
+          "parkName": "华丰金融港",
+          "companyName": "华丰",
+          "gender": "FEMALE",
+          "createTime": "2016-09-05 09:52:04",
+          "updateTime": "2016-09-05 09:52:04",
+          "authStatus": "2",
+          "userStatus": "0",
+          "points": 2210,
+          "authImage": "http://assets.daowangtech.com//testFile/1.png",
+          "content": "",
+          "auths": -1,
+          "operatorName": "",
+          "operatorPhone": "",
+          "operateDate": ""
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

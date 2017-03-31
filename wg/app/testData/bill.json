@@ -1,0 +1,36 @@
+{
+  "status": 200,
+  "message": "成功显示账单列表",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 5,
+    "pageCounts": 1,
+    "recordsTotal": 27,
+    "results": {
+      "tBody": [
+        {
+          "id": 3,
+          "year": "2016",
+          "month": "05",
+          "parkName": "华丰金融港",
+          "amount": 4000,
+          "uploadTime": "2016-08-29 08:43:43",
+          "uploadUserName": "李敦庆",
+          "uploadUserPhone": "13045888185"
+        },
+        {
+          "id": 2,
+          "year": "2016",
+          "month": "05",
+          "parkName": "华丰金融港",
+          "amount": 4000,
+          "uploadTime": "2016-08-29 08:43:43",
+          "uploadUserName": "李敦庆",
+          "uploadUserPhone": "13045888185"
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

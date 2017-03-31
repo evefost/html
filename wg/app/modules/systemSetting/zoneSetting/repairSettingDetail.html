@@ -1,0 +1,149 @@
+<div ms-controller="repairSettingDetail">
+    <div class="ui container fluid">
+        <button class="ui button orange" ms-click="back"><i class="icon reply"></i> 返回园区列表</button>
+    </div>
+    <div class="ui divider"></div>
+
+    <div class="ui top attached block header">
+        维修服务简介
+    </div>
+    <div class="ui attached segment">
+        <div class="ui grid">
+            <div class="sixteen wide column">
+                <form class="ui form" id="repairForm">
+                    <div class="ui grid">
+                        <div class="row">
+                            <div class="two wide column">
+                                <label>园区名称</label>
+                            </div>
+                            <div class="ten wide column">
+                                <b>{{repairData.parkName}}</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four wide column">
+                                <label>维修服务简介<i class="icon red star"></i></label>
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="sixteen wide column">
+                                <div id="wangeditor-container">
+                                    <textarea style="height:320px; width:100%" name="repairContent" id="description" ms-duplex="repairData.repairContent"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" name="parkId" ms-duplex="repairData.parkId" style="display:none">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui top attached block header">
+        维修服务种类
+    </div>
+    <div class="ui attached segment">
+        <form class="ui form">
+            <div class="ui five column grid">
+                <div class="row">
+                    <div class="column">
+                        <input type="text" placeholder="服务名称" ms-duplex="queryData.serviceName">
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.supportType">
+                            <option value="0">服务提供方</option>
+                            <option value="PARK">园区物业</option>
+                            <option value="SUPPLIER">供应商</option>
+                            <!--<option ms-repeat="commonData.roleCommonData.useStatus" ms-value="{{el.value}}">{{el.name}}</option>-->
+                        </select>
+                    </div>
+                    <div class="column">
+                        <select class="ui fluid dropdown" ms-duplex="queryData.status">
+                            <option value="0">状态</option>
+                            <option ms-repeat="commonData.roleCommonData.useStatus" ms-value="{{el.value}}">{{el.name}}</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <div class="ui container fluid secondary menu operation-menu">
+                            <div class="left menu">
+                                <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                                <button class="ui labeled icon orange button" ms-click="reset">重置<i class="icon undo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui container fluid secondary menu operation-menu">
+                <div class="right menu">
+                    <button class="ui labeled icon green button" ms-click="showAddWin">新增服务<i class="icon plus"></i></button>
+                </div>
+            </div>
+        </form>
+        <table class="data-table ui blue selectable table" style="width:100%"></table>
+    </div>
+
+    <div class="ui container fluid secondary menu operation-menu">
+        <div class="left menu">
+            <button class="ui primary button" ms-click="save">提交</i></button>
+        </div>
+    </div>
+
+    <div id="serviceModal" class="ui modal">
+        <div class="header">
+            维修种类编辑/新增
+        </div>
+        <div class="content">
+            <form class="ui form" id="serviceForm">
+                <div class="ui grid">
+                    <div class="row">
+                        <div class="four wide column">
+                            <label>维修种类<i class="ui icon red star"></i></label>
+                        </div>
+                        <div class="ten wide column">
+                            <input type="text" name="serviceName" ms-duplex="serviceData.serviceName">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="four wide column">
+                            <label>服务提供方<i class="ui icon red star"></i></label>
+                        </div>
+                        <div class="ten wide column">
+                            <div class="inline fields">
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="supportType" class="hidden" id="PARK" ms-duplex-string="serviceData.supportType" value="PARK">
+                                        <label for="PARK">园区物业</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="supportType" class="hidden" id="SUPPLIER" ms-duplex-string="serviceData.supportType" value="SUPPLIER">
+                                        <label for="SUPPLIER">供应商</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ms-if="serviceData.supportType === 'SUPPLIER'">
+                        <div class="four wide column">
+                            <label>选择供应商<i class="ui icon red star"></i></label>
+                        </div>
+                        <div class="ten wide column">
+                            <select class="ui fluid dropdown" name="supplierIds" multiple  ms-duplex="serviceData.supplierIds" id="supplierList">
+                                <option ms-repeat="supplierList" ms-value="el.id">{{el.name}}</option>
+                            </select>
+                            <!--<input type="text" style="display:none" name="supplierIds" ms-duplex="serviceData.supplierIds">-->
+                        </div>
+                    </div>
+                    <input type="text" name="id" ms-duplex="serviceData.id" style="display:none">
+                    <input type="text" name="parkId" ms-duplex="serviceData.parkId" style="display:none">
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <button class="ui cancel olive button">取消</button>
+            <button class="ui approve primary button">保存</button>
+        </div>
+    </div>
+</div>

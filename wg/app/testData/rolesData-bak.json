@@ -1,0 +1,421 @@
+{
+  "status": 200,
+  "message": "获取快乐租权限数据成功！",
+  "data": {
+    "results": {
+      "roleCommonData": {
+        "sex": [
+          {
+            "name": "男",
+            "value": "MALE"
+          },
+          {
+            "name": "女",
+            "value": "FEMALE"
+          }
+        ],
+        "useStatus": [
+          {
+            "value": "YES",
+            "name": "是"
+          },
+          {
+            "value": "NO",
+            "name": "否"
+          }
+        ],
+        "roleType":[
+          {
+            "value": "INNER",
+            "name": "我司"
+          },
+          {
+            "value": "PARK",
+            "name": "物业 "
+          },
+          {
+            "value": "SUPPLIER",
+            "name": "供应商"
+          }
+        ],
+        "platform":[
+          {
+            "value": "USERAPP",
+            "name": "用户端APP"
+          },
+          {
+            "value": "SERVERAPP",
+            "name": "服务端APP"
+          }
+        ],
+        "areaList": [
+          {
+            "id": 1,
+            "code": "chn",
+            "upAreaCode": "",
+            "name": "中国",
+            "value": "chn",
+            "level": 0
+          },
+          {
+            "id": 2,
+            "code": "gd",
+            "upAreaCode": "chn",
+            "name": "广东省",
+            "value": "gd",
+            "level": 1
+          },
+          {
+            "id": 3,
+            "code": "sz",
+            "upAreaCode": "gd",
+            "name": "深圳",
+            "value": "sz",
+            "level": 2
+          },
+          {
+            "id": 201,
+            "code": "ns",
+            "upAreaCode": "sz",
+            "name": "南山",
+            "value": "ns",
+            "level": 3
+          },
+          {
+            "id": 201,
+            "code": "kjy",
+            "upAreaCode": "ns",
+            "name": "科技园",
+            "value": "kjy",
+            "level": 4
+          },
+          {
+            "id": 201,
+            "code": "hqc",
+            "upAreaCode": "ns",
+            "name": "华侨城",
+            "value": "hqc",
+            "level": 4
+          },
+          {
+            "id": 201,
+            "code": "nszxq",
+            "upAreaCode": "ns",
+            "name": "南山中心区",
+            "value": "nszxq",
+            "level": 4
+          },
+          {
+            "id": 202,
+            "code": "xx",
+            "upAreaCode": "sz",
+            "name": "西乡",
+            "value": "xx",
+            "level": 3
+          },
+          {
+            "id": 203,
+            "code": "ba",
+            "upAreaCode": "sz",
+            "name": "宝安",
+            "value": "ba",
+            "level": 3
+          },
+          {
+            "id": 4,
+            "code": "gz",
+            "upAreaCode": "gd",
+            "name": "广州",
+            "level": 2
+          },
+          {
+            "id": 201,
+            "code": "byq",
+            "upAreaCode": "gz",
+            "name": "白云区",
+            "value": "byq",
+            "level": 3
+          },
+          {
+            "id": 202,
+            "code": "zxq",
+            "upAreaCode": "gz",
+            "name": "中心区",
+            "value": "zxq",
+            "level": 3
+          },
+          {
+            "id": 5,
+            "code": "bj",
+            "upAreaCode": "chn",
+            "name": "北京",
+            "value": "bj",
+            "level": 2
+          },
+          {
+            "id": 6,
+            "code": "sh",
+            "upAreaCode": "chn",
+            "name": "上海",
+            "value": "sh",
+            "level": 2
+          }
+        ],
+        "roleList":[
+          {
+            "id":1,
+            "roleName":"超级管理员"
+          },{
+            "id":2,
+            "roleName":"客服专员"
+          },{
+            "id":3,
+            "roleName":"运营专员"
+          },{
+            "id":4,
+            "roleName":"普工"
+          }
+        ]
+      },
+      "project": {
+        "user": "admin",
+        "userName": "张三",
+        "userId": "45",
+        "workNumber": "4579",
+        "roleName": "超级管理员",
+        "name": "智慧园区管理系统"
+      },
+      "roleMenuList": [
+        {
+          "name": "我的工作台",
+          "iconClass": "icon home",
+          "url": "app/overview",
+          "child": [
+              {
+                  "id": "10100000",
+                  "iconClass": "icon home",
+                  "name": "首页",
+                  "url": "app/overview/home",
+                  "child": []
+              }
+          ]
+        },
+        {
+          "name": "客服管理",
+          "iconClass": "icon tasks",
+          "url": "app/serviceManage",
+          "child": [
+            {
+              "id": "20100000",
+              "iconClass": "icon configure",
+              "name": "维修服务",
+              "url": "app/serviceManage/repair",
+              "child": []
+            },
+            {
+              "id": "20600000",
+              "iconClass": "icon file excel outline",
+              "name": "账单服务",
+              "url": "app/serviceManage/bill",
+              "child": []
+            },
+            {
+              "id": "20700000",
+              "iconClass": "icon sign in",
+              "name": "考勤管理",
+              "url": "app/serviceManage/decorationManage",
+              "child": []
+            },
+            {
+              "id": "20900000",
+              "iconClass": "icon food",
+              "name": "企业订餐",
+              "url": "app/serviceManage/takeout",
+              "child": []
+            }
+          ]
+        },
+        {
+          "name": "基础物业服务",
+          "iconClass": "icon tasks",
+          "url": "app/sServiceManage",
+          "child": [
+            {
+              "id": "20100000",
+              "iconClass": "icon configure",
+              "name": "维修服务",
+              "url": "app/sServiceManage/repair",
+              "child": []
+            },
+            {
+              "id": "20600000",
+              "iconClass": "icon file excel outline",
+              "name": "账单服务",
+              "url": "app/sServiceManage/bill",
+              "child": []
+            }
+          ]
+        },
+        {
+          "name": "运营管理",
+          "iconClass": "icon line chart",
+          "url": "app/operationManage",
+          "child": [
+            {
+              "id": "30100000",
+              "iconClass": "",
+              "name": "广告管理",
+              "url": "app/operationManage/ad",
+              "child": []
+            },
+            {
+              "id": "30200000",
+              "iconClass": "",
+              "name": "问卷调查",
+              "url": "app/operationManage/survey",
+              "child": []
+            }
+          ]
+        },
+        {
+          "name": "基础资料",
+          "iconClass": "icon grid layout",
+          "url": "app/basicData",
+          "child": [
+            {
+              "id": "40100000",
+              "iconClass": "",
+              "name": "园区管理",
+              "url": "app/basicData/park",
+              "child": []
+            },
+            {
+              "id": "40200000",
+              "iconClass": "",
+              "name": "企业管理",
+              "url": "app/basicData/company",
+              "child": []
+            },
+            {
+              "id": "40300000",
+              "iconClass": "",
+              "name": "供应商管理",
+              "url": "app/basicData/supplier",
+              "child": []
+            }
+          ]
+        },
+        {
+          "name": "系统管理",
+          "iconClass": "icon sitemap",
+          "url": "app/authors",
+          "child": [
+            {
+              "name": "用户管理",
+              "iconClass": "icon list layout",
+              "url": "",
+              "child": [
+                {
+                  "name": "园区用户",
+                  "iconClass": "icon list layout",
+                  "url": "app/authors/parkUser",
+                  "child": []
+                },
+                {
+                  "name": "企业用户",
+                  "iconClass": "icon list layout",
+                  "url": "app/authors/enterpriseUser",
+                  "child": []
+                },
+                {
+                  "name": "我司用户",
+                  "iconClass": "icon list layout",
+                  "url": "app/authors/companyUser",
+                  "child": []
+                }
+              ]
+            },
+            {
+              "name": "角色管理",
+              "iconClass": "icon doctor",
+              "url": "app/authors/role",
+              "child": []
+            },
+            {
+              "name": "用户反馈",
+              "iconClass": "icon comment outline",
+              "url": "app/authors/userFeedback",
+              "child": []
+            },
+            {
+              "name": "消息管理",
+              "iconClass": "icon comments outline",
+              "url": "app/authors/messageManager",
+              "child": []
+            }
+          ]
+        },
+        {
+          "iconClass": "icon setting",
+          "name": "系统设置",
+          "url": "app/systemSetting",
+          "child": [
+            {
+              "id": "50200000",
+              "iconClass": "",
+              "name": "积分规则",
+              "url": "app/systemSetting/pointRules",
+              "child": []
+            },
+            {
+              "id": "50300000",
+              "iconClass": "",
+              "name": "考勤设置",
+              "url": "app/systemSetting/attendance",
+              "child": []
+            },
+            {
+              "id": "50400000",
+              "iconClass": "",
+              "name": "园区服务超时设置",
+              "url": "app/systemSetting/serviceTimeout",
+              "child": []
+            },
+            {
+              "id": "50500000",
+              "iconClass": "",
+              "name": "园区设置",
+              "url": "app/systemSetting/zoneSetting",
+              "child": [
+                {
+                  "id": "50501000",
+                  "iconClass": "",
+                  "name": "维修设置",
+                  "url": "app/systemSetting/repairSetting"
+                },
+                {
+                  "id": "50502000",
+                  "iconClass": "",
+                  "name": "账单模板",
+                  "url": "app/systemSetting/billSetting"
+                },
+                {
+                  "id": "50503000",
+                  "iconClass": "",
+                  "name": "入驻公告设置",
+                  "url": "app/systemSetting/settledSetting"
+                },
+                {
+                  "id": "50504000",
+                  "iconClass": "",
+                  "name": "停车场设置",
+                  "url": "app/systemSetting/parkingSetting"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

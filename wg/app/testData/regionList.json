@@ -1,0 +1,147 @@
+{
+  "status": 200,
+  "message": "区域列表显示OK",
+  "data": {
+    "results": {
+      "pageNo": 0,
+      "pageSize": 20,
+      "pageCounts": 0,
+      "recordsTotal": 0,
+      "results": [
+        {
+          "id": 133,
+          "name": "南山",
+          "code": "ns",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 133
+        },
+        {
+          "id": 134,
+          "name": "福田",
+          "code": "ft",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 134
+        },
+        {
+          "id": 135,
+          "name": "罗湖",
+          "code": "lh",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 135
+        },
+        {
+          "id": 136,
+          "name": "宝安",
+          "code": "ba",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 136
+        },
+        {
+          "id": 137,
+          "name": "龙岗",
+          "code": "lg",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 137
+        },
+        {
+          "id": 138,
+          "name": "盐田",
+          "code": "yt",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 138
+        },
+        {
+          "id": 139,
+          "name": "龙华",
+          "code": "longh",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 139
+        },
+        {
+          "id": 140,
+          "name": "坪山",
+          "code": "ps",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 140
+        },
+        {
+          "id": 141,
+          "name": "光明",
+          "code": "gm",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 141
+        },
+        {
+          "id": 142,
+          "name": "大鹏",
+          "code": "dp",
+          "upAreaCode": "sz",
+          "level": 3,
+          "createTime": 1472722446000,
+          "updateTime": 1472722446000,
+          "createUid": 0,
+          "updateUid": 0,
+          "status": 0,
+          "_id": 142
+        }
+      ],
+      "next": false,
+      "limit": 20,
+      "start": -20
+    }
+  }
+}

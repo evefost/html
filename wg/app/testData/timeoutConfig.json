@@ -1,0 +1,86 @@
+{
+  "status": 200,
+  "message": "查询成功！",
+  "data": {
+    "results": {
+      "configMap": {
+        "UNSEND_TIMEOUT": [
+          {
+            "id": 1,
+            "serviceType": "REPAIR",
+            "timeoutType": "UNSEND_TIMEOUT",
+            "configName": "园区物业接单",
+            "configDesc": "用户在APP端工单申请的时间开始计时",
+            "configValue": 20,
+            "createTime": 1472784609000,
+            "updateTime": 1472784612000,
+            "createUid": 1,
+            "updateUid": 1,
+            "status": 0,
+            "_id": 1
+          }
+        ],
+        "UNFEEDBACK_TIMEOUT": [
+          {
+            "id": 4,
+            "serviceType": "REPAIR",
+            "timeoutType": "UNFEEDBACK_TIMEOUT",
+            "configName": "园区物业接单后的反馈时间",
+            "configDesc": "",
+            "configValue": 20,
+            "createTime": 1472784788000,
+            "updateTime": 1472784791000,
+            "createUid": 1,
+            "updateUid": 1,
+            "status": 0,
+            "_id": 4
+          },
+          {
+            "id": 5,
+            "serviceType": "REPAIR",
+            "timeoutType": "UNFEEDBACK_TIMEOUT",
+            "configName": "供应商接单后的反馈时间",
+            "configDesc": "",
+            "configValue": 20,
+            "createTime": 1472784829000,
+            "updateTime": 1472784832000,
+            "createUid": 1,
+            "updateUid": 1,
+            "status": 0,
+            "_id": 5
+          }
+        ],
+        "UNRECEIVE_TIMEOUT": [
+          {
+            "id": 2,
+            "serviceType": "REPAIR",
+            "timeoutType": "UNRECEIVE_TIMEOUT",
+            "configName": "园区物业接单",
+            "configDesc": "从点击【派单】后的时间开始计时",
+            "configValue": 20,
+            "createTime": 1472784677000,
+            "updateTime": 1472784680000,
+            "createUid": 1,
+            "updateUid": 1,
+            "status": 0,
+            "_id": 2
+          },
+          {
+            "id": 3,
+            "serviceType": "REPAIR",
+            "timeoutType": "UNRECEIVE_TIMEOUT",
+            "configName": "供应商接单",
+            "configDesc": "用户在APP端工单申请的时间开始计时",
+            "configValue": 20,
+            "createTime": 1472784738000,
+            "updateTime": 1472784740000,
+            "createUid": 1,
+            "updateUid": 1,
+            "status": 0,
+            "_id": 3
+          }
+        ]
+      }
+    }
+  }
+}

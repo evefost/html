@@ -1,0 +1,8 @@
+{
+  "parkId": 1,
+  "parkName": "华丰金融港",
+  "isDistanceLimit": "YES",
+  "distanceLimit": "300",
+  "inDistanceLimitNeedphoto": "YES",
+  "outDistanceLimitNeedphoto": "NO"
+}

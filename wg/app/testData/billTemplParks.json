@@ -1,0 +1,86 @@
+{
+  "status": 200,
+  "message": "查询成功！",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 2,
+    "recordsTotal": 15,
+    "results": {
+      "tBody": [
+        {
+          "parkId": 16,
+          "area": "福田",
+          "parkName": "雄大园区",
+          "templateConfig": "NO",
+          "customColumnCnt": 1
+        },
+        {
+          "parkId": 15,
+          "area": "深圳市-南山",
+          "parkName": "ry",
+          "templateConfig": "NO",
+          "customColumnCnt": 4
+        },
+        {
+          "parkId": 14,
+          "area": "",
+          "parkName": "会展中心",
+          "templateConfig": "NO",
+          "customColumnCnt": 2
+        },
+        {
+          "parkId": 13,
+          "area": "深圳市-南山",
+          "parkName": "华丰商贸园区",
+          "templateConfig": "NO",
+          "customColumnCnt": 2
+        },
+        {
+          "parkId": 12,
+          "area": "深圳市-福田",
+          "parkName": "华丰商贸园区",
+          "templateConfig": "NO",
+          "customColumnCnt": 0
+        },
+        {
+          "parkId": 11,
+          "area": "深圳市-南山",
+          "parkName": "华丰商贸园区",
+          "templateConfig": "NO",
+          "customColumnCnt": 5
+        },
+        {
+          "parkId": 10,
+          "area": "深圳市-宝安",
+          "parkName": "华丰商贸园区",
+          "templateConfig": "NO",
+          "customColumnCnt": 9
+        },
+        {
+          "parkId": 9,
+          "area": "深圳市-福田",
+          "parkName": "华丰商贸园区",
+          "templateConfig": "NO",
+          "customColumnCnt": 12
+        },
+        {
+          "parkId": 8,
+          "area": "宝安",
+          "parkName": "华丰商贸园区",
+          "templateConfig": "NO",
+          "customColumnCnt": 7
+        },
+        {
+          "parkId": 7,
+          "area": "龙岗",
+          "parkName": "华丰商贸园区",
+          "templateConfig": "NO",
+          "customColumnCnt": 6
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

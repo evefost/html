@@ -1,0 +1,14 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "parkInfo": {
+      "parkId": 1,
+      "parkName": "华丰金融港",
+      "area": "深圳市-宝安",
+      "repairContent": "维修服务简介啦！",
+      "serviceList": [
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+    "status": 200,
+    "message": "success",
+    "data": {
+        "pageNo": 1,
+        "pageSize": 10,
+        "pageCounts": 1,
+        "recordsTotal": 1,
+        "results": {
+            "tBody": [
+                {
+                    "id": 1,
+                    "messageTypeName": "系统消息",
+                    "useStatus": "FORBIDDEN",
+                    "createUid": 1,
+                    "updateUid": 1,
+                    "createTime": 1481794181000,
+                    "updateTime": 1481794184000,
+                    "status": 0
+                },
+                {
+                    "id": 2,
+                    "messageTypeName": "营销活动",
+                    "useStatus": "USEING",
+                    "createUid": 1,
+                    "updateUid": 1,
+                    "createTime": 1481794181000,
+                    "updateTime": 1481794184000,
+                    "status": 0
+                },
+                {
+                    "id": 3,
+                    "messageTypeName": "通知公告",
+                    "useStatus": "USEING",
+                    "createUid": 1,
+                    "updateUid": 1,
+                    "createTime": 1481794181000,
+                    "updateTime": 1481794184000,
+                    "status": 0
+                },
+                {
+                    "id": 4,
+                    "messageTypeName": "1",
+                    "useStatus": "FORBIDDEN",
+                    "createUid": 1,
+                    "updateUid": 1,
+                    "createTime": 1481794181000,
+                    "updateTime": 1481794184000,
+                    "status": 0
+                }
+            ],
+            "tFooter": [
+            ]
+        }
+    }
+}

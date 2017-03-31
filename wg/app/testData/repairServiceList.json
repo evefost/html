@@ -1,0 +1,44 @@
+{
+  "status": 200,
+  "message": "查询成功！",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 2,
+    "results": {
+      "tBody": [
+        {
+          "id": 1,
+          "parkId": 1,
+          "serviceName": "水",
+          "supportType": "SUPPLIER",
+          "supplierIds": "1,2",
+          "useStatus": "NO",
+          "createTime": 1473062068000,
+          "updateTime": 1473062068000,
+          "createUid": "",
+          "updateUid": "",
+          "status": "0",
+          "_id": 1
+        },
+        {
+          "id": 2,
+          "parkId": 1,
+          "serviceName": "电脑",
+          "supportType": "PARK",
+          "supplierIds": "",
+          "useStatus": "YES",
+          "createTime": 1473062068000,
+          "updateTime": 1473062068000,
+          "createUid": "",
+          "updateUid": "",
+          "status": "0",
+          "_id": 2
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

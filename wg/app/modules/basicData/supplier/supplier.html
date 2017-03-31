@@ -1,0 +1,279 @@
+<div ms-controller="supplier" class="ui fluid container">
+    <div class="ui form">
+        <div class="ui five column stackable doubling grid">
+            <div class="row">
+                <div class="column">
+                    <input type="text" placeholder="供应商名称" ms-duplex="queryData.name">
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="主要供应" ms-duplex="queryData.service">
+                </div>
+                <div class="column">
+                    <select class="ui fluid dropdown"  ms-duplex="queryData.areaCode">
+                        <option value="0">供应商城市</option>
+                        <option value="sz">深圳</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select class="ui fluid dropdown" multiple="" ms-duplex="queryData.parkId">
+                        <option value="0">覆盖园区</option>
+                        <option value="ns">华丰西乡园区</option>
+                        <option value="ft">华丰龙岗园区</option>
+                        <option value="ba">华丰石岩园区</option>
+                        <option value="lg">华丰厚街园区</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select class="ui fluid dropdown" ms-duplex="queryData.isEnable">
+                        <option value="0">启用状态</option>
+                        <option ms-repeat="commonData.roleCommonData.useStatus" ms-value="{{el.value}}">{{el.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row grid-row">
+                <div class="column">
+                    <input type="text" placeholder="地址关键字" ms-duplex="queryData.addressKey">
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="联系人" ms-duplex="queryData.contacts">
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="联系电话" ms-duplex="queryData.contactsPhone">
+                </div>
+                <div class="column">
+                    <div class="ui container fluid secondary menu operation-menu">
+                        <div class="left menu">
+                            <button class="ui labeled icon primary button" ms-click="search">查询<i class="icon search"></i></button>
+                            <button class="ui labeled icon orange button" ms-click="reset">重置<i class="icon undo"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="right menu">
+                <button class="ui labeled icon green button" ms-click="showAddWin">新增供应商<i class="icon plus"></i></button>
+            </div>
+        </div>
+    </div>
+    <table class="data-table ui blue selectable table" style="width:100%"></table>
+
+    <div id="supplierModal" class="ui large modal">
+        <div class="header">
+            {{supplierData.title}}
+        </div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <form class="ui form" id="supplierForm">
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>供应商名称<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入长度30以内的中文, 英文或数字" name="name" ms-duplex="supplierData.name">
+                            </div>
+                            <div class="eight wide field">
+                                <lable>主要供应<i class="icon red star"></i></lable>
+                                <input type="text" placeholder="请输入50长度以内的中文、英文或数字" name="service" ms-duplex="supplierData.service">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>供应商城市<i class="icon red star"></i></label>
+                                <select class="ui fluid dropdown" name="areaCode"  ms-duplex="supplierData.areaCode">
+                                    <option value="0">请选择城市</option>
+                                    <option value="sz">深圳</option>
+                                </select>
+                            </div>
+                            <div class="eight wide field">
+                                <label>覆盖园区<i class="icon red star"></i></label>
+                                <select class="ui fluid search selection dropdown" multiple="" id="multi-select" ms-duplex="supplierData.parkIds">
+                                    <option ms-repeat="dropdownList.parkList.list" ms-value="{{el.parkId}}">{{el.parkName}}</option>
+                                </select>
+                                <input type="text" name="parkIds" style="display:none" id="parkIds">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>详细地址<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请填写详细地址" name="address" ms-duplex="supplierData.address">
+                            </div>
+                            <div class="eight wide field">
+                                <label>联系人职务<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请填写联系人职务" name="contactsPosition" ms-duplex="supplierData.contactsPosition">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="eight wide field">
+                                <label>联系人<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入长度30以内的中文, 英文" name="contacts" ms-duplex="supplierData.contacts">
+                            </div>
+                            <div class="eight wide field">
+                                <label>联系电话<i class="icon red star"></i></label>
+                                <input type="text" placeholder="请输入有效的电话号码" name="contactsPhone" ms-duplex="supplierData.contactsPhone">
+                            </div>
+
+                        </div>
+                        <div class="fields">
+                            <div class="sixteen wide field">
+                                <label>公司和服务简介</label>
+                                <div id="wangeditor-container">
+                                    <textarea style="height:320px; width:100%" id="description" name="description" ms-duplex="supplierData.description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>供应商Logo<i class="icon red star"></i></label>
+                            <div class="ui special cards">
+                                <div class="card ui-card-400x300">
+                                    <div class="cursor-file-button cursor-fileinput-lineheight-400x300">
+                                        +
+                                        <input type="file" name="logoImage" ms-change="uploadImage">
+                                    </div>
+                                    <div class="blurring dimmable image" ms-visible="supplierData.logo != ''">
+                                        <div class="ui inverted dimmer">
+                                            <div class="content">
+                                                <div class="center ui-card-dimmer-buttons">
+                                                    <button ms-click="showResourceImg" type="button" class="ui inverted green button">查看原图</button>
+                                                    <button ms-click="delResourceImg" type="button" class="ui inverted red button">删除图片</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img class="img-width-400x300" ms-src="supplierData.logo" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" name="id" ms-duplex="supplierData.id" ms-if="isEdit" style="display:none">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui cancel olive button">取消</div>
+            <div class="ui approve primary button">保存</div>
+        </div>
+    </div>
+    <!--供应商详情-->
+    <div class="ui large modal" id="modalDetail">
+        <div class="header">详情</div>
+        <div class="content">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fourteen wide column">
+                    <div class="ui three column grid">
+                        <div class="row">
+                            <div class="column">
+                                <b>供应商名称/编码</b>
+                            </div>
+                            <div class="column">
+                                {{supplierData.name}} / {{supplierData.id}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>主要供应</b>
+                            </div>
+                            <div class="column">
+                                {{supplierData.service}}
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="sixteen wide column">
+                                <div class="ui divider"></div>
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="column">
+                                <b>供应商城市</b>
+                            </div>
+                            <div class="column">
+                                {{supplierData.areaName}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>覆盖园区</b>
+                            </div>
+                            <div class="column">
+                                {{supplierData.parkName.split(',').join('，')}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>详细地址</b>
+                            </div>
+                            <div class="column">
+                                {{supplierData.address}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <b>联系人/电话</b>
+                            </div>
+                            <div class="column">
+                                {{supplierData.contacts}} / {{supplierData.contactsPhone}}
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="sixteen wide column">
+                                <div class="ui divider"></div>
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="sixteen wide column">
+                                <b>园区简介</b>
+                            </div>
+                            <div class="sixteen wide column">
+                                <div class="ui hidden divider"></div>
+                            </div>
+                            <div class="sixteen wide column">
+                                {{supplierData.description|html}}
+                            </div>
+                            <div class="sixteen wide column">
+                                <div class="ui divider"></div>
+                            </div>
+                        </div>
+                        <div class="row grid-row" ms-if="supplierData.logo !== ''">
+                            <div class="sixteen wide column">
+                                <b>园区Logo</b>
+                            </div>
+                            <div class="sixteen wide column">
+                                <div class="ui hidden divider"></div>
+                            </div>
+                            <div class="sixteen wide column">
+                                <img class="img-width-180x180" ms-src="supplierData.logo" />
+                            </div>
+                            <div class="sixteen wide column">
+                                <div class="ui divider"></div>
+                            </div>
+                        </div>
+                        <div class="row grid-row">
+                            <div class="eight wide column">
+                                新增时间: {{supplierData.createTime}}
+                            </div>
+                            <div class="eight wide column">
+                                更新时间: {{supplierData.updateTime}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="ui primary button approve">确定</button>
+        </div>
+    </div>
+    <div class="ui small modal" id="confirm">
+        <div class="header">提示</div>
+        <div class="content">
+            删除后将无法恢复！<br>
+            确认删除？
+        </div>
+        <div class="actions">
+            <button class="ui green approve button">确定</button>
+            <button class="ui orange deny button">取消</button>
+        </div>
+    </div>
+</div>

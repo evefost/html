@@ -1,0 +1,69 @@
+{
+  "status": 200,
+  "message": "消息列表查询成功",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "recordsTotal": 3,
+    "results": {
+      "tBody": [
+        {
+          "id": 1,
+          "title": "AFA",
+          "content": "上反复发司法局阿拉基我任务是；粉丝卡福克斯司法所解放路上斯蒂芬靠山房，司法所了设计费王i让我i然斯蒂芬靠山房 是福建省副书记司法考试积分 ",
+          "userType": "企业用户",
+          "platform": "iOS",
+          "cityList": [
+            "深圳",
+            "上海"
+          ],
+          "cityNames": "深圳,上海",
+          "parkList": [
+            "华丰金融港，华丰商贸园区"
+          ],
+          "parkNames": "华丰金融港，华丰商贸园区",
+          "createTime": "2016-09-07 08:23:39"
+        },
+        {
+          "id": 18,
+          "title": "园区公告",
+          "content": "反复发司法局阿拉基我任务是；粉丝卡福克斯司法所解放路上斯蒂芬靠山房，司法所了设计费王i",
+          "userType": "企业用户",
+          "platform": "安卓，iOS",
+          "cityList": [
+            "深圳",
+            "广州",
+            "上海"
+          ],
+          "cityNames": "深圳,广州,上海",
+          "parkList": [
+            "华丰金融港",
+            "华丰商贸园区",
+            "会展中心"
+          ],
+          "parkNames": "华丰金融港,华丰商贸园区,会展中心",
+          "createTime": "2016-09-08 03:33:02"
+        },
+        {
+          "id": 19,
+          "title": "消息管理",
+          "content": "反复发司法局阿拉基我任务是；粉丝卡福克斯司法所解放路上斯蒂芬靠山房，司法所了设计费王i",
+          "userType": "企业用户",
+          "platform": "ANDROID，iOS",
+          "cityList": [
+            "深圳"
+          ],
+          "cityNames": "深圳",
+          "parkList": [
+            "华丰金融港"
+          ],
+          "parkNames": "华丰金融港",
+          "createTime": "2016-09-19 07:32:34"
+        }
+      ],
+      "tFooter": [
+      ]
+    }
+  }
+}

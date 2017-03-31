@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>智慧园区后台管理系统-登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="resource/css/semantic.css">
+    <link rel="stylesheet" href="app/css/app.css">
+</head>
+<body class="login-body">
+<div ms-controller="login" class="ui middle aligned center aligned grid login">
+    <div class="column login-column">
+        <h2 class="ui inverted image header">
+            <!--<img src="assets/images/logo.png" class="image">-->
+            <div class="content">
+                智慧园区后台管理系统
+            </div>
+        </h2>
+        <form class="ui large form error">
+            <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" ms-duplex="username" placeholder="请输入用户名">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" ms-duplex="password" placeholder="请输入密码">
+                    </div>
+                </div>
+                <div class="field login code">
+                    <div class="ui left icon action input">
+                        <i class="checkmark icon"></i>
+                        <input type="text" ms-duplex="code" placeholder="请输入验证码"/>
+                        <img ms-click="getCode" ms-attr-src="{{imgSrc}}"/>
+                    </div>
+                </div>
+                <div class="ui fluid large blue submit button" ms-click="login">登 录</div>
+            </div>
+            <div class="ui error message" ms-if="message.length>0">{{message}}</div>
+        </form>
+    </div>
+</div>
+<div class="login-footer">
+    <div>为了给您带来最好的用户体验和享受，请使用官方唯一指定浏览器：Chrome，其它牛鬼蛇神浏览器请绕道！ <a target="_blank" href="http://www.chromeliulanqi.com/">下载地址</a>
+    </div>
+</div>
+<script src="resource/vendor/avalon/avalon.modern.min.js"></script>
+<script src="resource/vendor/jquery/jquery-2.2.0.min.js"></script>
+<script>
+	
+    (function () {
+        //localStorage.removeItem('rolesData');
+        var uuid = function () {
+                    var s = [], hexDigits = "0123456789abcdef";
+                    for (var i = 0; i < 36; i++) {
+                        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+                    }
+                    s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+                    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+                    s[8] = s[13] = s[18] = s[23] = "-";
+                    return s.join("");
+                },
+                vm = avalon.define({
+                    $id: 'login',
+                    username: '',
+                    password: '',
+                    code: '',
+                    message: '',
+                    imgSrc: '',
+                    captchaId: uuid(),
+                    login: function () {
+                        if (vm.username == '') {
+                            vm.message = '用户名不能为空！';
+                            return
+                        } else if (vm.password == '') {
+                            vm.message = '用户密码不能为空！';
+                            return
+                        } else if (vm.code == '') {
+                            vm.message = '验证码不能为空！';
+                            return
+                        } else {
+                            vm.message = '';
+                        }
+                        //$.post('/login.html', {
+                        $.get('/app/testData/rolesData.json', {
+                            username: vm.username,
+                            password: vm.password,
+                            captcha: vm.code,
+                            captchaId: vm.captchaId
+                        }).success(function (response) {
+                            if (response.status == 200) {
+                                var results = response.data.results;
+                                localStorage.setItem('rolesData_wg', JSON.stringify(results));
+                                if(results.roleMenuList[0].child && results.roleMenuList[0].child.length>0){
+                                    window.location.href = 'app/index.html#!/' + response.data.results.roleMenuList[0].child[0].url;
+                                }else{
+                                    window.location.href = 'app/index.html#!/' + response.data.results.roleMenuList[0].url;
+                                }
+                            } else {
+                                vm.message = response.message;
+                                vm.code = '';
+                                vm.getCode();
+                            }
+                        }).error(function (response) {
+                                    vm.message = '系统异常，请联系管理员！';
+                                    vm.code = '';
+                                    vm.getCode();
+                                }
+                        );
+                    },
+                    //获取验证码
+                    getCode: function () {
+                        var strId = uuid();
+                        vm.captchaId = strId;
+                        $.get('/common/captcha.jhtml', {
+                            captchaId: strId
+                            //captchaId: vm.captchaId
+                        }).success(function (response) {
+                            vm.imgSrc = response;
+                        }).error(function (response) {
+                            vm.message = '验证码获取失败，请联系管理员！';
+                        });
+                    }
+                });
+        window.onkeydown = function (e) {
+            if (e.keyCode == 13) {
+                vm.login();
+            }
+        }
+        vm.getCode();
+    })();
+</script>
+</body>
+</html>

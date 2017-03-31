@@ -1,0 +1,61 @@
+{
+  "status": 200,
+  "message": "查询成功！",
+  "data": {
+    "results": {
+      "timeRules": [
+        {
+          "id": 1,
+          "serviceName": "报修",
+          "pointsGain": 1,
+          "pointsPay": 1,
+          "unitType": "EACH_TIME",
+          "createTime": 1472696624000,
+          "updateTime": 1472696627000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0
+        }
+      ],
+      "moneyRules": [
+        {
+          "id": 2,
+          "serviceName": "账单服务",
+          "pointsGain": 1,
+          "pointsPay": 1,
+          "unitType": "EACH_YUAN",
+          "createTime": 1472696652000,
+          "updateTime": 1472696655000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0
+        },
+        {
+          "id": 3,
+          "serviceName": "小道子租赁",
+          "pointsGain": 1,
+          "pointsPay": 1,
+          "unitType": "EACH_YUAN",
+          "createTime": 1472696676000,
+          "updateTime": 1472696679000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0
+        },
+        {
+          "id": 4,
+          "serviceName": "WiFi服务",
+          "pointsGain": 1,
+          "pointsPay": 1,
+          "unitType": "EACH_YUAN",
+          "createTime": 1472696700000,
+          "updateTime": 1472696702000,
+          "createUid": 1,
+          "updateUid": 1,
+          "status": 0
+        }
+      ],
+      "pointRulesIntroduction": "积分规则介绍"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "status": 200,
+  "message": "查询企业详情成功",
+  "data": {
+    "companyDetail": {
+      "id": 1,
+      "name": "道网科技",
+      "parkId": 1,
+      "parkName": "华丰金融港",
+      "cityCode": "sz",
+      "cityName": "深圳",
+      "address": "深圳市宝安区新安六路金融港15楼",
+      "contacts": "李敦庆",
+      "contactsPhone": "13045888185",
+      "contactsPosition": "java开发",
+      "isEnable": "YES",
+      "disableByAdmin": "",
+      "createTime": 1472439722000,
+      "updateTime": 1472439724000,
+      "createUid": 1,
+      "updateUid": 1,
+      "status": 0,
+      "industry": "金融,计算机",
+      "industryIds":"1,2",
+      "_id": 1
+    }
+  }
+}

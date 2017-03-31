@@ -1,0 +1,36 @@
+<div ms-controller="settledSetting">
+    <div class="ui fluid container">
+        <div class="ui top attached block header">
+            园区入驻公告设置
+        </div>
+        <div class="ui attached segment">
+            <div class="ui grid">
+                <div class="fifteen wide column">
+                    <form class="ui form" id="settledForm">
+                        <div class="ui grid">
+                            <div class="row">
+                                <div class="four wide column">
+                                    <label>入驻办理公告介<i class="icon red star"></i></label>
+                                </div>
+                            </div>
+                            <div class="row grid-row">
+                                <div class="sixteen wide column">
+                                    <div id="wangeditor-container">
+                                        <textarea style="height:360px; width:100%" id="description" name="content" ms-duplex="settledData.content"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" style="display:none" name="id" ms-duplex="settledData.id">
+                        <input type="text" style="display:none" name="parkId" ms-duplex="settledData.parkId">
+                        <input type="text" style="display:none" name="noticeType" ms-duplex="settledData.noticeType">
+                    </form>
+                </div>
+            </div>
+            <div class="ui hidden divider"></div>
+            <div class="actions">
+                <button class="ui approve primary button" ms-click="save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>

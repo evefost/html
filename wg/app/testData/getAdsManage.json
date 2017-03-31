@@ -1,0 +1,23 @@
+{
+  "status": 200,
+  "message": "数据操作成功！",
+  "data": {
+    "results": {
+      "id":1,
+      "title":"灌灌灌灌灌",
+      "beginTime":"2016-01-22 05:20:45",
+      "endTime":"2016-01-22 05:20:45",
+      "imgUrl":"http://assets.daowangtech.com//testFile/3.png",
+      "localImgUrl":"",
+      "position":"1",
+      "isLinkUrl":"1",
+      "linkUrl":"链接地址",
+      "isToWebsite":"1",
+      "isToUserApp":"1",
+      "isToBrokerApp":"1",
+      "isToWechat":"1",
+      "linkContent":"链接内容11111111111111111",
+      "putStatus":"ON_PUT"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 20,
+    "pageCount": 4,
+    "recordsTotal": 76,
+    "results": {
+      "tBody": [
+        {
+          "id": 1,
+          "code": "001",
+          "name": "华丰西乡园区",
+          "city": "深圳",
+          "district": "保安",
+          "address": "西乡1001号",
+          "industry": "制造, 加工",
+          "contact": "张三",
+          "phone": "13902885181",
+          "createTime": "1472022648",
+          "updateTime": "1472028445",
+          "status": "enabled",
+          "operation": 1
+        },
+        {
+          "id": 2,
+          "code": "002",
+          "name": "华丰固戍园区",
+          "city": "深圳",
+          "district": "保安",
+          "address": "洲石路397号",
+          "industry": "制造, 加工",
+          "contact": "李四",
+          "phone": "13902885821",
+          "createTime": "1472022533",
+          "updateTime": "1472028846",
+          "status": "disabled",
+          "operation": 1
+        }
+      ],
+      "tFooter": []
+    }
+  }
+}

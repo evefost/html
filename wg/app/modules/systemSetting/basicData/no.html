@@ -1,0 +1,75 @@
+<div ms-controller="scoreRule">
+    <form class="ui form" id="rules">
+        <div class="ui top attached block header">
+            按申请次数换取积分
+        </div>
+        <div class="ui attached segment">
+            <div class="ui inline fields">
+                <div class="two wide field"><b>服务类型</b></div>
+                <div class="three wide field"><b>申请一次可获取积分</b></div>
+                <div class="three wide field"><b>积分免费兑换一次服务</b></div>
+            </div>
+            <div class="ui inline fields timeRules" ms-repeat="pointRules.timeRules">
+                <div class="two wide field">
+                    {{el.serviceName}}
+                    <input type="text" ms-duplex="el.id" style="display:none" name="id">
+                    <input type="text" ms-duplex="el.serviceName" name="serviceName" style="display:none">
+                </div>
+                <div class="three wide field">
+                    <input type="text" placeholder="请输入积分" ms-duplex="el.pointsGain" name="pointsGain" class="number">
+                </div>
+                <div class="three wide field">
+                    <input type="text" placeholder="请输入积分" ms-duplex="el.pointsPay" name="pointsPay">
+                </div>
+            </div>
+        </div>
+        <div class="ui top attached block header">
+            按服务金额换取积分
+        </div>
+        <div class="ui attached segment">
+            <div class="ui inline fields">
+                <div class="two wide field"><b>服务类型</b></div>
+                <div class="three wide field"><b>申请金额（1元）可获取积分</b></div>
+                <div class="three wide field"><b>积分可兑换金额（1元）</b></div>
+            </div>
+            <div class="ui inline fields moneyRules" ms-repeat="pointRules.moneyRules">
+                <div class="two wide field">
+                    {{el.serviceName}}
+                    <input type="text" ms-duplex="el.id" style="display:none" name="id">
+                    <input type="text" ms-duplex="el.serviceName" style="display:none" name="serviceName">
+                </div>
+                <div class="three wide field">
+                    <input type="text" placeholder="请输入积分" ms-duplex="el.pointsGain" name="pointsGain" class="number">
+                </div>
+                <div class="three wide field">
+                    <input type="text" placeholder="请输入积分" ms-duplex="el.pointsPay" name="pointsPay" class="number">
+                </div>
+            </div>
+        </div>
+        <div class="ui top attached block header">
+            积分规则描述
+        </div>
+        <div class="ui attached segment">
+            <div class="inline fields">
+                <div class="two wide field">
+                    积分规则描述<i class="ui icon red star"></i>
+                </div>
+                <div class="twelve wide field">
+                    <div id="wangeditor-container">
+                        <textarea style="height:320px; width:100%" id="description" name="description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="ui divider"></div>
+    <div class="ui four column centered grid">
+        <div class="column">
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="ui fluid approve primary button" ms-click="saveRules()">保存</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

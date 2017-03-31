@@ -1,0 +1,72 @@
+<div ms-controller="role" class="house">
+    <div class="ui container fluid">
+        <div class="ui container fluid">
+            <div class="ui form">
+                <div class="inline fields">
+                    <div class="field">
+                        <input type="text" ms-duplex="searchFormData.name" placeholder="角色名称">
+                    </div>
+                    <div class="field">
+                        <select class="ui dropdown" ms-duplex="searchFormData.type">
+                            <option value="0">角色分类</option>
+                            <option ms-repeat="roleTypeList" ms-value="el.value" >{{el.name}}</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <select class="ui dropdown" ms-duplex="searchFormData.isPersist">
+                            <option value="-1">内置角色</option>
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <select class="ui dropdown" ms-duplex="searchFormData.useStatus">
+                            <option value="-1">启用状态</option>
+                            <option ms-repeat="useStatusList" ms-value="el.value" >{{el.name}}</option>
+                        </select>
+                    </div>
+                    <div class="field ">
+                        <button class="ui button blue" ms-click="search"><i class="search icon"></i>查询</button>
+                        <button class="ui button orange" ms-click="reset"><i class="undo icon"></i>重置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui container fluid secondary menu operation-menu">
+            <div class="right menu">
+                <button class="ui button green" ms-click="showAddWin(false)"><i class="add icon"></i>新增</button>
+            </div>
+        </div>
+        <div class="auto-scroll-table">
+            <table class="ui teal table selectable celled data-table" width="100%" >
+                <!-- tbody -->
+            </table>
+        </div>
+    </div>
+    <div class="ui modal" id="roleAddWin">
+        <div class="header">角色新增/修改</div>
+        <div class="content">
+            <form class="ui form">
+                <div class="field">
+                    <label>角色名称<i class="icon star red" ></i></label>
+                    <input type="text" ms-duplex="role.name"/>
+                </div>
+                <div class="field">
+                    <label>角色分类<i class="icon star red" ></i></label>
+                    <select class="ui dropdown" ms-duplex="role.type">
+                        <option ms-repeat="roleTypeList" ms-value="el.value" >{{el.name}}</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>角色描述</label>
+                    <textarea type="text" ms-duplex="role.description" placeholder="对当前角色的描述性信息"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button green">确定</div>
+            <div class="ui cancel button orange">取消</div>
+        </div>
+    </div>
+</div>

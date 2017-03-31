@@ -1,0 +1,218 @@
+<div ms-controller="message">
+    <div class="ui container fluid">
+
+        <div class="ui top attached tabular menu">
+            <a class="item active" >物业通知管理</a><!--data-tab="first"-->
+            <!--<a class="item" data-tab="second">消息类型管理</a>-->
+        </div>
+
+        <div class="ui bottom attached tab segment tab_no_bottom_border" data-tab="first">
+            <div class="ui form stackable doubling six column grid">
+                <div class="row">
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action input fluid">
+                                <input size="16" type="text" ms-duplex="searchFormData.startDate" readonly placeholder="创建时间-起">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action input fluid">
+                                <input size="16" type="text" ms-duplex="searchFormData.endDate" readonly placeholder="创建时间-止">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action input fluid">
+                                <input size="16" type="text" ms-duplex="searchFormData.startDatePush" readonly placeholder="计划推送时间-起">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="date date-timepicker">
+                            <div class="ui action input fluid">
+                                <input size="16" type="text" ms-duplex="searchFormData.endDatePush" readonly placeholder="计划推送时间-止">
+                                <span class="ui button basic compact add-on"><i class="icon-th calendar icon"></i></span>
+                                <span class="ui button basic compact add-on"><i class="icon-remove delete icon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <input placeholder="消息主题" ms-duplex="searchFormData.title" />
+                    </div>
+                    <div class="column">
+                        <input placeholder="创建人" ms-duplex="searchFormData.author" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <select class="ui dropdown fluid" ms-duplex="searchFormData.newsType">
+                            <option value="">消息类型</option>
+                            <option value="1">电梯维保</option>
+                            <option value="2">停水停电</option>
+                            <option value="3">安全防范</option>
+                            <option value="4">物业风采</option>
+                            <option value="5">投票调查</option>
+                            <option value="6">其他</option>
+                            <!--<option ms-repeat="searchFormData.newsTypeList" ms-value="el.value" >{{el.name}}</option>-->
+                        </select>
+                    </div>
+                    <div class="column">
+                        <select class="ui dropdown fluid" ms-duplex="searchFormData.docType">
+                            <option value="">公文类型</option>
+                            <option value="1">通知</option>
+                            <option value="2">公告</option>
+                            <option value="3">函</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <select class="ui dropdown fluid" ms-duplex="searchFormData.publishStatus">
+                            <option value="">推送状态</option>
+                            <option value="1">已推送</option>
+                            <option value="0">待推送</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <button class="ui button blue" ms-click="search"><i class="search icon"></i>查询</button>
+                        <button class="ui button blue" ms-click="reset"><i class="refresh icon"></i>重置</button>
+                    </div>
+                    <div class="column"></div>
+                    <div class="column">
+                        <button class="ui button teal" ms-click="showAddWin(false)"><i class="add icon"></i>新增消息</button>
+                       <!--  <button class="ui button teal" ms-click="exportMessage()"><i class="file icon"></i>导出</button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="auto-scroll-table">
+                <table class="ui teal table selectable celled data-table" width="100%" id="messageTable">
+                    <!-- tbody -->
+                </table>
+            </div>
+        </div>
+
+        <div class="ui bottom attached tab segment tab_no_bottom_border" data-tab="second">
+            <div class="ui form stackable doubling four column grid">
+                <div class="row">
+                    <div class="column">
+                        <input type="text" placeholder="消息类型" ms-duplex="messageTypeName"/>
+                    </div>
+                    <div class="column">
+                        <select class="ui dropdown fluid" ms-duplex="useStatus">
+                            <option value="0">状态</option>
+                            <option value="USEING">已启用</option>
+                            <option value="FORBIDDEN">已禁用</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <button class="ui button blue" ms-click="searchType"><i class="search icon"></i>查询</button>
+                        <button class="ui button blue" ms-click="reset"><i class="refresh icon"></i>重置</button>
+                    </div>
+                    <div class="column">
+                        <button class="ui button teal" ms-click="showAddType(false)"><i class="add icon"></i>新增消息类型</button>
+                       <!--  <button class="ui button teal" ms-click="exportMessageType()"><i class="file icon"></i>导出</button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="auto-scroll-table" >
+                <table class="ui teal table selectable celled data-table" width="100%" id="messageTypeTable">
+                    <!-- tbody -->
+                </table>
+            </div>
+        </div>
+</div>
+<!-- 消息新增/修改 -->
+    <div class="ui large modal" id="messageAddWin">
+        <div class="header">消息新增/修改</div>
+        <div class="content">
+            <form class="ui form">
+                <div class="two fields">
+                    <div class="inline field">
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主题：<i class="icon star red" ></i></label>
+                        <input placeholder="请输入消息主题" ms-duplex="searchFormData.title" />
+                    </div>
+                    <div class="inline field">
+                        <label>公文类型：<i class="icon star red" ></i></label>
+                        <select class="ui dropdown" ms-duplex="message.messageTypeId">
+                            <option value="0">请选择公文类型</option>
+                            <option value="1">通知</option>
+                            <option value="2">公告</option>
+                            <option value="3">函</option>
+                            <!--<option ms-repeat="messageTypeList" ms-value="el.messageTypeId" >{{el.messageTypeName}}</option>-->
+                        </select>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="inline field">
+                        <label>消息类型：<i class="icon star red" ></i></label>
+                        <select class="ui dropdown" ms-duplex="message.messageTypeId">
+                            <option value="0">请选择消息类型</option>
+                            <option value="1">电梯维保</option>
+                            <option value="2">停水停电</option>
+                            <option value="3">安全防范</option>
+                            <option value="4">物业风采</option>
+                            <option value="5">投票调查</option>
+                            <option value="6">其他</option>
+                            <!--<option ms-repeat="messageTypeList" ms-value="el.messageTypeId" >{{el.messageTypeName}}</option>-->
+                        </select>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <!--
+                   <div class="field">
+                        <label>发布平台<i class="icon star red" ></i></label>
+                        <div class="ui checkbox">
+                            <input type="checkbox" value="1" ms-duplex-checked="message.platformWebsite">
+                            <label>网站</label>
+                        </div>
+                        <div class="ui checkbox">
+                            <input type="checkbox" value="1"  ms-duplex-checked="message.platformUserapp">
+                            <label>用户APP</label>
+                        </div>
+                        <div class="ui checkbox">
+                            <input type="checkbox" value="1"  ms-duplex-checked="message.platformBroker">
+                            <label>经纪人APP</label>
+                        </div>
+                        <div class="ui checkbox">
+                            <input type="checkbox" value="1"  ms-duplex-checked="message.platformWechat">
+                            <label>微信</label>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="field">
+                    <label>消息内容:<i class="icon star red" ></i></label>
+                    <div id="wangeditor-container">
+                        <textarea id="message_ueditor" style="height:350px;" rows="10" ms-duplex="message.content" placeholder="请编辑消息内容"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button large green">确定</div>
+            <div class="ui cancel button large orange">取消</div>
+        </div>
+    </div>
+    <!--消息type新增/修改-->
+    <div class="ui small modal small" id="messageTypeAddWin">
+        <div class="header">消息类型新增/修改</div>
+        <div class="content">
+            <form  class="ui form">
+                <div class="field">
+                    <label>消息类型<i class="icon star red" ></i></label>
+                    <input type="text" placeholder="请输入50字以内的消息类型名称" ms-duplex="messageType.messageTypeName"/>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui approve button large green">确定</div>
+            <div class="ui cancel button large orange">取消</div>
+        </div>
+    </div>
+</div>
